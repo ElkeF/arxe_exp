@@ -14,6 +14,23 @@
 %% servers.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{braket}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{tikz,pgfplots}
+
+\usetikzlibrary{patterns,shadows,trees,calc}
+\usepgfplotslibrary{units}
+
+\pgfplotsset{compat=1.8}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% If issues arise when submitting your manuscript, you may want to
@@ -28,6 +45,10 @@
 %% when typesetting).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newcommand*\mycommand[1]{\texttt{\emph{#1}}}
+% Define some colours
+\definecolor{diplom1}{rgb}{0.0 0.4 1.0}
+\definecolor{diplom2}{rgb}{0.0 0.0 0.6}
+\definecolor{diplom3}{RGB}{153,0,0} %unirot
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Meta-data block
@@ -50,7 +71,9 @@
 %% when authors are associated with multiple institutions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \author{Elke Fasshauer}
-\affiliation[UIT]{Tromso, Norway}
+\affiliation[UIT]{Centre for Theoretical and Computational Chemistry,
+Department of Chemistry, University of Troms\o
+-- The Arctic University of Norway, N-9037 Troms\o, Norway}
 \email{elke.fasshauer@uit.no}
 \author{Melanie Mucke}
 \altaffiliation{Now at: Department of Physics and Astronomy, Uppsala University, Box 516, 75120 Uppsala, Sweden}
