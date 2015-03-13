@@ -1,3 +1,14 @@
 *.log
 *.aux
 acs*.bib
+*.bbl
+*.blg
+*.dvi
+*.md5
+*.out
+*.dep
+*.dpth
+
+*.backup
+*.tex~
+*.bak
