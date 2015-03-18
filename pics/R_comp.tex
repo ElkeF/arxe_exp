@@ -1,0 +1,60 @@
+\begin{tikzpicture}[scale=1.0]
+
+\begin{axis}[%scale=1.5,
+             domain=3:16,
+             restrict expr to domain={x}{3:16},
+             %restrict expr to domain={y}{1.0E-12:7},
+             xlabel={R [AA]},
+             %xtick={30,50,...,170},
+             %xticklabels={2,4,6,8,10,12,15,20,25},
+             %ytick={-1.0,-0.8,...,1.0},
+             %yticklabels={1.0,0.8,0.6,0.4,0.2,0.0,0.2,0.4,0.6,0.8,1.0},
+             ylabel={number of pairs},
+             scale only axis,
+             width=\textwidth-1.5cm,
+             height=8cm,
+             %ybar stacked
+             ]
+
+
+
+\addplot+[ycomb,
+         mark=.,
+         very thick,
+         diplom2,
+         forget plot
+        ]
+        table[
+        x expr = \thisrowno{0},
+        y expr = \thisrowno{1}
+        ]
+        {../data/Ar_3_dist_stat};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addplot+[ycomb,
+         mark=.,
+         very thick,
+         diplom1,
+         forget plot
+        ]
+        table[
+        x expr = \thisrowno{0},
+        y expr = \thisrowno{1}
+        ]
+        {../data/Ar_2_dist_stat};
+        \addlegendimage{line legend, diplom1, very thick};
+        \addlegendentry{1 Xe, 13 Ar};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \addlegendimage{line legend, diplom2, very thick};
+        \addlegendentry{1 Xe, 55 Ar};
+
+\draw [diplom1] (7.4,axis cs:\pgfkeysvalueof{/pgfplots/ymin}) --
+                (7.4,axis cs:\pgfkeysvalueof{/pgfplots/ymax});
+
+%\draw [diplom2] (, axis cs:\pgfkeysvalueof{/pgfplots/ymin}) --
+%                (, axis cs:\pgfkeysvalueof{/pgfplots/ymax});
+
+\end{axis}
+\end{tikzpicture}
