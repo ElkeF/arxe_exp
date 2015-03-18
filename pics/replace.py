@@ -16,7 +16,7 @@ count = 0
 rootdir = os.getcwd()
 #outfile = open('','w')
 
-for filename in glob.glob("*8*.tex"):
+for filename in glob.glob("xe_3_in.tex"):
    print filename
    infile = open(filename, 'r')
    outfile = open('tmpfile', 'w')
