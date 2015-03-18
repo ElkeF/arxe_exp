@@ -8,7 +8,10 @@ acs*.bib
 *.out
 *.dep
 *.dpth
+*.auxlock
 
 *.backup
 *.tex~
 *.bak
+
+master.pdf
