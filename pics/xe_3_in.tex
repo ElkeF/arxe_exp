@@ -1,0 +1,108 @@
+\begin{tikzpicture}[scale=1.0]
+
+\begin{axis}[%scale=1.5,
+             domain=0:6,
+             restrict expr to domain={x}{0:6},
+             %restrict expr to domain={y}{1.0E-12:7},
+             xlabel={E [eV]},
+             %xtick={30,50,...,170},
+             %xticklabels={2,4,6,8,10,12,15,20,25},
+             %ytick={-1.0,-0.8,...,1.0},
+             %yticklabels={1.0,0.8,0.6,0.4,0.2,0.0,0.2,0.4,0.6,0.8,1.0},
+             ylabel={$\Gamma$ [eV]},
+             scale only axis,
+             width=\textwidth-1.5cm,
+             height=8cm,
+             %ybar stacked
+             ]
+
+
+\addplot+[ycomb,
+         mark=.,
+         very thick,
+         Fuchsia,
+         forget plot
+        ]
+        table[
+        x expr = \thisrowno{0},
+        y expr = \thisrowno{1}
+        ]
+        {../data/arxe_1atom_2schicht.dat_intadd};
+        \addlegendimage{line legend, Fuchsia, very thick};
+        \addlegendentry{1 Xe in core};
+
+\addplot[
+         mark=none,
+         Fuchsia,
+         very thick,
+         %dotted
+         ]
+         table[
+         x expr=\thisrowno{0},
+         y expr=\thisrowno{1}
+         ]
+        {../data/arxe_1atom_2schicht.dat_intadd.inp.sp};
+         \addlegendentry{ICD spectrum};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addplot+[ycomb,
+         mark=.,
+         very thick,
+         diplom1,
+         forget plot
+        ]
+        table[
+        x expr = \thisrowno{0},
+        y expr = \thisrowno{1}
+        ]
+        {../data/arxe_2atom_2schicht_ICD.dat_intadd};
+        \addlegendimage{line legend, diplom1, very thick};
+        \addlegendentry{2 Xe in core -- ICD};
+
+\addplot[
+         mark=none,
+         diplom1,
+         very thick,
+         %dotted
+         ]
+         table[
+         x expr=\thisrowno{0},
+         y expr=\thisrowno{1}
+         ]
+        {../data/arxe_2atom_2schicht_ICD.dat_intadd.inp.sp};
+         \addlegendentry{ICD spectrum};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addplot+[ycomb,
+         mark=.,
+         very thick,
+         diplom2,
+         forget plot
+        ]
+        table[
+        x expr = \thisrowno{0},
+        y expr = \thisrowno{1}
+        ]
+        {../data/arxe_2atom_2schicht_ETMD.dat_intadd};
+        \addlegendimage{line legend, diplom2, very thick};
+        \addlegendentry{2 Xe in core -- ETMD};
+
+\addplot[
+         mark=none,
+         diplom2,
+         very thick,
+         %dotted
+         ]
+         table[
+         x expr=\thisrowno{0},
+         y expr=\thisrowno{1}
+         ]
+        {../data/arxe_2atom_2schicht_ETMD.dat_intadd.inp.sp};
+         \addlegendentry{ETMD spectrum};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\end{axis}
+\end{tikzpicture}
