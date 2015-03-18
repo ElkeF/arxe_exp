@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+    \begin{axis}[domain=4.0:25,
+                 samples = 200,
+                 xtick={4.0,8.0,...,24},
+                 %xticklabels={$-\pi$,$-\frac \pi 2$,0,$\frac \pi 2$,$\pi$},
+                 %cycle list name = exotic,
+                 legend style={anchor= north west},
+                 xlabel={$R$ [\AA]},
+                 ylabel={$E$ [eV]},
+                 axis line style = very thick,
+                 tick style = very thick,
+                 ]
+
+      \addplot+[
+                mark = none,
+               ]
+               {15.3 + 11.5 + 14.39964 / x};
+      \addlegendentry{Ar3p$^{-1}$Xe5p$_{3/2}^{-1}$};
+
+      \addplot+[
+                mark = none,
+               ]
+               {15.3 + 13.0 + 14.39964 / x};
+      \addlegendentry{Ar3p$^{-1}$Xe5p$_{1/2}^{-1}$};
+
+
+      \addplot+[
+                mark = none,
+                black,
+               ]
+               {28.7};
+      \addlegendentry{Ar3s$^{-1}$};
+      %\draw[] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},29.239) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},29.239);
+    \end{axis}
+\end{tikzpicture}
