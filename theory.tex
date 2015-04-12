@@ -4,8 +4,8 @@ of the secondary electron
 and the intensities of the peaks. The latter is proportional to the
 probability of the decay as well as the theoretically determinable
 decay width $\Gamma=\frac{\hbar}{\tau}$,
-which is inverse proportional to the lifetime $\tau$. The manifold of these
-energies and decay widths will therefore compose the electron-electron
+which is inverse proportional to the lifetime $\tau$. The manifold of the
+secondary energies and decay widths will therefore compose the electron-electron
 coincidence spectrum.
 In case of noble gas clusters
 with given structures three aspects have to be taken into account:
@@ -14,16 +14,25 @@ interaction partners and different decay channels within each decay mechanism.
 At the current stage of development we need to neglect the nuclear dynamics which
 additionally might play an important role.
 
-Decomposing every system into pairs and triples of atoms is a very useful
-first order approximation to both the investigation of energies and
-decay widths of a larger system. Pairs and triples are combinations of
-two and three atoms, respectively.
+This means we are dealing with a sum over three different indices for the
+evaluation of the decay width. For a given structure it is most convenient to
+start with a decomposition of the total system into interaction partners of
+the different decay mechanisms, i.e. pairs (combination of two atoms regardless
+the internuclear distance) for the ICD and triples (combinations of three atoms)
+for the ETMD.
 These atoms do not necessarily need to form bonds between each other or
 even be close, but they are characterized according to fixed internal
-coordinates. Each pair and triple can be described by its properties
+coordinates. Each pair and triple can be described by its properties, like
+energy of the secondary electron and decay width,
 which are in first order of approximation independent of further, eventually
 present, atoms. In the following, this approach is going to be called
 model of pairs and triples.
+
+
+%Decomposing every system into pairs and triples of atoms is a very useful
+%first order approximation to both the investigation of energies and
+%decay widths of a larger system. Pairs and triples are combinations of
+%two and three atoms, respectively.
 
 In order to determine, whether a channel $\beta$ for a given geometry and decay
 mechanism is open ,i.e., in accordance with energy conservation,
@@ -53,7 +62,7 @@ $X_{D}$ and $X_{E}$.
 The distribution of the vacancies over the different
 atoms determines the kind of electronic decay process at hand. Hence, in an
 Auger process all three atoms would coincide, for an ICD $X_{in}$
-would coincide with one of $X_{D}$ and $X_{E}$ and for an {ETMD}3
+would coincide with $X_{D}$ and for an {ETMD}3
 all ionized states are located on different atoms.
 
 \begin{figure}[h]
@@ -70,7 +79,9 @@ In all autoionization processes considered, a second electron
 is emitted with the kinetic energy $E_{sec}$. If $E_{sec}<0$, then
 the final state energy is higher than the initial state energy and the        
 process is energetically not accessible. Hence, the corresponding channel     
-is closed as shown in Figure \ref{figure:channel_open_ICD}.
+is closed as shown in Figure \ref{figure:channel_open_ICD}. Related to
+the opening of each channel is an internuclear distance which we in the
+following call \emph{channel opening distance}.
                                                                
 This ad hoc approach easily allows to correct for energetic shifts of         
 ionization potentials as observed in larger clusters by adding experimentally
@@ -115,7 +126,7 @@ favours the ETMD3 over the ICD.
 
 In previous work \cite{Fasshauer13,Fasshauer_PhD} we have shown that
 the decay width for a single pair or triple for a distinct channel $\beta$
-following Wentzel \cite{Wentzel27} Feshbach\cite{Feshbach58,Feshbach62}
+following Wentzel \cite{Wentzel27}, Feshbach\cite{Feshbach58,Feshbach62}
 and Fano \cite{Fano61}
 
 \begin{equation}
@@ -149,3 +160,8 @@ and calculated dipole transition moments $\tilde{D}_{m,j,\beta}$, only.
 Here, $\Theta_m(\alpha_j)$ is a function depending on the angle $\alpha_j$
 of the triple (compare Ref. \cite{Fasshauer13}).
 
+In this work we evaluate the secondary energies and decay widths with
+the program HARDRoC \cite{} using the
+experimental ionization energies of Table \ref{}
+and data from the literature given in Tables \ref{} and \ref{}.
+These are the same as the ones used in Reference \cite{Fasshauer13}.
