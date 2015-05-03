@@ -138,7 +138,13 @@ and Fano \cite{Fano61}
 can be approximated by its asymptotic behaviour
 
 \begin{equation}
- \Gamma_{ICD,i,\beta} = 2\pi
+ \Gamma_{ICD,i,\beta} = (2J_{in}+1) \frac{3c^4}{8\pi}
+                        \sum\limits_{M_{in}'}
+                        \left| \left(
+                        \begin{array}{ccc}
+                        J_A'  & 1        & J_A\\
+                        -M_A' & M_A'-M_A & M_A
+                        \end{array}\right) \right|^2
                         \frac{\sigma^{(X_E)}(\omega_{vp,\beta})}
                         {R_i^6 \, \omega_{vp,\beta}^4 \tau_{in,\beta}}
 \end{equation}
