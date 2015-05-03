@@ -124,7 +124,7 @@ strongly depend on the structure of the cluster. From these relationships
 it can be seen that a higher xenon content in the cluster statistically
 favours the ETMD3 over the ICD.
 
-In previous work \cite{Fasshauer13,Fasshauer_PhD} we have shown that
+In previous work \cite{Fasshauer13,Fasshauer_thesis} we have shown that
 the decay width for a single pair or triple for a distinct channel $\beta$
 following Wentzel \cite{Wentzel27}, Feshbach\cite{Feshbach58,Feshbach62}
 and Fano \cite{Fano61}
@@ -145,23 +145,26 @@ can be approximated by its asymptotic behaviour
 
 
 \begin{equation}
- \Gamma_{ETMD,j,\beta} = 2\pi \sum\limits_{m,M_{in}',D}
-                        \frac{a_m \Theta_m(\alpha_j) \sigma^{(X_E)}(\omega_{vp,\beta})
+ \Gamma_{ETMD,j,\beta} = \frac{c}{2\pi} \sum\limits_{m,k,M_{in}',D}
+                        \frac{a_{m,k} \Theta_{m,k}(\alpha_j) \sigma^{(X_E)}(\omega_{vp,\beta})
                               \tilde{D}_{m,j,\beta}(M_{in,D},M_{in,D'})}
                          {R_j^6 \omega_{vp,\beta}}
 \end{equation}
 
-depending on constants ($a_m=4,2$) as well as experimental properties
+depending on constants ($a_{m,k}=4,2$)
+as well as experimental properties
 of atoms like ionization cross sections
 $\sigma^{(X_E)}(\omega_{vp,\beta})$, radiative lifetimes of the initially
 ionized state $\tau_{in,\beta}$ and the excess energy transferred to the
 emitting atom (the energy of the virtual photon) $\omega_{vp,\beta}$
 and calculated dipole transition moments $\tilde{D}_{m,j,\beta}$, only.
-Here, $\Theta_m(\alpha_j)$ is a function depending on the angle $\alpha_j$
-of the triple (compare Ref. \cite{Fasshauer13}).
+Here, $\Theta_{m,k}(\alpha_j)$ is a function depending on the angle $\alpha_j$
+of the triple, the direction of the dipole
+transition moment $m$ and an additional counter $k$
+(compare Ref. \cite{Fasshauer13}).
 
 In this work we evaluate the secondary energies and decay widths with
-the program HARDRoC \cite{} using the
+the program HARDRoC \cite{HARDRoC,fasshauer2014} using the
 experimental ionization energies of Table \ref{}
 and data from the literature given in Tables \ref{} and \ref{}.
 These are the same as the ones used in Reference \cite{Fasshauer13}.
