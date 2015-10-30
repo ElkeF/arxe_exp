@@ -1,101 +1,90 @@
 \section{Cluster Structures}
 
 From the experimental results we can obtain two hints for the cluster
-structure: the minimum size and the xenon content. We will in the following
+structure: the minimum size and the xenon content. In the following we will 
 use these to construct possible cluster structures for which we will later
-simulate the ICD and ETMD spectra. At this step we put in whatever structure
-we might think of and hope to be able to exclude some of them by comparison of
-the ICD and ETMD spectra to the experimental electron-electron coincidence
-spectra.
+simulate the ICD and ETMD spectra. At this point we put in a variety of structures,
+in the hope to exclude some of them by comparison of
+the ICD and ETMD spectra to the experimental ones.
 
-In the previous studies \cite{Fasshauer13} the ArXe clusters were assumed
-to be large and have more than 1500 atoms. The model structures assumed
-an fcc structure and not an icosahedral structure as would be more
-probable for small clusters.
-Additionally,
-the expectation value for the number of xenon atoms relies on a pure
-xenon gas. Since the xenon content in the mixed gas is much lower, also
-the number of xenon atoms can be expected to be by far less. We therefore
-start from the estimated number of atoms in the cluster after expansion
-of pure argon gas.
-We therefore rethink the possible cluster structures.
+In our previous study\cite{Fasshauer13} the ArXe clusters were assumed
+to be large, having more than 1500 atoms. The model structures assumed
+an fcc structure and not an icosahedral structure, which is energetically
+favoured for small clusters.
+Most estimated cluster sizes given in Table \ref{tab:cluster} are much smaller.
+We use the estimated number of atoms for a pure Ar expansion as the lower limit for the actual cluster size, start our search for model structures from there.
+%
+%Additionally,
+%the expectation value for the number of xenon atoms relies on a pure
+%xenon gas. Since the xenon content in the mixed gas is much lower, also
+%the number of xenon atoms can be expected to be by far less. We therefore
+%start from the estimated number of atoms in the cluster after expansion
+%of pure argon gas.
+%We therefore rethink the possible cluster structures.
 %Furthermore, the theoretical prediction did not match the experimental results.
 %Since the spectra are strongly depending on the cluster structure as shown in
 %\cite{fasshauer2014}, the underlying structure seems not to fit and hence
 %we rethink the possible cluster structures.
-
-The expected mean argon cluster sizes
-were estimated and collected in Table \ref{table:cluster}.
-In case of the smaller clusters measured
-these expectation values range from \unit[3 -- 21]{Ar atoms} for
-expansion of pure argon. The cluster sizes of a mixed gas are unknown but
-for xenon as the second component the cluster sizes can be expected to
-be larger than those of pure argon due to the higher polarizability
+%
+For the smaller clusters measured,
+these expectation values range from \unit[3--21]{Ar atoms}. 
+The cluster sizes for expansion of a mixed gas are unknown, but
+for xenon as the second component a larger size is expected compared to a
+pure argon expansion, due to the higher polarizability
 and hence larger cohesive energy of xenon. All clusters
 contributing to the coincidence spectrum
-do contain at least one xenon atom, otherwise there would be no signal at all.
-In an expansion a large variance of clusters and with different structures
-is produced. However, for small clusters consisting of less than
-approximately \unit[1000]{atoms} so-called \emph{islands of stability} were
-found for clusters with icosahedral shape. This means, that the probability
-to find and measure such a cluster is higher than a different structure.
-We therefore started from icosahedral structures and substituted atoms
-in the clusters by
-argon / xenon atoms or added these to a given structure close to the wanted
-position. Afterwards the cluster structures were optimized using the
-UFF force field \cite{} implemented in
-Avogadro \cite{} for a structure optimization.
+contain at least one xenon atom, as otherwise decay by ICD or ETMD is energetically not allowed.
 
+In a gas expansion a range of clusters sizes with different structures is produced. 
+However, for small rare gas clusters consisting of less than approximately \unit[1000]{atoms} so-called \emph{islands of stability} were found.\cite{haberland}  
+In mass spectra, clusters with mass numbers corresponding to icosahedral shapes had a (slightly) enhanced abundance over other sizes. 
+We therefore started from icosahedral structures and produced mixed cluster structures by substitution of individual atoms with one or the other kind (Ar or Xe), or added individual atoms to a given structure close to the desired position. 
+After that, the cluster structures were optimized using the UFF force field method \cite{} implemented in the 
+Avogadro programme \cite{}.
+%
 \begin{figure}[ht]
  \centering
  \includegraphics[width=8.5cm]{pics/cluster_2_overview.pdf}
- \caption{Cluster structures with 13 argon atoms and two additional xenon
-          atoms on different surfaces of the argon icosahedron:
-          \textbf{a)} closest possible \textbf{b)} middle \textbf{c)}
-          furthest away.}
+ \caption{Cluster structures composed of 13 argon atoms and two additional xenon
+          atoms on different surfaces of the argon icosahedron, varying in Xe-Xe distance:
+          (a) closest possible, (b) middle, (c) furthest away.}
  \label{figure:cluster_2_overview}
 \end{figure}
-
+%
 \begin{figure}[h]
  \centering
  \includegraphics[width=8.5cm]{pics/cluster_3_overview.pdf}
- \caption{Cluster structures based on 55 atoms icosahedral cluster structure.
-          \textbf{a)} 1 xenon atom on the surface of a 55 atoms icosahedral
-          argon cluster. \textbf{b)} six xenon atoms inside a 55 atoms cluster
-          grouped on one side. \textbf{c)} six xenon atoms distributed
-          in a 55 atoms cluster. }
+ \caption{Cluster structures derived from a 55 atom icosahedral structure:
+          (a) one xenon atom on the surface, (b) six xenon atoms inside a 55 atoms cluster,
+          grouped on one side, (c) six xenon atoms distributed randomly
+          in a 55 atoms cluster.}
  \label{figure:cluster_3_overview}
 \end{figure}
 
-As discussed in the introduction, the small clusters are very likely
-to deviate from a core-shell structure with a xenon core surrounded
-by argon shells as observed for large clusters. We therefore start from
-argon clusters of 13 or 55 atoms and modify them in one of the following
+As discussed in the introduction, the small clusters will likely
+deviate from a core-shell structure with a xenon core surrounded
+by argon shells, as observed for large clusters.\cite{tchaplyguinearxe,Vach_1999} We therefore start from
+argon clusters of 13 or 55 atoms, and modify them in one of the following
 ways:
-
+%
 \begin{itemize}
  \item add one xenon atom on top of a surface / edge / vertex of
-       the argon core as for example shown in
-       Figure \ref{figure:cluster_3_overview} Panel a)
+       the argon core, as for example shown in
+       Figure \ref{figure:cluster_3_overview} a)
        for one additional xenon atom
-       on top of surface of a \unit[55]{atoms} argon core
- \item substitute one argon atom in a surface / edge / vertex position if
-       possible
+       on top of surface of a \unit[55]{atoms} argon core,
+ \item substitute one argon atom in a surface / edge / vertex position,
  \item substitute one or two argon atoms in the core of the argon cluster
-       by xenon atom(s) for the simulation of the core-shell structure
+       by xenon atom(s) for the simulation of the core-shell structures,
  \item add two xenon atoms on top of surfaces of a 13 atoms argon core
        in different relative positions (see Figure
-       \ref{figure:cluster_2_overview})
+       \ref{figure:cluster_2_overview}),
        in order to achieve a xenon content in the cluster close to the
-       measured one shown in Table \ref{table:cluster}
+       measured one (see below),
  \item substitute six argon atoms of a 55 atoms argon cluster by xenon
-       atoms either grouping them or scattering them througout the cluster
-       (see Figure \ref{figure:cluster_3_overview} Panels b) and c)) in order to
-       achieve a xenon content in the cluster close to the experimental one
+       atoms either grouping them or distributing them througout the cluster
+       (see Figure \ref{figure:cluster_3_overview} b) and c)) in order to
+       achieve a xenon content in the cluster close to the measured one.
 \end{itemize}
-
-Furthermore we constructed a core-shell structure with a core of
-1415 xenon atoms and one additional complete layer of argon atoms for
-comparison with the largest measured ArXe clusters.
-
-
+%
+Furthermore, for comparison with the largest measured ArXe clusters, we constructed a core-shell structure with a core of 1415 xenon atoms and one additional complete layer of argon atoms.
