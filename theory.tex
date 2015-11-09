@@ -12,10 +12,9 @@ additionally might play an important role.
 This means, for the evaluation of the decay width we are dealing with a sum over three different indices: 
 For a given structure it is most convenient to
 start with a decomposition of the system into interaction partners of
-the different decay mechanisms, i.e. pairs (combination of two atoms regardless
+the different, relevant decay mechanisms, i.e. pairs (combination of two atoms regardless
 of their internuclear distance) for the ICD and triples (combinations of three atoms)
-for the ETMD.
-{\em Q: Doubles for ETMD(2) and triples for ETMD(3) ?! Do we make this distinction here?}
+for the ETMD3.
 These atoms do not necessarily need to form bonds between each other or
 even be close, but they are characterized according to fixed internal
 coordinates. 
@@ -55,7 +54,8 @@ $X_{D}$ and $X_{E}$.
 The distribution of the vacancies over the different
 atoms determines the kind of electronic decay process at hand. Hence, in an
 Auger process all three atoms coincide, for an ICD process $X_{\rm in}$
-coincides with $X_{D}$ and for an {ETMD}3 process
+coincides with $X_{D}$, for an ETMD2 process $X_D$ and $X_E$ coincide
+and for an {ETMD}3 process
 all ionized states are located on different atoms.
 
 \begin{figure}[h]
@@ -88,7 +88,7 @@ This {\latin ad hoc} approach allows to easily correct for energetic shifts of i
 
 The total decay width $\Gamma$ is given by the sum over the decay widths
 of all decay mechanisms. In case of the ArXe clusters we only consider
-ICD and ETMD:
+ICD and ETMD3, because the ETMD2 pathway is energetically not accessible:
 
 \begin{equation}
  \Gamma = \Gamma_{\rm ICD} + \Gamma_{\rm ETMD} .
