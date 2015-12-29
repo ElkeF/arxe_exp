@@ -1,0 +1,146 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is a (brief) model paper using the achemso class
+%% The document class accepts keyval options, which should include
+%% the target journal and optionally the manuscript type.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[journal=jpccck,manuscript=suppinfo]{achemso}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place any additional packages needed here.  Only include packages
+%% which are essential, to avoid problems later. Do NOT use any
+%% packages which require e-TeX (for example etoolbox): the e-TeX
+%% extensions are not currently available on the ACS conversion
+%% servers.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% If issues arise when submitting your manuscript, you may want to
+%% un-comment the next line.  This provides information on the
+%% version of every file you have used.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\listfiles
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place any additional macros here.  Please use \newcommand* where
+%% possible, and avoid layout-changing macros (which are not used
+%% when typesetting).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*\mycommand[1]{\texttt{\emph{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Meta-data block
+%% ---------------
+%% Each author should be given as a separate \author command.
+%%
+%% Corresponding authors should have an e-mail given after the author
+%% name as an \email command. Phone and fax numbers can be given
+%% using \phone and \fax, respectively; this information is optional.
+%%
+%% The affiliation of authors is given after the authors; each
+%% \affiliation command applies to all preceding authors not already
+%% assigned an affiliation.
+%%
+%% The affiliation takes an option argument for the short name.  This
+%% will typically be something like "University of Somewhere".
+%%
+%% The \altaffiliation macro should be used for new address, etc.
+%% On the other hand, \alsoaffiliation is used on a per author basis
+%% when authors are associated with multiple institutions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{Elke Fasshauer}
+\affiliation[UIT]{Centre for Theoretical and Computational Chemistry,
+Department of Chemistry, University of Troms\o
+-- The Arctic University of Norway, N-9037 Troms\o, Norway}
+\email{elke.fasshauer@uit.no}
+\author{Melanie Mucke}
+\altaffiliation{Now at: Department of Physics and Astronomy, Uppsala University, Box 516, 75120 Uppsala, Sweden}
+\author{Marko F\"orstel}
+\altaffiliation{Now at: University of Hawai'i at Manoa, 2545 McCarthy Mall, 96816 HI Honolulu, USA}
+\affiliation[IPP]{Max-Planck-Institute for Plasma Physics, Boltzmannstr. 2, 85748 Garching, Germany}
+\author{...}
+\author{Uwe Hergenhahn}
+\affiliation[IPP HGW]{Max-Planck-Institute for Plasma Physics, Wendelsteinstr. 1, 14791 Greifswald, Germany}
+\affiliation[IOM]{}
+\email{uwe.hergenhahn@ipp.mpg.de}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The document title should be given as usual. Some journals require
+%% a running title from the author: this should be supplied as an
+%% optional argument to \title.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[ArXe]
+  {One more attempt on ArXe}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Start the main part of the manuscript here.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Electron-electron coincidence spectra}
+%
+%
+In this work, we use electron-electron coincidence spectroscopy to isolate electrons from autoionization decays of Ar 3s$^{-1}$ vacancies from the remainder of the electron spectrum, mostly photoelectrons from outer valence levels and secondary electrons from intracluster inelastic collisions.
+By recording two electrons ejected in the same process, on an event-by-event basis, we are able to identify those secondary electrons which are ejected after Ar 3s photoionization.
+Here, we show a more detailed representation of the electron-electron coincidence data, from which figures in the main paper showing the ICD/ETMD spectra, and the pertaining Ar 3s photoelectron spectra, were derived.
+
+A necessary condition for the ejection of two electrons by a single photon, irrespective of the mechanism by which this is accomplished, is a sufficient photon energy. 
+In case of a sequential process, such as photoionization followed by ICD/ETMD, moreover the ionic state which is produced in the primary step must be located above the ionization threshold for the doubly ionized systems.
+For Ar 3s autoionization, these conditions are discussed in detail in the main paper.
+For a general double ionization process, the required energy can be estimated as the sum of the single ionization energies of the final state holes (main paper, Table 3) plus the geometry-dependent Coulomb repulsion (main paper, Figure 1).
+Roughly, 27 eV are needed to produce an Ar 3p$^{-1}$ Xe 5p$_{3/2}^{-1}$ state, and about 2-4 eV less for $\rm (Xe\ 5p^{-1})_2$ states.
+For photon energies exceeding this limit, the excess energy can be distributed to any, or both, of the released electrons.
+For photoionization followed by autoionization the energy imparted to the first electron is determined by the binding energy of the primary vacancy, however.
+This can be used to identify the pertaining second-step spectrum.
+
+Figure\ \ref{figure:map}b shows a typical electron-electron coincidence spectrum recorded with a photon energy of 32 eV, a few eV above the inner valence ionization thresholds.
+
+The Figure shows that a significant amount of slow electrons $e_2$ are recorded in coincidence with the primary 3s electrons ($e_1$), which have a kinetic energy of approx. 3.3 eV. 
+Some background of electron pairs at other energies is also visible.
+It results from inelastic scattering of outer valence photoelectrons, and (in particular for the feature which has both electrons with kinetic energy less than 0.2 eV, upper left corner of Figure \ref{figure:map}b) due to inelastic scattering at parts of the analyzer.
+
+More conventional, one-dimensional electron spectra pertaining to the photoelectrons and the ICD/ETMD electrons are obtained by summing up along one of the energy axis of the two-dimensional map, and are shown in (c) and (a). 
+The peak in Figure \ref{figure:map}c at a binding energy of 28.7~eV pertains to the Ar 3s photoelectron line.
+No atomic counterpart of this line is visible in this Figure, as only the cluster photoelectrons lead to electron-electron coincidences.
+The trace shown in Figure \ref{figure:map}a is interpreted as the spectral shape of ICD/ETMD decays.
+
+We have subtracted the background from random coincidences or coincidences due to electron scattering from the signals shown in Figures \ref{figure:map}a,c.
+In order to do so, the regions between the two pairs of red horizontal bars in Figure \ref{figure:map}b were identified as background.
+The coincidence map was then subdivided into intervals of 0.5 eV width in the $e_2$ energy coordinate.
+For each interval, a second order polynomial was fitted to the background signal, and subsequently subtracted from the ICD/ETMD signal marked by the black bars.
+The summation of all background signals is shown as a wavy, solid red line in Figure \ref{figure:map}c, and the signal of secondary electrons, background subtracted, is shown as the lower trace of data points in Figure \ref{figure:map}a.
+Background subtracted ICD/ETMD signals are shown throughout the main paper.
+
+These data were recorded under all expansion conditions listed in Table 1.
+%
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=12cm]{pics/figure_map.pdf}
+ \caption{
+Photon excited electron-electron coincidence spectrum of mixed Ar-Xe clusters in the inner valence region. 
+(b): Color-coded map of coincident electron pairs, with the electron of higher kinetic named $e_1$. 
+The energy of $e_1$ is given as binding energy, using the photon energy of $h\nu = 32$~eV. 
+(c): Energy spectrum of primary electrons $e_1$, irrespective of the energy of the secondary electron (summation of the coincidence map along horizontal lines). 
+(a): Energy spectrum of all secondary (ICD or ETMD) electrons $e_2$ pertaining to the Ar 3s binding energy region marked by two black bars. 
+See text for details. 
+Intensity is expressed as coincident events/pixel of 20~meV$^2$ (b) or as coincident events per interval of 20~meV (a,c). 
+In total, approx. 4$\times 10^5$ events are shown. 
+The color scale of (b) is linear.
+ \label{figure:map}
+ }
+\end{figure}
+%
+Similar figures were recorded for all combinations of expansion parameters listed in Table 1 of the main paper.
+A more detailed description of methods for analysing these data sets has been given.\cite{Foerstel_phd}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The appropriate \bibliography command should be placed here.
+%% Notice that the class file automatically sets \bibliographystyle
+%% and also names the section correctly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\raggedright
+\bibliography{arxe}
+
+\end{document}
