@@ -16,7 +16,7 @@ count = 0
 rootdir = os.getcwd()
 #outfile = open('','w')
 
-for filename in glob.glob("xe_3_in.tex"):
+for filename in glob.glob("Ar3Xe35.tex"):
    print filename
    infile = open(filename, 'r')
    outfile = open('tmpfile', 'w')
@@ -24,7 +24,7 @@ for filename in glob.glob("xe_3_in.tex"):
 #   outfile.write(' 300 10000 0\n')
 
 #   replacements = {'includegraphics[scale=0.5]':'input', '/compl':'/schale', '/incompl':'/in-shell', '_':'-core', '.ps':'', 'caps':'cap'}
-   replacements = {'arxe':'../data/arxe'}
+   replacements = {'13':'3','25':'35'}
 
    for line in infile:
       if 'FloatBarrier' not in line:
