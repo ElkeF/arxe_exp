@@ -16,15 +16,15 @@ count = 0
 rootdir = os.getcwd()
 #outfile = open('','w')
 
-for filename in glob.glob("Ar3Xe35.tex"):
+for filename in glob.glob("*.tex"):
+#for filename in glob.glob("schale08.tex"):
    print filename
    infile = open(filename, 'r')
    outfile = open('tmpfile', 'w')
 
-#   outfile.write(' 300 10000 0\n')
-
+   
 #   replacements = {'includegraphics[scale=0.5]':'input', '/compl':'/schale', '/incompl':'/in-shell', '_':'-core', '.ps':'', 'caps':'cap'}
-   replacements = {'13':'3','25':'35'}
+   replacements = {'citenum':'cite'}
 
    for line in infile:
       if 'FloatBarrier' not in line:
@@ -36,5 +36,4 @@ for filename in glob.glob("Ar3Xe35.tex"):
    outfile.close()
 
    shutil.copyfile('tmpfile',filename)
-   #shutil.copyfile('tmpfile',filename+'.inp')
    os.remove('tmpfile')
