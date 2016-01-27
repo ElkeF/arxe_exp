@@ -2,49 +2,62 @@
 \label{sec:th_results}}
 %
 %
-\begin{table*}[th]
+\begin{table}[h]
 \small
 \centering
-\caption{Calculated properties of some model clusters. Columns `ICD' and `ETMD'
+\caption{Structural and calculated properties of some model clusters.
+The cluster structures are characterized by the number of
+Ar and Xe atoms in the cluster. The first group has a xenon core
+surrounded by argon atoms while the second group except for
+number 18 has a xenon core. The last group of structures was taken
+from Reference \cite{} and contains various structures.
+The structures are then categorized (str. cl.) into core-layer (cl)
+structures, structures, where single atoms in the outermost layer
+are replaced by the different atom type (in) and mixed structures, that
+do not show a clear layer structure. In case one atom is placed on top
+of a cluster or replaces a different atom in the outermost layer, its
+position is given as surface/edge/vertex. In case two atoms are placed
+on top of a cluster, their relative position is declared.
+The columns `ICD' and `ETMD'
 are the respective partial decay widths
 in \unit[$10^{-4}$]{eV}, and `\% ICD' gives the percentage of ICD in the
 total decay width.
 }
-\begin{tabular}{lrrrccr}
+\begin{tabular}{rrrrcccccr}
 \toprule
-name                 & Xe atoms & Ar atoms & Xe$_{\rm cl}$ \% & ICD   &  ETMD & \% ICD\\ %$\Gamma_{\rm ICD,ETMD}$\\
+\# & \# Xe & \# Ar & Xe$_{\rm cl}$\% & str. cl. & pos. & rel. pos. & ICD   &  ETMD & \% ICD\\ %$\Gamma_{\rm ICD,ETMD}$\\
 \midrule
-ArXe\_2\_1atom       &      1   &     12   &  7.7  & 0.000 & 0.000 &  --\\ %    0.0            \\
-ArXe\_3\_1atom       &      1   &     54   &  1.8  & 0.000 & 0.000 &  --\\ %    0.0            \\ 
-ArXe\_3\_2atom       &      2   &     53   &  3.6  & 0.033 & 0.167 &  16.7\\ %2.006$\cdot 10^{-5}$ \\
-ArXe\_8\_1layer      &   1415   &    642   & 68.8  & 7.039 & 2.573 &  73.2\\ %9.612$\cdot 10^{-4}$ \\
-\midrule
-XeAr\_2\_surface     &      1   &     13   &  7.1  & 0.792 & 0.000 & 100.0\\ %7.922$\cdot 10^{-5}$ \\
-XeAr\_2\_edge        &      1   &     13   &  7.1  & 0.013 & 0.000 & 100.0\\ %1.320$\cdot 10^{-6}$ \\
-XeAr\_2\_vertex      &      1   &     13   &  7.1  & 0.050 & 0.000 & 100.0\\ %5.013$\cdot 10^{-6}$ \\
-XeAr\_2\_2top        &      2   &     13   & 13.3  & 0.101 & 0.151 &  40.1\\ %2.523$\cdot 10^{-5}$ \\
-XeAr\_2\_2midtop     &      2   &     13   & 13.3  & 0.159 & 0.008 &  95.4\\ %1.665$\cdot 10^{-5}$ \\
-XeAr\_2\_2endtop     &      2   &     13   & 13.3  & 0.159 & 0.002 &  98.9\\ %1.605$\cdot 10^{-5}$ \\
-XeAr\_3\_surface     &      1   &     55   &  1.8  & 0.064 & 0.000 & 100.0\\ %6.371$\cdot 10^{-6}$ \\
-XeAr\_3\_edge        &      1   &     55   &  1.8  & 0.048 & 0.000 & 100.0\\ %4.791$\cdot 10^{-6}$ \\
-XeAr\_3\_vertex      &      1   &     55   &  1.8  & 0.027 & 0.000 & 100.0\\ %2.701$\cdot 10^{-6}$ \\
-XeAr\_3\_edge\_in    &      1   &     54   &  1.8  & 0.077 & 0.000 & 100.0\\ %7.708$\cdot 10^{-6}$ \\
-XeAr\_3\_vertex\_in  &      1   &     54   &  1.8  & 0.053 & 0.000 & 100.0\\ %5.258$\cdot 10^{-6}$ \\
-XeAr\_3\_2in         &      2   &     53   &  3.6  & 0.117 & 0.055 &  68.1\\ %1.711$\cdot 10^{-5}$ \\
-XeAr\_3\_6in         &      6   &     49   & 10.9  & 0.375 & 0.405 &  48.1\\ %7.796$\cdot 10^{-5}$ \\
-XeAr\_3\_6\_scat     &      6   &     49   & 10.9  & 0.292 & 0.674 &  30.3\\ %9.660$\cdot 10^{-5}$ \\
-\midrule
-Ar$_{36}$Xe$_{2}$    &      2   &     36   &  5.3  & 0.117 & 0.151 &  43.6\\
-Ar$_{34}$Xe$_{4}$    &      4   &     34   & 10.5  & 0.248 & 0.587 &  29.7\\
-Ar$_{33}$Xe$_{5}$    &      5   &     33   & 13.2  & 0.335 & 0.844 &  28.4\\
-Ar$_{25}$Xe$_{13}$   &     13   &     25   & 34.2  & 0.828 & 5.414 &  13.3\\
-Ar$_{14}$Xe$_{24}$   &     24   &     14   & 63.2  & 1.488 &16.718 &   8.2\\
-Ar$_{13}$Xe$_{25}$   &     25   &     13   & 65.8  & 1.432 & 4.995 &  22.3\\
-Ar$_{3}$Xe$_{35}$    &     35   &      3   & 92.1  & 2.017 & 7.051 &  22.2\\
+ 1 &     1 &    12 &  7.7  & cl    &         &          & 0.000 & 0.000 &  --\\ %    0.0            \\     ArXe\_2\_1atom      
+ 2 &     1 &    54 &  1.8  & cl    &         &          & 0.000 & 0.000 &  --\\ %    0.0            \\     ArXe\_3\_1atom      
+ 3 &     2 &    53 &  3.6  & cl    &         &          & 0.033 & 0.167 &  16.7\\ %2.006$\cdot 10^{-5}$ \\ ArXe\_3\_2atom      
+ 4 &  1415 &   642 & 68.8  & cl    &         &          & 7.039 & 2.573 &  73.2\\ %9.612$\cdot 10^{-4}$ \\ ArXe\_8\_1layer     
+                                                                                             \midrule
+ 5 &     1 &    13 &  7.1  & cl    & surface &          & 0.792 & 0.000 & 100.0\\ %7.922$\cdot 10^{-5}$ \\ XeAr\_2\_surface    
+ 6 &     1 &    13 &  7.1  & cl    & edge    &          & 0.013 & 0.000 & 100.0\\ %1.320$\cdot 10^{-6}$ \\ XeAr\_2\_edge       
+ 7 &     1 &    13 &  7.1  & cl    & vertex  &          & 0.050 & 0.000 & 100.0\\ %5.013$\cdot 10^{-6}$ \\ XeAr\_2\_vertex     
+ 8 &     2 &    13 & 13.3  & cl    &         & closest  & 0.101 & 0.151 &  40.1\\ %2.523$\cdot 10^{-5}$ \\ XeAr\_2\_2top       
+ 9 &     2 &    13 & 13.3  & cl    &         & middle   & 0.159 & 0.008 &  95.4\\ %1.665$\cdot 10^{-5}$ \\ XeAr\_2\_2midtop    
+10 &     2 &    13 & 13.3  & cl    &         & furthest & 0.159 & 0.002 &  98.9\\ %1.605$\cdot 10^{-5}$ \\ XeAr\_2\_2endtop    
+11 &     1 &    55 &  1.8  & cl    & surface &          & 0.064 & 0.000 & 100.0\\ %6.371$\cdot 10^{-6}$ \\ XeAr\_3\_surface    
+12 &     1 &    55 &  1.8  & cl    & edge    &          & 0.048 & 0.000 & 100.0\\ %4.791$\cdot 10^{-6}$ \\ XeAr\_3\_edge       
+13 &     1 &    55 &  1.8  & cl    & vertex  &          & 0.027 & 0.000 & 100.0\\ %2.701$\cdot 10^{-6}$ \\ XeAr\_3\_vertex     
+14 &     1 &    54 &  1.8  & in    & edge    &          & 0.077 & 0.000 & 100.0\\ %7.708$\cdot 10^{-6}$ \\ XeAr\_3\_edge\_in   
+15 &     1 &    54 &  1.8  & in    & vertex  &          & 0.053 & 0.000 & 100.0\\ %5.258$\cdot 10^{-6}$ \\ XeAr\_3\_vertex\_in 
+16 &     2 &    53 &  3.6  & in    &         &          & 0.117 & 0.055 &  68.1\\ %1.711$\cdot 10^{-5}$ \\ XeAr\_3\_2in        
+17 &     6 &    49 & 10.9  & in    &         &          & 0.375 & 0.405 &  48.1\\ %7.796$\cdot 10^{-5}$ \\ XeAr\_3\_6in        
+18 &     6 &    49 & 10.9  & mixed &         &          & 0.292 & 0.674 &  30.3\\ %9.660$\cdot 10^{-5}$ \\ XeAr\_3\_6\_scat    
+                                                                                                 \midrule
+19 &     2 &    36 &  5.3  & cl    &         &          & 0.117 & 0.151 &  43.6\\                        % Ar$_{36}$Xe$_{2}$   
+20 &     4 &    34 & 10.5  & mixed &         &          & 0.248 & 0.587 &  29.7\\                        % Ar$_{34}$Xe$_{4}$   
+21 &     5 &    33 & 13.2  & mixed &         &          & 0.335 & 0.844 &  28.4\\                        % Ar$_{33}$Xe$_{5}$   
+22 &    13 &    25 & 34.2  & mixed &         &          & 0.828 & 5.414 &  13.3\\                        % Ar$_{25}$Xe$_{13}$  
+23 &    24 &    14 & 63.2  & mixed &         &          & 1.488 &16.718 &   8.2\\                        % Ar$_{14}$Xe$_{24}$  
+24 &    25 &    13 & 65.8  & in    &         &          & 1.432 & 4.995 &  22.3\\                        % Ar$_{13}$Xe$_{25}$  
+25 &    35 &     3 & 92.1  & in    &         &          & 2.017 & 7.051 &  22.2\\                        % Ar$_{3}$Xe$_{35}$   
 \bottomrule
 \end{tabular}
 \label{table:theo_gammas}
-\end{table*}
+\end{table}
 %
 The geometrical properties as well as the total ICD and ETMD decay widths
 of the investigated structures are shown in Table \ref{table:theo_gammas}.
@@ -132,8 +145,7 @@ This effect holds for all clusters.
           different relative positions of the two xenon atoms. If 
           the xenon atoms are close to each other, an ETMD process is
           clearly visible. In the other two cases the spectra are dominated by
-          the ICD spectrum.
-          {\it Q: Ich sehe die traces für die 'furthest' Konfiguration nicht(?!) Q: Warum ist in diesen (und vielen anderen) Bildern jedes Label doppelt?}}
+          the ICD spectrum.}
  \label{figure:2tops}
 \end{figure}
 %
@@ -231,8 +243,8 @@ energetically allowed.
  \includegraphics[width=8.5cm]{pics/xe_8_1lay.pdf}
  \caption{Same as Figure \protect\ref{figure:2tops}, for a large cluster consisting
           of a xenon core of 1415 atoms surrounded by one complete layer of
-          argon atoms. {\it Q: War: `two complete layers' - bitte \"uberpr\"ufen.} The ICD and ETMD peak overlap such, that the peak structure
-          might not be visible.}
+          argon atoms. The ICD and ETMD peak overlap such, that the peak
+          structure might not be visible.}
  \label{figure:xe_8_lay1}
 \end{figure}
 %
