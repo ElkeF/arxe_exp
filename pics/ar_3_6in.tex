@@ -71,8 +71,23 @@
          y expr=\thisrowno{1}
          ]
         {../data/xear_3_6_in_ETMD.dat_intadd.inp.sp};
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\addplot[
+         mark=none,
+         gray!70,
+         very thick,
+         dashed
+         ]
+         table[
+         x expr=\thisrowno{0},
+         y expr=\thisrowno{1}
+         ]
+        {../data/xear_3_6_in.sp};
+        \addlegendentry{group -- total}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addplot+[ycomb,
          mark=.,
          very thick,
