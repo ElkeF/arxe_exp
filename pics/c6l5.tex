@@ -1,0 +1,150 @@
+\begin{tikzpicture}[scale=1.0]
+
+\begin{axis}[%scale=1.5,
+             domain=0:6,
+             restrict expr to domain={x}{0:6},
+             %restrict expr to domain={y}{1.0E-12:7},
+             xlabel={E [eV]},
+             %xtick={30,50,...,170},
+             %xticklabels={2,4,6,8,10,12,15,20,25},
+             %ytick={-1.0,-0.8,...,1.0},
+             %yticklabels={1.0,0.8,0.6,0.4,0.2,0.0,0.2,0.4,0.6,0.8,1.0},
+             ylabel={$\Gamma$ [eV]},
+             scale only axis,
+             width=\textwidth-1.5cm,
+             height=8cm,
+             %ybar stacked
+             ]
+
+
+\addplot+[ycomb,
+         mark=.,
+         very thick,
+         Fuchsia,
+         forget plot
+        ]
+        table[
+        x expr = \thisrowno{0},
+        y expr = \thisrowno{1}
+        ]
+        {../data/ico_c6l5-ICD};
+        \addlegendimage{line legend, Fuchsia, very thick};
+        \addlegendentry{ico -- ICD};
+
+\addplot[
+         mark=none,
+         Fuchsia,
+         very thick,
+         forget plot
+         %dotted
+         ]
+         table[
+         x expr=\thisrowno{0},
+         y expr=\thisrowno{1}
+         ]
+        {../data/ico_c6l5-ICD.sp};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addplot+[ycomb,
+         mark=.,
+         very thick,
+         diplom1,
+         forget plot
+        ]
+        table[
+        x expr = \thisrowno{0},
+        y expr = \thisrowno{1}
+        ]
+        {../data/ico_c6l5-ETMD};
+        \addlegendimage{line legend, diplom1, very thick};
+        \addlegendentry{ico -- ETMD};
+
+\addplot[
+         mark=none,
+         diplom1,
+         very thick,
+         forget plot
+         %dotted
+         ]
+         table[
+         x expr=\thisrowno{0},
+         y expr=\thisrowno{1}
+         ]
+        {../data/ico_c6l5-ETMD.sp};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\addplot[
+%         mark=none,
+%         gray!70,
+%         very thick,
+%         dashed
+%         ]
+%         table[
+%         x expr=\thisrowno{0},
+%         y expr=\thisrowno{1}
+%         ]
+%        {../data/fcc_c6l5-ICD};
+%        {../data/xear_3_6_in.sp};
+%        \addlegendentry{group -- total}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addplot+[ycomb,
+         mark=.,
+         very thick,
+         diplom2,
+         forget plot
+        ]
+        table[
+        x expr = \thisrowno{0},
+        y expr = \thisrowno{1}
+        ]
+        {../data/fcc_c6l5-ICD};
+        \addlegendimage{line legend, diplom2, very thick};
+        \addlegendentry{fcc -- ICD}
+
+\addplot[
+         mark=none,
+         diplom2,
+         very thick,
+         forget plot
+         %dotted
+         ]
+         table[
+         x expr=\thisrowno{0},
+         y expr=\thisrowno{1}
+         ]
+        {../data/fcc_c6l5-ICD.sp};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addplot+[ycomb,
+         mark=.,
+         very thick,
+         diplom3,
+         forget plot
+        ]
+        table[
+        x expr = \thisrowno{0},
+        y expr = \thisrowno{1}
+        ]
+        {../data/fcc_c6l5-ETMD};
+        \addlegendimage{line legend, diplom3, very thick};
+        \addlegendentry{fcc -- ETMD};
+
+\addplot[
+         mark=none,
+         diplom3,
+         very thick,
+         forget plot
+         %dotted
+         ]
+         table[
+         x expr=\thisrowno{0},
+         y expr=\thisrowno{1}
+         ]
+        {../data/fcc_c6l5-ETMD.sp};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{axis}
+\end{tikzpicture}
