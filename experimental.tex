@@ -5,7 +5,7 @@
 Expansion parameters used for cluster production. 
 Here, Xe$_{\rm in}$ is the molar fraction of Xe in the gas mixture before the expansion, $T$ is the nozzle temperature, and $p$ the stagnation pressure. 
 Experiments were done with $d = 80~\mu$m (first two sections) and $d = 100~\mu$m (bottom section) conical nozzles of 15$^\circ$ half opening angle. 
-Due to the much lower freezing point of Ar, we basically have an Ar seeded expansion of Xe gas. 
+We basically have an Ar seeded expansion of Xe gas, as the freezing point of Ar is much lower. 
 $\langle N_{\rm Ar} \rangle$ and $\langle N_{\rm Xe} \rangle$ refer to cluster sizes for a pure Ar, or pure Xe expansion, resp., at the given conditions, calculated from a scaling law.\protect\cite{hagena1981}
 We expect actual cluster sizes in-between these two limiting values. 
 Inaccuracies in the calculation of $\langle N\rangle$ due to fluctuations of the input parameters are less than 6\,\%. This figure does not include systematic errors of the empirical model.
@@ -60,15 +60,16 @@ ArXe & XL & 2.5 &  154  & 2.12  & 995 & 18800\\
 %
 The apparatus used for the experiments consists of a supersonic molecular jet with a cooled nozzle, and a magnetic bottle spectrometer, which detects photoelectrons and secondary electrons produced after ionization with synchrotron radiation.\cite{arion} 
 % Leave this citation in place to avoid Latex error
-A comprehensive description can be found in Ref. \cite{arion}, and here we focus on details specific for the current experiment. Commercial Ar and Xe gas was used. 
+A comprehensive description can be found in Ref. \citenum{arion}, and here we focus on details specific for the current experiment. Commercial Ar and Xe gas was used. 
 Separate containers for the two gases were filled up to pressures suitable for producing a certain mixing ratio. The gases were then allowed to mix before the expansion. 
 Expansion parameters are given in Table \ref{tab:cluster}.
 
 Prediction of the sizes of clusters from a supersonic expansion mainly rests on empirical scaling laws,\cite{hagena1981} which have been the subject of some discussion.
-Recent analyses of photoionization spectra suggests that mean sizes arrived at by scaling laws are smaller than the actual size, at least for rare gas clusters in the range $\langle N\rangle < 1000$.\cite{bergersen,hergenhahnprb,foerstel_arg2_2011}
 Moreover, such scaling laws originally were derived only for pure gas expansions.
 A recent investigation of cluster sizes in a mixed Ar-Kr expansion yielded a revised scaling law, which essentially amounts to the use of a weighted average over the atom-specific parameters of the two gases.\cite{danylchenko2015} 
-Although the analogy to our case is not complete, as phase segregation occurs in Ar-Kr to a much lesser extent,\cite{Vach_1999,lundwall_arkr} we therefore expect actual cluster sizes between the values calculated for Ar and Xe.
+Although the analogy to our case is not complete, as phase segregation occurs in Ar-Kr to a much lesser extent,\cite{Vach_1999,lundwall_arkr} we therefore expect scaling law cluster sizes between the values calculated for Ar and Xe.
+Recent analyses of photoionization spectra suggests that mean sizes arrived at by scaling laws are smaller than the actual size, at least for rare gas clusters in the range $\langle N\rangle < 1000$.\cite{bergersen,hergenhahnprb,foerstel_arg2_2011}
+We expansion conditions labelled `S'-`L', we therefore expect that the scaling law estimates are a lower boundary for the actual cluster size.
 
 The expansion chamber for the supersonic jet is separated from the interaction chamber by a non-magnetic, conical skimmer with a diameter 1~mm opening (Beam Dynamics). 
 At few cm distance behind the skimmer, the cluster jet was crossed by synchrotron radiation from the BESSY electron storage ring at Helmholtz-Zentrum Berlin. 
@@ -77,8 +78,13 @@ Due to its large collection angle, this instrument is particularly suited for ex
 Data were recorded in two different beamtimes at the UE112-PGM-1 (small and medium sized clusters, first two sections in Table \ref{tab:cluster}) and at the TGM-4 beamline (large clusters, last section in Table \ref{tab:cluster}). 
 Linearly, horizontally polarized radiation was used. 
 The storage ring was operated in single bunch conditions.
-Spectra of pure Ar clusters shown for comparison are from Ref. \cite{foerstel_arg2_2011}, and a spectrum of pure Xe clusters was recorded with the set-up described in Ref. \cite{hergenhahnprb}.
+Spectra of pure Ar clusters shown for comparison are from Ref.\ \citenum{foerstel_arg2_2011}, and a spectrum of pure Xe clusters was recorded with the set-up described in Ref.\ \citenum{hergenhahnprb}.
 
 Entrance aperture and drift tube of the magnetical bottle spectrometer can be independently biased to influence the electron flight times. 
 For the data shown here, slightly positive bias voltages were used (+1.8 V to +2.2 V) in order to have all electrons arriving at the detector within one BESSY single bunch period (800 ns). 
-The detection efficiency was determined as 0.6, with the method outlined in Ref. \cite{mucke_review}.
+The detection efficiency was determined as 0.6, with the method outlined in Ref.\ \citenum{mucke_review}.
+
+The high detection efficiency of the instrument is a pre-requisite for measuring two-electron emission processes, such as photoelectron emission followed by ICD or ETMD, by using electron-electron coincidence detection. 
+This allows to filter the full electron spectrum for contributions arising after emission of an Ar 3s photoelectron.
+ICD/ETMD spectra presented here are based on this method, which has been explained earlier.\cite{mucke_review,Foerstel_phd}
+Technical details and full electron-electron coincidence spectra are given in the Supporting Information.
