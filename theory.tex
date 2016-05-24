@@ -1,13 +1,29 @@
 \section{Theoretical Approach}
 %
-We are interested in describing the electron emission spectra of excited states in clusters, that where measured by the electron-electron coincidence method in our experiments. 
-In our theoretical description, these will be composed of multiple transitions, each characterized by a kinetic energy $E_{\rm sec}$ of the secondary electrons, and the intensity of the peak.
-The latter is proportional to the probability of the decay, represented here by the decay width $\Gamma_\beta = \hbar/\tau_\beta$, where $\tau_\beta$ is the lifetime due to the respective transition.
-The total decay width $\Gamma$ is the sum of all partial $\Gamma_\beta$.
-In case of noble gas clusters with a given geometrical structure, three aspects have to be taken into account:
-different decay mechanisms, the contribution of different cluster sites to the respective decay, and the existence of different decay channels within each decay mechanism.
-At the current stage of development we have to neglect the nuclear dynamics, which
+Experimental coincidence spectra are given by the multitude of
+kinetic energies $E_{\rm sec}$ of the secondary electron
+and the intensities of the peaks. The latter is proportional to the
+probability of the decay as well as the theoretically determinable
+decay width $\Gamma=\frac{\hbar}{\tau}$,
+which is inverse proportional to the lifetime $\tau$ of the decay process.
+The manifold of the
+secondary energies and decay widths will therefore compose the electron-electron
+coincidence spectrum.
+In case of noble gas clusters
+with given geometrical structures three aspects have to be taken into account:
+different decay mechanisms, the possibility to decay with multiple
+interaction partners and different decay channels $\beta$ within
+each decay mechanism.
+At the current stage of development we need to neglect the nuclear dynamics which
 additionally might play an important role.
+
+%We are interested in describing the electron emission spectra of excited states in clusters, that where measured by the electron-electron coincidence method in our experiments. 
+%In our theoretical description, these will be composed of multiple transitions, each characterized by a kinetic energy $E_{\rm sec}$ of the secondary electrons, and the intensity of the peak.
+%The latter is proportional to the probability of the decay, represented here by the decay width $\Gamma_\beta = \hbar/\tau_\beta$, where $\tau_\beta$ is the lifetime due to the respective transition.
+%The total decay width $\Gamma$ is the sum of all partial $\Gamma_\beta$.
+%In case of noble gas clusters with a given geometrical structure, three aspects have to be taken into account:
+%different decay mechanisms, the contribution of different cluster sites to the respective decay, and the existence of different decay channels within each decay mechanism.
+%At the current stage of development we have to neglect the nuclear dynamics, which
 
 This means, for the evaluation of the decay width we are dealing with a sum over three different indices: 
 For a given structure it is most convenient to
@@ -18,7 +34,7 @@ for the ETMD3.
 These atoms do not necessarily need to form bonds between each other or
 even be close, but they are characterized according to fixed internal
 coordinates. 
-Each pair and each triple leads to a decay spectrum that can be described by the energy of the secondary electron and the decay width, and which is in first order of approximation independent of other atoms present in the cluster.
+Each pair and each triple leads to a decay spectrum that can be described by the energy of the secondary electron and the decay width, which is in first order of approximation independent of other atoms present in the cluster.
 In the following, this approach will be called model of pairs and triples.
 
 
@@ -77,7 +93,7 @@ is closed, as shown in Figure \ref{figure:channel_open_ICD}. Related to
 the opening of each channel is an internuclear distance which we will call 
 \emph{channel opening distance} in the following.
                                                                
-This {\latin ad hoc} approach allows to easily correct for energetic shifts of ionization potentials as observed in larger clusters by adding experimentally or theoretically determined energy shifts $\Delta E(X_{A}^{\beta})$ for a given vacancy $A={\rm in},D,E$ and channel $\beta$. This yields the working expression for the kinetic energy of the secondary electron:
+This {\latin ad hoc} approach allows to easily correct for energetic shifts of ionization potentials as observed in larger clusters by adding experimentally or theoretically determined energy shifts $\Delta E(X_{I}^{\beta})$ for a given vacancy $I={\rm in},D,E$ and channel $\beta$. This yields the working expression for the kinetic energy of the secondary electron:
 
 \begin{equation}
  E_{\rm sec}^\beta = SIP(X_{\rm in}) + \Delta E (X_{\rm in})
@@ -135,29 +151,38 @@ can be approximated by its asymptotic behaviour
                         -M_A' & M_A'-M_A & M_A
                         \end{array}\right) \right|^2
                         \frac{\sigma^{(X_E)}(\omega_{vp,\beta})}
-                        {R_i^6 \, \omega_{vp,\beta}^4 \tau_{in,\beta}}
+                        {R_i^6 \, \omega_{vp,\beta}^4 \tau_{in,\beta}},
 \end{equation}
 %
+where $J_A$, $J_A'$ and $M_A$, $M_A'$ denote the total angular momentum of the
+initially ionized atom (which is the same as the electron doner atom) in the
+initial and final state, respectively,
 and
 %
-\begin{equation}
- \Gamma_{{\rm ETMD},j,\beta} = \frac{c}{2\pi} \sum\limits_{m,k,M_{in}',D}
-                        \frac{a_{m,k} \Theta_{m,k}(\alpha_j) \sigma^{(X_E)}(\omega_{vp,\beta})
-                              \tilde{D}_{m,j,\beta}(M_{in,D},M_{in,D'})}
-                         {R_j^6 \omega_{vp,\beta}}
-\end{equation}
+\begin{align}
+ \Gamma_{{\rm ETMD},j,\beta} =& \frac{c}{\pi} \sum\limits_{m,M_{in,D'}}
+                        \frac{\Theta_{m,k}(\alpha_j) \sigma^{(X_E)}(\omega_{vp,\beta})
+                              \left| <\tilde{D}_{m,j,\beta}(M_{in,D'})>\right|^2}
+                         {R_j^6 \omega_{vp,\beta}}\\
+               =& \frac{c}{\pi R_j^6}
+               \sum\limits_{M_{in,D'}}
+               \left( \left| <\tilde{D}_{x,j,\beta} (M_{in,D'}) > \right|^2
+                 (2+ \sin^2\alpha_j)
+               + \left| <\tilde{D}_{z,j,\beta} (M_{in,D'}) > \right|^2
+                 (1+\cos^2\alpha_j) \right) \nonumber \\
+           & \times\, \frac{c\sigma^{(X_E)}(\omega_{vp,\beta})}{\omega_{vp,\beta}}
+\end{align}
 %
-depending on constants ($a_{m,k}=4,2$) {\it Q: ??? Hei\ss t das, $a_{m.k}$ kann die Werte 2 und 4 annehmen? \color{red}{Ja, genau das heißt es. Zum Vergleich
-kannst du dir Formel 19 in \cite{Fasshauer13} ansehen.}}
-as well as experimental properties
+depending on 
+experimental properties
 of atoms, like the ionization cross sections
 $\sigma^{(X_E)}(\omega_{vp,\beta})$, radiative lifetimes of the initially
 ionized state $\tau_{in,\beta}$ and the excess energy transferred to the
 emitting atom (the energy of the virtual photon) $\omega_{vp,\beta}$
 and calculated dipole transition moments $\tilde{D}_{m,j,\beta}$, only.
-Here, $\Theta_{m,k}(\alpha_j)$ is a function depending on the angle $\alpha_j$
-of the triple, the direction of the dipole
-transition moment $m$ and an additional index $k$
+Here, $\Theta_{m}(\alpha_j)$ is a function depending on the angle $\alpha_j$
+of the triple and the direction of the dipole
+transition moment $m$
 (compare Ref. \cite{Fasshauer13}).
 
 In this work we evaluate the secondary energies and decay widths with
