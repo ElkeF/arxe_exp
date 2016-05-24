@@ -54,9 +54,10 @@ See text for details.
 The geometrical properties as well as the total ICD and ETMD decay widths
 of the investigated structures are shown in Table \ref{table:theo_gammas}.
 It is important to remember that the first ICD channel opens at a
-channel opening distance of \unit[7.58]{\AA}. In small
-clusters, Ar-Xe pair distances are below that value, therefore 
-no ICD can take place. Also, by definition two Xe atoms are
+channel opening distance of \unit[7.58]{\AA}. In the smallest
+clusters with only one argon layer around each
+xenon atom, the Ar-Xe pair distances are below that value, therefore 
+no ICD can take place. Also, by definition, two Xe atoms are
 required for ETMD(3), hence it cannot occur in clusters with only one xenon atom.
 %Because secondary electrons are observed in the experimental spectra
 %we exclude all structures without any signal from our further
@@ -103,8 +104,8 @@ Secondary electron spectra simulated for these systems are shown in Figure \ref{
 %shown in Figure \ref{figure:surf} Panel 1.
 
 
-Because the structures have only one xenon atom, ETMD(3) is not possible
-and only ICD is expected. 
+Because the structures have only one xenon atom, an ETMD(3) is not possible
+and only ICD is to be expected. 
 %Both spectra show several smaller peaks which
 %are convoluted into one single peak with a maximum at
 %approximately \unit[0.2]{eV}. 
@@ -166,7 +167,7 @@ significant contribution from ETMD(3) compared to ICD is only
 seen if the two xenon atoms reside on two adjacent
 surfaces. 
 %{\it Q: Ich verstehe nicht was der n\"chste Satz sagen soll.}
-The three energetically separated peaks in the ETMD(3) spectrum pertain to different combinations of the Xe 5p$_j^{-1}$ vacancy states, which have a substantial fine-structure splitting (see \ref{sec:exp_results}).
+The three energetically separated peaks in the ETMD(3) spectrum pertain to different combinations of the Xe 5p$_j^{-1}$ vacancy states, which have a substantial fine-structure splitting (see Section \ref{sec:exp_results}).
 %
 %The threefold peak structure of the ETMD(3) peak does in contrast to
 %the ICD spectrum not stem from different triple structures but from the
@@ -189,14 +190,14 @@ as shown in Figures \ref{figure:cluster_3_overview}b and \ref{figure:cluster_3_o
 ICD and ETMD(3) spectra for these structures are shown in Figure \ref{figure:ar_3_6in}.
 
 For both cases the overall ICD spectra are very similar, and show a maximum at a kinetic energy of approximately \unit[0.3]{eV}. 
-In case that the xenon atoms are grouped, the ICD spectrum extends to slightly higher energies, corresponding to ArXe pairs at slightly larger spatial distance.
+In case of grouped xenon atoms, the ICD spectrum extends to slightly higher energies, corresponding to ArXe pairs at slightly larger spatial distances.
 A more significant difference is observed in the ETMD(3) spectra. 
 The interatomic xenon distance is shorter in clusters, in which the xenon atoms form a connected group.
 Hence, the triple structure of the ETMD(3) spectrum is seen at lower kinetic energies. 
 Additionally, the probability for an electron
 transfer from a xenon to an argon atom decreases exponentially with the
-interatomic distance. Therefore, only those xenon atoms which have argon
-atoms as their direct neighbours have a significant contribution to the
+interatomic distance. Therefore, only those xenon atoms which have direct
+argon atom neighbours have a significant contribution to the
 total decay width, and the total ETMD(3) decay width is lower for the structure with
 grouped xenon atoms than for
 the structure with evenly distributed xenon atoms (see Table \ref{table:theo_gammas}).
@@ -234,27 +235,50 @@ energetically allowed.
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=8.5cm]{pics/xe_6_5lay.pdf}
- \caption{Same as Figure \protect\ref{figure:2tops}, for a large cluster consisting
+ \includegraphics[width=\columnwidth]{pics/c6l5.pdf}
+ \caption{Same as Figure \protect\ref{figure:2tops},
+          for a large cluster consisting
           of a xenon core of 561 atoms surrounded by five complete layers of
-          argon atoms (Xe content: 14.5\,\%). The ICD and ETMD peak overlap such, that the peak
+          argon atoms (Xe content: 14.5\,\%) for both an icosahedral and
+          cuboctahedral basic structure.
+          The ICD and ETMD peak overlap such, that the peak
           structure might not be visible.}
  \label{figure:xe_6_lay5}
 \end{figure}
 %
-In the first experiments very large argon-xenon clusters were measured,\cite{Mucke_phd}
-which we approximate by a cluster consisting of 561 xenon atoms surrounded
-by five layers of argon atoms. The spectra are shown in Figure
-\ref{figure:xe_6_lay5}.
+In the first experiments very large argon-xenon clusters of 
+$\approx 4380$ atoms with a xenon content of \unit[19]{\%}
+were measured,\cite{Mucke_phd}
+which we in one example approximate by a cluster consisting of 561 xenon
+atoms surrounded
+by five layers of argon atoms (3871 atoms in total). In order to take the
+better stabilization of charges in larger clusters into account, the
+ionization energies of the XL clusters (see Table \ref{tab:valence})
+were used.
+The spectra are shown in 
+Figure \ref{figure:xe_6_lay5}.
 
 Compared to the small clusters with a xenon core in Figure \ref{figure:xe_3_in}
 the ICD peak is broadened and shifted to higher ICD electron energies which is
 expected due to the larger interatomic Ar-Xe distances in the large cluster and
-the better stabilization of charges (the final state), which has been taken into account
-in the simulation.
+the better stabilization of charges, which is relevant mostly for the final state, but also the initial state.
 The ETMD(3) peak is shifted to slightly higher energies as well. This allows opening of the
 fourth decay channel, pertaining to Xe 5p$_{1/2}^{-1}$ Ar 3p$_{1/2}^{-1}$ final states.
 
-We also note that the percentage of decay via ICD is practically independent of the Xe content. 
-This can be expected, as ETMD takes place via an exchange transition matrix element, which requires some wavefunction overlap.
-ETMD therefore mainly takes place in the Ar atoms at the interface layer to the 
+We also note that the percentage of decay via ICD is practically
+independent of the Xe content for large clusters with a core-shell structure.
+This can be expected, as both decay processes are most pronounced for the
+atoms in the interface region of the xenon core and the argon shell.
+The ETMD3, depending on the electron transfer from one xenon atom to the
+initially ionized argon atom and hence the corresponding orbital overlap,
+is a pure interface effect involving the argon atoms with direct xenon
+neighbours and the two xenon layers closest to the argon shell.
+The ICD has a stronger long range character, due to which the description
+of decays with partners of at least twice the smallest channel opening
+distance is necessary for clusters. However, the bigger the clusters are,
+the more homogeneous does the interface region become for clusters of
+different sizes. This is manifests itself in the distribution of relevant
+Ar-Xe pair distances (compare Fig. \ref{figure:surf} lower panel).
+As a consequence, the ICD spectra of two large clusters of different size
+do hardly differ.
+
