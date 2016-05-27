@@ -6,11 +6,24 @@
 \small
 \centering
 \caption{Structural and calculated properties of some model clusters.
-The cluster structures are characterized by the number of Ar and Xe atoms, and are arranged in three groups according to gross structural properties. 
-The first group contains Xe core-Ar shell systems of various size and relative Xe content.
-In the second group, model structures for small clusters are displayed, in which 1-2 Xe atoms are added at systematically varied locations to an icosahedric Ar clusters consisting of one or two full shells, or in which 1-6 Ar atoms of such cluster were replaced by Xe atoms, while keeping the geometry of the original Xe lattice.
-The last group contains data for calculated minimal energy structures of mixed ArXe clusters.\protect\cite{marques}
-The columns `ICD' and `ETMD' are the respective partial decay widths in \unit[$10^{-4}$]{eV}, and `\% ICD' gives the percentage of ICD in the total decay width.
+The cluster structures are characterized by the number of Ar and Xe atoms,
+and are arranged in three groups according to gross structural properties. 
+The first group contains Xe core-Ar shell systems of various
+size and relative Xe content.
+In the second group, model structures for small clusters are displayed,
+in which 1-2 Xe atoms are added at systematically varied locations
+to an icosahedric Ar clusters consisting of one or two full shells,
+or in which 1-6 Ar atoms of such cluster were replaced by Xe atoms.
+Afterwards the cluster structures were optimized using force fields to
+give local minimum structures.
+The last group contains data for calculated minimal energy structures
+of mixed ArXe clusters.\protect\cite{marques}
+The cluster structures are classified into core-shell structures (cs),
+structures with seggregated xenon atoms (in) and completely mixed
+structures.
+The columns `ICD' and `ETMD' are the respective partial decay widths
+in \unit[$10^{-4}$]{eV}, and `\% ICD' gives the percentage of ICD in
+the total decay width.
 See text for details.
 \label{table:theo_gammas}
 }
@@ -18,29 +31,29 @@ See text for details.
 \toprule
 \# & \# Xe & \# Ar & Xe$_{\rm cl}$\% & str. cl. & pos. & rel. pos. & ICD   &  ETMD & \% ICD & Fig.\\ %$\Gamma_{\rm ICD,ETMD}$\\
 \midrule
- 1 &     1 &    12 &  7.7  & cl    &         &          & 0.000 & 0.000 &  -- &\\ %    0.0            \\     ArXe\_2\_1atom      
- 2 &     1 &    54 &  1.8  & cl    &         &          & 0.000 & 0.000 &  -- & \ref{figure:xe_3_in}\\ %    0.0            \\     ArXe\_3\_1atom      
- 3 &     2 &    53 &  3.6  & cl    &         &          & 0.033 & 0.167 &  16.7& \ref{figure:xe_3_in}\\ %2.006$\cdot 10^{-5}$ \\ ArXe\_3\_2atom      
- 4 &  1415 &   642 & 68.8  & cl    &         &          & 7.039 & 2.573 &  73.2& suppl.\\ %9.612$\cdot 10^{-4}$ \\ ArXe\_8\_1layer     
- 5 &   561 &  3310 & 14.5  & cl    &         &          &       &       &  85  & \ref{figure:xe_6_lay5}\\ % c6l5
+ 1 &     1 &    12 &  7.7  & cs    &         &          & 0.000 & 0.000 &  -- &\\ %    0.0            \\     ArXe\_2\_1atom      
+ 2 &     1 &    54 &  1.8  & cs    &         &          & 0.000 & 0.000 &  -- & \ref{figure:xe_3_in}\\ %    0.0            \\     ArXe\_3\_1atom      
+ 3 &     2 &    53 &  3.6  & cs    &         &          & 0.033 & 0.167 &  16.7& \ref{figure:xe_3_in}\\ %2.006$\cdot 10^{-5}$ \\ ArXe\_3\_2atom      
+ 4 &  1415 &   642 & 68.8  & cs    &         &          & 7.039 & 2.573 &  73.2& suppl.\\ %9.612$\cdot 10^{-4}$ \\ ArXe\_8\_1layer     
+ 5 &   561 &  3310 & 14.5  & cs    &         &          &       &       &  85  & \ref{figure:xe_6_lay5}\\ % c6l5
  
 \midrule
- 6 &     1 &    13 &  7.1  & cl    & surface &          & 0.792 & 0.000 & 100.0& \ref{figure:surf}\\ %7.922$\cdot 10^{-5}$ \\ XeAr\_2\_surface    
- 7 &     1 &    13 &  7.1  & cl    & edge    &          & 0.013 & 0.000 & 100.0&\\ %1.320$\cdot 10^{-6}$ \\ XeAr\_2\_edge       
- 8 &     1 &    13 &  7.1  & cl    & vertex  &          & 0.050 & 0.000 & 100.0&\\ %5.013$\cdot 10^{-6}$ \\ XeAr\_2\_vertex     
- 9 &     2 &    13 & 13.3  & cl    &         & closest  & 0.101 & 0.151 &  40.1& \ref{figure:2tops}\\ %2.523$\cdot 10^{-5}$ \\ XeAr\_2\_2top       
-10 &     2 &    13 & 13.3  & cl    &         & middle   & 0.159 & 0.008 &  95.4& \ref{figure:2tops}\\ %1.665$\cdot 10^{-5}$ \\ XeAr\_2\_2midtop    
-11 &     2 &    13 & 13.3  & cl    &         & furthest & 0.159 & 0.002 &  98.9& \ref{figure:2tops}\\ %1.605$\cdot 10^{-5}$ \\ XeAr\_2\_2endtop    
-12 &     1 &    55 &  1.8  & cl    & surface &          & 0.064 & 0.000 & 100.0& \ref{figure:surf}\\ %6.371$\cdot 10^{-6}$ \\ XeAr\_3\_surface    
-13 &     1 &    55 &  1.8  & cl    & edge    &          & 0.048 & 0.000 & 100.0&\\ %4.791$\cdot 10^{-6}$ \\ XeAr\_3\_edge       
-14 &     1 &    55 &  1.8  & cl    & vertex  &          & 0.027 & 0.000 & 100.0&\\ %2.701$\cdot 10^{-6}$ \\ XeAr\_3\_vertex     
+ 6 &     1 &    13 &  7.1  & cs    & surface &          & 0.792 & 0.000 & 100.0& \ref{figure:surf}\\ %7.922$\cdot 10^{-5}$ \\ XeAr\_2\_surface    
+ 7 &     1 &    13 &  7.1  & cs    & edge    &          & 0.013 & 0.000 & 100.0&\\ %1.320$\cdot 10^{-6}$ \\ XeAr\_2\_edge       
+ 8 &     1 &    13 &  7.1  & cs    & vertex  &          & 0.050 & 0.000 & 100.0&\\ %5.013$\cdot 10^{-6}$ \\ XeAr\_2\_vertex     
+ 9 &     2 &    13 & 13.3  & cs    &         & closest  & 0.101 & 0.151 &  40.1& \ref{figure:2tops}\\ %2.523$\cdot 10^{-5}$ \\ XeAr\_2\_2top       
+10 &     2 &    13 & 13.3  & cs    &         & middle   & 0.159 & 0.008 &  95.4& \ref{figure:2tops}\\ %1.665$\cdot 10^{-5}$ \\ XeAr\_2\_2midtop    
+11 &     2 &    13 & 13.3  & cs    &         & furthest & 0.159 & 0.002 &  98.9& \ref{figure:2tops}\\ %1.605$\cdot 10^{-5}$ \\ XeAr\_2\_2endtop    
+12 &     1 &    55 &  1.8  & cs    & surface &          & 0.064 & 0.000 & 100.0& \ref{figure:surf}\\ %6.371$\cdot 10^{-6}$ \\ XeAr\_3\_surface    
+13 &     1 &    55 &  1.8  & cs    & edge    &          & 0.048 & 0.000 & 100.0&\\ %4.791$\cdot 10^{-6}$ \\ XeAr\_3\_edge       
+14 &     1 &    55 &  1.8  & cs    & vertex  &          & 0.027 & 0.000 & 100.0&\\ %2.701$\cdot 10^{-6}$ \\ XeAr\_3\_vertex     
 15 &     1 &    54 &  1.8  & in    & edge    &          & 0.077 & 0.000 & 100.0&\\ %7.708$\cdot 10^{-6}$ \\ XeAr\_3\_edge\_in   
 16 &     1 &    54 &  1.8  & in    & vertex  &          & 0.053 & 0.000 & 100.0&\\ %5.258$\cdot 10^{-6}$ \\ XeAr\_3\_vertex\_in 
 17 &     2 &    53 &  3.6  & in    &         &          & 0.117 & 0.055 &  68.1&\\ %1.711$\cdot 10^{-5}$ \\ XeAr\_3\_2in        
 18 &     6 &    49 & 10.9  & in    &         &          & 0.375 & 0.405 &  48.1& \ref{figure:ar_3_6in}\\ %7.796$\cdot 10^{-5}$ \\ XeAr\_3\_6in        
 19 &     6 &    49 & 10.9  & mixed &         &          & 0.292 & 0.674 &  30.3& \ref{figure:ar_3_6in}\\ %9.660$\cdot 10^{-5}$ \\ XeAr\_3\_6\_scat    
                                                                                                  \midrule
-20 &     2 &    36 &  5.3  & cl    &         &          & 0.117 & 0.151 &  43.6& suppl.\\                        % Ar$_{36}$Xe$_{2}$   
+20 &     2 &    36 &  5.3  & cs    &         &          & 0.117 & 0.151 &  43.6& suppl.\\                        % Ar$_{36}$Xe$_{2}$   
 21 &     4 &    34 & 10.5  & mixed &         &          & 0.248 & 0.587 &  29.7& suppl.\\                        % Ar$_{34}$Xe$_{4}$   
 22 &     5 &    33 & 13.2  & mixed &         &          & 0.335 & 0.844 &  28.4& suppl.\\                        % Ar$_{33}$Xe$_{5}$   
 23 &    13 &    25 & 34.2  & mixed &         &          & 0.828 & 5.414 &  13.3& suppl.\\                        % Ar$_{25}$Xe$_{13}$  
