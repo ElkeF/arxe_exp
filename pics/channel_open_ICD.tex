@@ -1,24 +1,27 @@
 \begin{tikzpicture}
+%    \Large
     \begin{axis}[domain=4.0:25,
                  samples = 200,
                  xtick={4.0,8.0,...,24},
                  %xticklabels={$-\pi$,$-\frac \pi 2$,0,$\frac \pi 2$,$\pi$},
                  %cycle list name = exotic,
-                 legend style={anchor= north west},
+                 %legend style={anchor= north west},
                  xlabel={$d$ [\AA]},
                  ylabel={$E$ [eV]},
-                 axis line style = very thick,
-                 tick style = very thick,
+                 axis line style = ultra thick,
+                 tick style = ultra thick,
                  ]
 
       \addplot+[
                 mark = none,
+                ultra thick
                ]
                {15.3 + 11.5 + 14.39964 / x};
       \addlegendentry{Ar3p$^{-1}$Xe5p$_{3/2}^{-1}$};
 
       \addplot+[
                 mark = none,
+                ultra thick
                ]
                {15.3 + 13.0 + 14.39964 / x};
       \addlegendentry{Ar3p$^{-1}$Xe5p$_{1/2}^{-1}$};
@@ -27,11 +30,15 @@
       \addplot+[
                 mark = none,
                 black,
+                ultra thick
                ]
                {28.7};
       \addlegendentry{Ar3s$^{-1}$};
-      \draw[->, very thick,diplom3] (axis cs:18.0,28.7)
+      \draw[->, ultra thick,diplom3] (axis cs:18.0,28.7)
                          -- (axis cs:18.0,27.6)
            node[midway, anchor=west] {$\color{diplom3}{E_{ICD}}$};
+      \draw[ultra thick,dashed,gray] (axis cs: 7.58,28.7) --
+           node[left]{$d_{open}$}
+           (axis cs: 7.58,27);
     \end{axis}
 \end{tikzpicture}
