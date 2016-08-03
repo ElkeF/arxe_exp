@@ -79,17 +79,110 @@ which is inversely proportional to the lifetime $\tau$ of the decay process.
         some symbols are not defined: $\Phi_{in}$, $\chi_\beta$, $H_f$
         for example.
         Since this part of theory has already been published, it can be shorten
-        leaving just Eqs. 9 and 10.
-}
+        leaving just Eqs. 9 and 10.}\\
+        This part of the theory has indeed been published already. However,
+        the general formula for the decay width of electronic decay processes
+        serves as the best starting point for the explanation since it is
+        known by a wider community. For the same reason, equation 11 should
+        be shown, as it connects the earlier formulation and the new more
+        abstract formulation in equation 10. We therefore rephrased the
+        paragraph to read:\\
+        {\color{blue}{
+        \begin{equation}
+         \Gamma_{\beta}(E_{\rm res}) = 2\pi \left|
+                                   \braket{\Phi_{\rm in}| \hat{V} |\chi_{\beta}}
+                                   \right|^2,
+        \end{equation}
+%
+where $\ket{\Phi_{\rm in}}$ and $\ket{\chi_{\beta}}$ are the initial and final
+state, respectively and $\hat{V}$ is the interaction operator between these
+two, can be approximated by its asymptotic behaviour.
+For the ICD the approximation reads:}}
+%
+\begin{equation}
+ \Gamma_{{\rm ICD},i,\beta} = (2J_{\rm in}+1)\, \frac{3c^4}{8\pi}\,
+                        \sum\limits_{M_{in}'}
+                        \left| \left(
+                        \begin{array}{ccc}
+                        J_A'  & 1        & J_A\\
+                        -M_A' & M_A'-M_A & M_A
+                        \end{array}\right) \right|^2
+                        \frac{\sigma^{(X_E)}(\omega_{vp,\beta})}
+                        {R_i^6 \, \omega_{vp,\beta}^4 \tau_{in,\beta}},
+\end{equation}                                                 
+%
+where $J_A$, $J_A'$ and $M_A$, $M_A'$ denote the total angular momentum of the
+initially ionized atom (which is the same as the electron donor atom) in the 
+initial and final state, respectively,
+{\color{blue}{which otherwise depends on
+intrinsic atomic properties
+which can be determined experimentally, like the ionization
+cross sections
+$\sigma^{(X_E)}(\omega_{vp,\beta})$, radiative lifetimes of the initially
+ionized state $\tau_{in,\beta}$ and the excess energy transferred to the
+emitting atom (the energy of the virtual photon) $\omega_{vp,\beta}$.
+
+For the ETMD(3) the approximation reads}}
+%
+\begin{align}                                                  
+ \Gamma_{{\rm ETMD},j,\beta} =& \frac{c}{\pi} \sum\limits_{m,M_{in,D'}}      
+                        \frac{\Theta_{m,k}(\alpha_j) \sigma^{(X_E)}(\omega_{vp,\beta})
+                              \left| <\tilde{D}_{m,j,\beta}(M_{in,D'})>\right|^2}
+                         {R_j^6 \omega_{vp,\beta}}\\           
+               =& \frac{c}{\pi R_j^6}                          
+               \sum\limits_{M_{in,D'}}                         
+               \left( \left| <\tilde{D}_{x,j,\beta} (M_{in,D'}) > \right|^2  
+                 (2+ \sin^2\alpha_j)                           
+               + \left| <\tilde{D}_{z,j,\beta} (M_{in,D'}) > \right|^2       
+                 (1+\cos^2\alpha_j) \right) \nonumber \\       
+           & \times\, \frac{c\sigma^{(X_E)}(\omega_{vp,\beta})}{\omega_{vp,\beta}}
+\end{align}                                                    
+%                                                              
+{\color{blue}{
+where $\tilde{D}_{m,j,\beta}$ are calculated transition dipole moments and}}
+$\Theta_{m}(\alpha_j)$ is a function depending on the angle $\alpha_j$       
+of the triple and the direction of the dipole                  
+transition moment $m$ ...
 
   \item \emph{Page 12:
-        ionization cross-sections, radiative lifetimes,... are not EXPERIMENTAL properties of atoms, they are intrinsic properties of atoms that can be experimentally measured.}
+        ionization cross-sections, radiative lifetimes,... are not EXPERIMENTAL properties of atoms, they are intrinsic properties of atoms that can be experimentally measured.}\\
+        Agreed. The sentence now reads:\\
+        ... on {\color{blue}{intrinsic atomic properties
+        which can be determined experimentally}}, like the ionization
+        cross sections
+        $\sigma^{(X_E)}(\omega_{vp,\beta})$, radiative lifetimes of the initially
+        ionized state $\tau_{in,\beta}$ ...
  
   \item \emph{As far as I understand Figs 4-8 report Widths with respect to Electron energy and are thus not strictly speaking electron emission spectra. The authors should really compute the spectra. Furthermore, the lines which I guess are some convolution of the bars are not defined. And more importantly, how these “spectra” were normalized is not clear: in the cluster with 55 Ar atoms the central and inner layer of atoms can undergo ICD. A more intense band compared to 13 atoms is therefore expected. More explanations are needed.}
 
   \item \emph{Page 18:
-        it is stated that the decay width decreases like R-6 but in page 20 it decreases exponentially.
-}
+        it is stated that the decay width decreases like R-6 but in page 20 it decreases exponentially.}\\
+        The reason is that it discusses different interatomic distances being
+        the energy transfer distance $R$ ($R^{-6}$) and the electron
+        transfer distance $Q$ ($e^{-Q}$) which can both be found in previous and
+        coming papers about ETMD(3) (J. Chem. Phys. \textbf{138}, 014305 (2013).
+        and Fasshauer \emph{et al.} Mol. Phys. (2016), submitted.):
+\begin{center}
+ \includegraphics[width=6cm]{../pics/coord_systems.pdf}
+\end{center}
+        Both on page 18 and 20, these distances are very clearly characterized
+        in terms involved atom types or groups and which process is ongoing.
+        To further clarify the matter, the sentences on page 18 now read:\\
+        Two aspects have to be taken into account: an energy shift of the peaks
+        due to different charge distances {\color{blue}{$d$}} in the
+        final state (i.e. the interatomic Xe-Xe
+        distance) and the decrease of the decay width with $R^{-6}$,
+        $R$ being the distance between the electron transfer unit and the xenon
+        atom ionized in the final state.
+        The larger the distance between the xenon atoms, the higher are the
+        energies of the secondary electrons{\color{blue}{. For the case of xenon
+        atoms on argon surfaces this at the same time means a larger distance
+        between the Ar-Xe pair involved in the electron transfer and the
+        electron emitting xenon atom. Hence, the decay widths are smaller.}}
+        Therefore, a
+        significant contribution from ETMD(3) compared to ICD is only
+        seen if the two xenon atoms reside on two adjacent
+        surfaces. 
 
   \item \emph{Page 29:
         the efficiency of ICD is found below unity for clusters having few Xe atoms. I guess this is because in these clusters ICD and ETMD are closed for some Argon atoms which are anyway ionized. Maybe a statistical model may explain it. The theory could also help since it should be easy to determine the efficiency for all clusters considered in this study.}
@@ -108,12 +201,36 @@ which is inversely proportional to the lifetime $\tau$ of the decay process.
 
  \item \emph{Page 13:
        The authors should justify the use of the ‘unified force field’ method for the calculation f the cluster structure (p13).}
+       We added a sentence to justify our choice:\\
+       After that, the cluster structures were optimized using the unified
+       force field implemented in the Avogadro programme
+       (version 1.1.0)$^{51,52}$ to give local minimum structures.
+       {\color{blue}{ The method
+       was chosen due to its low computational cost, the possibility to find
+       the next local minimum structure based on the chosen starting point
+       and the necessary effort to produce reliable results with density
+       functional theory (DFT) for v. d. Waals interactions since we in
+       this work discuss structural trends and not absolute structures.}}
 
  \item \emph{Page 12:
-       On page 12 last line there is to Tables II and III. I have not been able to locate these. The reference should be clarified.}
+       On page 12 last line there is to Tables II and III. I have not been able to locate these. The reference should be clarified.}\\
+       The sentence has been changed to:\\
+       In this work we evaluate the secondary energies and decay widths with
+       the programme HARDRoC$^{20,49}$ using the experimental ionization energies
+       of Table 3 and data from the literature given in Tables II and III
+       {\color{blue}{of Ref. 34.}}\\
+       The following sentence was removed.
 
  \item \emph{Page 20,21:
-       it is not clear what structure of the larger clusters with 3871 atoms is used in the simulation. The authors mention icosahedral and cuboctahedral but no further details are given, e.g. Ar-Xe distance, Ar-Ar distance, etc.}
+       it is not clear what structure of the larger clusters with 3871 atoms is used in the simulation. The authors mention icosahedral and cuboctahedral but no further details are given, e.g. Ar-Xe distance, Ar-Ar distance, etc.}\\
+       The details were added to the Cluster Structures section. The last
+       sentences now read:\\
+       Furthermore, for comparison with the largest measured ArXe clusters,
+       we constructed also larger core-shell structures (Table 2, \#4 – 5).
+       {\color{blue}{These were idealized icosahedral and cuboctahedral
+       structures based on the v. d. Waals radii of argon and xenon
+       $r_{Ar} =$\unit[1.88]{\AA}$^{54}$
+       and $r_{Xe} =$\unit[2.16]{\AA}$^{55}$.}}
 
  \item \emph{In fig. 9(a) it is specified in the text that  Ar <N> =190 for the black trace but as far as I can tell no value is given for the other spectrum on the same graph.}
 

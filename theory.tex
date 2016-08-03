@@ -3,7 +3,8 @@
 Experimental coincidence spectra are given by the multitude of
 kinetic energies $E_{\rm sec}$ of the secondary electron
 and the intensities of the peaks. The latter is proportional to the
-probability of the decay as well as the theoretically determinable
+probability of the decay $P=\frac{\Gamma t}{\hbar}$
+as well as the theoretically determinable
 decay width $\Gamma=\frac{\hbar}{\tau}$,
 which is inversely proportional to the lifetime $\tau$ of the decay process.
 The manifold of the
@@ -17,13 +18,6 @@ each decay mechanism.
 At the current stage of development we need to neglect the nuclear dynamics which
 additionally might play an important role.
 
-%We are interested in describing the electron emission spectra of excited states in clusters, that where measured by the electron-electron coincidence method in our experiments. 
-%In our theoretical description, these will be composed of multiple transitions, each characterized by a kinetic energy $E_{\rm sec}$ of the secondary electrons, and the intensity of the peak.
-%The latter is proportional to the probability of the decay, represented here by the decay width $\Gamma_\beta = \hbar/\tau_\beta$, where $\tau_\beta$ is the lifetime due to the respective transition.
-%The total decay width $\Gamma$ is the sum of all partial $\Gamma_\beta$.
-%In case of noble gas clusters with a given geometrical structure, three aspects have to be taken into account:
-%different decay mechanisms, the contribution of different cluster sites to the respective decay, and the existence of different decay channels within each decay mechanism.
-%At the current stage of development we have to neglect the nuclear dynamics, which
 
 This means, for the evaluation of the decay width we are dealing with a sum over three different indices: 
 For a given structure it is most convenient to
@@ -37,11 +31,6 @@ coordinates.
 Each pair and each triple leads to a decay spectrum that can be described by the energy of the secondary electron and the decay width, which is in first order of approximation independent of other atoms present in the cluster.
 In the following, this approach will be called model of pairs and triples.
 
-
-%Decomposing every system into pairs and triples of atoms is a very useful
-%first order approximation to both the investigation of energies and
-%decay widths of a larger system. Pairs and triples are combinations of
-%two and three atoms, respectively.
 
 In order to determine, whether a channel $\beta$ for a given geometry and decay
 mechanism is open, i.e., whether it is in accordance with energy conservation,
@@ -118,8 +107,10 @@ ICD and ETMD(3), because the ETMD(2) pathway is energetically not accessible:
  \Gamma = \Gamma_{\rm ICD} + \Gamma_{\rm ETMD} .
 \end{equation}
 
-These are given by the sum over the decay widths of all pairs $i$ for the
-ICD and all triples $j$ for the ETMD(3), respectively, and over all channels $\beta$:
+These are given by the sum over the decay widths of all 
+geometrically different pairs $i$ for the
+ICD and all geometrically different triples $j$ for the ETMD(3),
+respectively, and over all channels $\beta$:
 %
 \begin{align}
  \Gamma_{\rm ICD}  &= \sum\limits_{i,\beta} N_{{\rm ICD},i}  \, \Gamma_{{\rm ICD},i,\beta},\\
@@ -144,11 +135,14 @@ and Fano,\cite{Fano61}
 %
 \begin{equation}
  \Gamma_{\beta}(E_{\rm res}) = 2\pi \left|
-                           \braket{\Phi_{\rm in}| H_f |\chi_{\beta}}
+                           \braket{\Phi_{\rm in}| \hat{V} |\chi_{\beta}}
                            \right|^2,
 \end{equation}
 %
-can be approximated by its asymptotic behaviour
+where $\ket{\Phi_{\rm in}}$ and $\ket{\chi_{\beta}}$ are the initial and final
+state, respectively and $\hat{V}$ is the interaction operator between these
+two, can be approximated by its asymptotic behaviour.
+For the ICD the approximation reads:
 %
 \begin{equation}
  \Gamma_{{\rm ICD},i,\beta} = (2J_{\rm in}+1)\, \frac{3c^4}{8\pi}\,
@@ -164,8 +158,15 @@ can be approximated by its asymptotic behaviour
 %
 where $J_A$, $J_A'$ and $M_A$, $M_A'$ denote the total angular momentum of the
 initially ionized atom (which is the same as the electron donor atom) in the
-initial and final state, respectively,
-and
+initial and final state, respectively, which otherwise depends on
+intrinsic atomic properties
+which can be determined experimentally, like the ionization
+cross sections
+$\sigma^{(X_E)}(\omega_{vp,\beta})$, radiative lifetimes of the initially
+ionized state $\tau_{in,\beta}$ and the excess energy transferred to the
+emitting atom (the energy of the virtual photon) $\omega_{vp,\beta}$.
+
+For the ETMD(3) the approximation reads
 %
 \begin{align}
  \Gamma_{{\rm ETMD},j,\beta} =& \frac{c}{\pi} \sum\limits_{m,M_{in,D'}}
@@ -181,14 +182,8 @@ and
            & \times\, \frac{c\sigma^{(X_E)}(\omega_{vp,\beta})}{\omega_{vp,\beta}}
 \end{align}
 %
-depending on 
-experimental properties
-of atoms, like the ionization cross sections
-$\sigma^{(X_E)}(\omega_{vp,\beta})$, radiative lifetimes of the initially
-ionized state $\tau_{in,\beta}$ and the excess energy transferred to the
-emitting atom (the energy of the virtual photon) $\omega_{vp,\beta}$
-and calculated dipole transition moments $\tilde{D}_{m,j,\beta}$, only.
-Here, $\Theta_{m}(\alpha_j)$ is a function depending on the angle $\alpha_j$
+where $\tilde{D}_{m,j,\beta}$ are calculated transition dipole moments and
+$\Theta_{m}(\alpha_j)$ is a function depending on the angle $\alpha_j$
 of the triple and the direction of the dipole
 transition moment $m$
 (compare ref \citenum{Fasshauer13}).
@@ -196,5 +191,5 @@ transition moment $m$
 In this work we evaluate the secondary energies and decay widths with
 the programme HARDRoC\cite{HARDRoC,fasshauer2014} using the
 experimental ionization energies of Table \ref{tab:valence}
-and data from the literature given in Tables II and III.
-This choice is identical to the one made in ref \citenum{Fasshauer13}.
+and data from the literature given in Tables II and III of
+Ref. \citenum{Fasshauer13}.
