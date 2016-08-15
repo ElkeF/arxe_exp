@@ -1,0 +1,2121 @@
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is a (brief) model paper using the achemso class
+%% The document class accepts keyval options, which should include
+%% the target journal and optionally the manuscript type.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[journal=jpccck,manuscript=article,layout=twocolumn]{achemso}
+\documentclass[journal=jpccck,manuscript=article]{achemso}
+
+% UHe stuff
+\def\EB{E_{\rm b}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place any additional packages needed here.  Only include packages
+%% which are essential, to avoid problems later. Do NOT use any
+%% packages which require e-TeX (for example etoolbox): the e-TeX
+%% extensions are not currently available on the ACS conversion
+%% servers.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{braket}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{tikz,pgfplots}
+\usepackage{float} %force figure position
+
+\usetikzlibrary{patterns,shadows,trees,calc}
+\usepgfplotslibrary{units}
+
+\pgfplotsset{compat=1.8}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% If issues arise when submitting your manuscript, you may want to
+%% un-comment the next line.  This provides information on the
+%% version of every file you have used.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\listfiles
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place any additional macros here. Please use \newcommand* where
+%% possible, and avoid layout-changing macros (which are not used
+%% when typesetting).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand*\mycommand[1]{\texttt{\emph{#1}}}
+% Define some colours
+\definecolor{diplom1}{rgb}{0.0 0.4 1.0}
+\definecolor{diplom2}{rgb}{0.0 0.0 0.6}
+\definecolor{diplom3}{RGB}{153,0,0} %unirot
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Meta-data block
+%% ---------------
+%% Each author should be given as a separate \author command.
+%%
+%% Corresponding authors should have an e-mail given after the author
+%% name as an \email command. Phone and fax numbers can be given
+%% using \phone and \fax, respectively; this information is optional.
+%%
+%% The affiliation of authors is given after the authors; each
+%% \affiliation command applies to all preceding authors not already
+%% assigned an affiliation.
+%%
+%% The affiliation takes an option argument for the short name.  This
+%% will typically be something like "University of Somewhere".
+%%
+%% The \altaffiliation macro should be used for new address, etc.
+%% On the other hand, \alsoaffiliation is used on a per author basis
+%% when authors are associated with multiple institutions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{Marko F\"orstel}
+\altaffiliation{Now at: Institut für Optik und Atomare Physik, Technische Universit\"at Berlin, Hardenbergstr. 36, 10623 Berlin, Germany}
+\author{Melanie Mucke}
+\altaffiliation{Now at: Department of Physics and Astronomy, Uppsala University, Box 516, 75120 Uppsala, Sweden}
+\author{Tiberiu Arion}
+\altaffiliation{Now at: Center for Free-Electron Laser Science/DESY, Notkestr. 85, D-22607 Hamburg, Germany}
+\author{Toralf Lischke}
+\affiliation[IPP]{Max-Planck-Institute for Plasma Physics, Boltzmannstr. 2, D-85748 Garching, Germany}
+\author{Markus Pernpointner}
+\affiliation[University of Heidelberg]{Theoretical Chemistry, University of Heidelberg,
+              Im Neuenheimer Feld 229, D-69120 Heidelberg, Germany}
+\author{Uwe Hergenhahn}
+\affiliation[IOM]{Leibniz Institute of Surface Modification, Permoserstr. 15, D-04318 Leipzig, Germany}
+\alsoaffiliation[IPP HGW]{Max-Planck-Institute for Plasma Physics, Wendelsteinstr. 1, D-14791 Greifswald, Germany}
+\email{uwe.hergenhahn@iom-leipzig.de}
+\phone{+49 (0)341 235 3286}
+\author{Elke Fasshauer}
+\affiliation[UiT]{Centre for Theoretical and Computational Chemistry,
+Department of Chemistry, University of Troms\o
+-- The Arctic University of Norway, N-9037 Troms\o, Norway}
+\email{elke.fasshauer@uit.no}
+\phone{+47 776 23103}
+%\fax{+123 (0)123 4445557}
+%\alsoaffiliation[Second University]
+%{Department of Chemistry, Second University, Nearby Town}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The document title should be given as usual. Some journals require
+%% a running title from the author: this should be supplied as an
+%% optional argument to \title.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Long-Range Interatomic Coulombic Decay in ArXe Clusters: Experiment and Theory}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Some journals require a list of abbreviations or keywords to be
+%% supplied. These should be set up here, and will be printed after
+%% the title and author information, if needed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\abbreviations{IR,NMR,UV}
+%\keywords{American Chemical Society, \LaTeX}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The manuscript does not need to include \maketitle, which is
+%% executed automatically.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The "tocentry" environment can be used to create an entry for the
+%% graphical table of contents. It is given here as some journals
+%% require that it is printed as part of the abstract page. It will
+%% be automatically moved as appropriate.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tocentry}
+
+\begin{center}
+ \includegraphics[height=3.5cm]{front1.pdf}
+\end{center}
+
+%Some journals require a graphical entry for the Table of Contents.
+%This should be laid out ``print ready'' so that the sizing of the
+%text is correct.
+%
+%Inside the \texttt{tocentry} environment, the font used is Helvetica
+%8\,pt, as required by \emph{Journal of the American Chemical
+%Society}.
+%
+%The surrounding frame is 9\,cm by 3.5\,cm, which is the maximum
+%permitted for  \emph{Journal of the American Chemical Society}
+%graphical table of content entries. The box will not resize if the
+%content is too big: instead it will overflow the edge of the box.
+%
+%This box and the associated title will always be printed on a
+%separate page at the end of the document.
+
+\end{tocentry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The abstract environment will automatically gobble the contents
+%% if an abstract is not used by the target journal.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+We report about autoionization channels of Ar inner valence ionized states in mixed ArXe clusters and compare
+our experimental data obtained by electron-electron coincidence spectroscopy
+to our theoretical simulations for representative cluster structures.
+The combined experimental and theoretical data show that the autoionization of Ar 3s$^{-1}$ in ArXe is dominated by Interatomic Coulombic Decay (ICD) to Xe atoms in the second and higher coordination shells of the originally excited atom.
+Clusters with a range of sizes, compositions and structures were probed. 
+The Xe content in the clusters was varied between 10\,\% and 53\,\%. 
+Besides ICD, also Electron Transfer Mediated Decay (ETMD(3)) was found important in many of the calculated spectra, but is seen with less intensity in the experimental spectra. 
+From the calculations, we identify structural motifs which minimize the ETMD vs. the ICD rate and suggest that these are preferentially realized in our experiment, in which clusters are formed by supersonic expansion of an Ar-Xe mixture.
+Suggested cluster structures either feature a clear segregation between Ar and Xe fractions, e.g. Xe core, Ar shell systems, or contain a few Xe atoms singled out in surface sites on an Ar cluster.
+These structures differ significantly from the majority of calculated minimum energy structures for ArXe systems of 38 atoms, which might show that the latter, annealed structures are not realized in our experiment.
+We show experimentally that the relaxation of Ar inner valence states by ICD and ETMD together has an efficiency of unity, within the experimental accuracy, for all clusters except those with the lowest Xe content.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Start the main part of the manuscript here.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%
+Electron spectroscopy can make important contributions to the 
+research on composition and structure of free nanoparticles.\cite{
+jpcc} Besides photoionization, free electrons emerging from 
+nanoparticles can also be produced by the relaxation of 
+electronically excited states. One such process, which is of 
+particular relevance in weakly bonded systems, is the 
+Interatomic or Intermolecular Coulombic Decay (ICD).\cite{
+cederbaum} In ICD, an electronic excitation decays by energy 
+transfer to one of its neighboring atoms or molecules, thus 
+releasing a free electron from the latter site. ICD is an 
+important relaxation channel e.g. for inner-valence holes in 
+atoms, and also for core level vacancies e.g. in \ce{H2O}
+, where it competes with Auger decay.\cite{slavicek}
+
+By definition, ICD is particularly sensitive to the chemical 
+environment of the atom or molecule in which the primary 
+excitation has taken place. We suggest that this property of ICD 
+decay spectra can be used to derive information on a nanoparticle 
+or a solvation system. 
+The term excitation is used here in a broader sense---in the
+systems we consider in this work, ICD occurs from an excited, singly 
+charged Ar state created by photoionization.
+In other systems, ICD was also observed from neutral excited
+states and states with more than one vacancy.
+
+We report here about studies 
+in which we produced heterogeneous clusters of the noble gases Ar 
+and Xe with different sizes, and compositions ranging from a few 
+Xe dopant atoms in an Ar matrix to clusters containing an equal 
+amount of both species. By the use of electron-electron 
+coincidence spectroscopy and of theoretical simulations on 
+prototypical systems we show how the radiationless decay spectrum 
+of Ar inner valence (3s) ionized states connects to the structure 
+of the clusters.
+
+Intermolecular Coulombic Decay initially was predicted from 
+theoretical considerations of the energy levels in singly vs.\  
+doubly ionized, and doubly vs.\ triply ionized, hydrogen bonded 
+clusters.\cite{cederbaum} First experimental work some years 
+later used Ne clusters,\cite{marburger,jahnkenedimer} but quickly 
+was followed by demonstrations of ICD in a diverse range of other 
+systems. Experimental and theoretical progress has been reviewed.
+\cite{hergenhahn_review, averbukh_review, jahnke_review}
+
+Soon after, related 
+autoionization processes were discovered
+in which the initial vacancy is filled by an electron from a neighbouring unit.
+These were termed `Electron Transfer Mediated Decay' 
+ (ETMD),\cite{zobeley,mueller,sakai,foerstel}.
+If the excess energy is transferred to a third unit which is subsequently
+ionized, the process is called ETMD(3), if the electron donor is ionized once
+more the process is called ETMD(2) and if the excess energy is used to
+ionize the initially ionized unit the process is called
+`exchange ICD'. \cite{santrarev,jahnkesat}
+
+We find that both energy and charge transfer induced 
+autoionization play a role in Ar-Xe, and will detail the 
+relevant processes below.
+
+Rare gas clusters are suitable prototype systems for studies of
+ICD, as they can readily be produced by supersonic 
+expansion through a cooled nozzle. 
+The size of the clusters can be changed by varying the expansion parameters.
+The formation of heterogeneous rare gas clusters by coexpansion of a gas mixture cannot {\it a priori} be taken for granted, but was experimentally shown for most combinations of two rare gases, when suitable mixing ratios and expansion parameters are used (see references throughout this article).
+
+First experiments on ICD in heterogeneous systems used Ne-Ar 
+clusters.\cite{barthnear} Those were followed by studies of 
+ICD-like inner-shell decays in aqueous solution.\cite{aziz,pokapanich,pokapanich2011}
+Pioneering work also showed the 
+potential for studies of the interface between a substrate and an 
+adsorbate by ICD.\cite{grieves} More detailed work on Ne-Ar 
+clusters was recently presented by some of the authors \cite{fasshauer2014}
+showing that an analysis of the ICD spectra
+allowed to decide between structural alternatives, for which the
+photoelectron data were indiscriminate.
+For this system, a detailed account of the
+photoelectron spectra with respect to structural features of the 
+mixed clusters is also available.\cite{lundwall}
+
+Several experimental techniques have been used for the study of mixed Ar-Xe clusters, most notably fluorescence spectroscopy, electron diffraction and photoelectron spectroscopy. 
+Early work focussed on the fluorescence of a single Xe atom 
+embedded in an Ar cluster.\cite{lengenprl}
+%Different sites of the dopant atom (on top of a surface, 
+%integrated in an Ar surface, inside the cluster) were 
+%distinguished by three separate bands in the fluorescence yield 
+%recorded as a function of excitation wavelength.\cite{goldberg} 
+Increasing the Xe concentration in the expansion lead to the formation of \ce{Xe2} and larger Xe complexes inside the clusters.\cite{lengen} 
+With increasing Xe content, the formation of Xe-core, Ar-shell systems with a sharp interface between the two species was shown in photoionization experiments.\cite{tchaplyguine,hoener}
+This finding was confirmed by electron diffraction.\cite{Danylchenko,Danylchenko07} 
+Always, the observed Xe content in the clusters is higher than the Xe content in the expanding gas mixture, as Xe can be condensed much easier than Ar.\cite{hoener,Danylchenko07}
+%A complementary study used photoelectron-photoion coincidence of
+%large Ar-Xe clusters, and found that after inner shell (Xe 4d, Ar 2p)
+%photoionization significant charge transfer between both species
+%occurs before the mass spectroscopic final state is reached.\cite{berrah}
+%
+More recently, photoelectron spectra of 
+small Ar-Xe clusters were analyzed, adding to the findings in 
+earlier work.\cite{lindblad} We will discuss this paper in 
+connection with our results below. 
+For completeness, we mention that Ar-Xe complexes can also be produced by passing clusters from a neat Ar expansion through a zone filled with Xe gas (`pick-up').\cite{pietrowski}
+Clusters produced such can structurally be quite different from those produced by coexpansion.\cite{lindbladpccp}
+
+A number of theoretical works on Ar-Xe clusters aimed at the prediction of minimum energy structures. 
+Most recently, these converged to structures which have the Xe atoms mainly in the interior.\cite{marques} 
+Xe was also found to diffuse into the interior of Ar clusters in molecular dynamics simulations after pick-up.\cite{Vach_1999} 
+The electronic energy levels of very small Ar-Xe clusters were calculated in ref \citenum{fasshauer} and the secondary electron spectra were simulated for
+model structures of one argon atom placed on a xenon surface \cite{Fasshauer13}.
+Interestingly, it was found that Ar 3s$^{-1}$ is stable 
+against autoionization in an ArXe dimer, but is destabilized by 
+adding further Xe atoms, or an Ar solvation shell, to the system, thereby allowing
+for combinations of argon and xenon atoms with larger interatomic distances. 
+Again, we will detail these results in conjunction with our 
+current work.
+
+The plan of our paper is as follows: We firstly delineate our experimental and theoretical methods. 
+Calculations were done for a number of model structures which were systematically varied, and are described in the following section.
+After that, we describe and discuss our theoretical results for the autoionization spectra of the model clusters.
+Experimental results are then shown and possible conclusions from comparing them to the calculations are given.
+Details on the experimental technique, and calculated spectra for a wider range of structures are given as Supporting Information.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Experimental}
+%
+\begin{table*}
+\caption{
+The expansion parameters used for cluster production. 
+Here, Xe$_{\rm in}$ is the molar fraction of Xe in the gas mixture before the expansion, $T$ is the nozzle temperature, and $p$ the stagnation pressure. 
+Experiments were performed with $d = 80~\mu$m (first two sections) and $d = 100~\mu$m (bottom section) conical nozzles of 15$^\circ$ half opening angle. 
+We basically have an Ar seeded expansion of Xe gas, as the freezing point of Ar is much lower. 
+$\langle N_{\rm Ar} \rangle$ and $\langle N_{\rm Xe} \rangle$ refer to cluster sizes for a pure Ar, or pure Xe expansion, respectively, at the given conditions, calculated from a scaling law.\protect\cite{Hagena1992}
+We expect actual cluster sizes in-between these two limiting values. 
+Inaccuracies in the calculation of $\langle N\rangle$ due to fluctuations of the input parameters are less than 6\,\%. This figure does not include systematic errors of the empirical model.
+}
+\label{tab:cluster}
+
+\begin{tabular}{l c c c c r r}
+%
+\toprule
+  \multicolumn{2}{r}{size label}  &  Xe$_{\rm in}$ (\%)  &  $T$ (K)  &  $p$ (bar) & $\langle N_{\rm Ar} \rangle$ & $\langle N_{\rm Xe} \rangle$ \\
+%
+\midrule
+% Ar, from Marko 
+Ar & (1) & --- &  96.5  & 0.35  & 44  &  --- \\
+% Ar, from Marko 
+Ar & (2) & --- &  96.5  & 0.67  & 200  &  --- \\
+\midrule
+% 1103 676, 679
+ArXe & `S' & 1.2 &  174   & 0.32  & 4  &   74 \\
+% 1103 670
+ArXe & `M' & 1.2 &  174   & 0.49  & 11  &  199 \\
+% 1103 671
+ArXe & `L' & 1.2 &  174   & 0.68  & 23  &  431 \\
+\midrule
+% 1103 663
+ArXe & `S' & 3.0 &  172   & 0.28  & 3  &   57 \\
+% 1103 653
+ArXe & `M' & 3.0 &  172   & 0.51  & 12  &  233 \\
+% 1103 658
+ArXe & `L' & 3.0 &  172   & 0.68  & 24  &  458 \\
+\midrule
+% 1103 630
+ArXe & `S'  & 5.0 &  167  & 0.37  & 7  &  129 \\
+% 1103 640
+ArXe & `M' & 5.0 &  171   & 0.51  & 13  &  240 \\
+% 1103 629
+ArXe & `L'  & 5.0 &  167  & 0.68  & 28  &  537 \\
+\midrule
+% 1004 867 (32 eV)
+ArXe & `XL' & 2.5 &  154  & 2.12  & 995 & 18800\\
+\midrule
+% 0506 382, Keller offset ber?cksichtigt
+Xe &  & 100 & 183.5  & 0.68  & ---  &  615 \\     
+% 1004 868
+%868 & & 2.5 &  158   & 1.50  &  355 &  6090\\
+% 1004 886 (17 eV)
+%886 &  & 2.5 &  161   & 2.41  &  980 & 16770\\
+% 1004 858
+%858 &  & 5.0 &  149   & 2.50  & 1620 & 27700\\
+%
+\bottomrule
+\end{tabular}
+\end{table*}
+%
+%
+The apparatus used for the experiments consists of a supersonic molecular jet with a cooled nozzle, and a magnetic bottle spectrometer, which detects photoelectrons and secondary electrons produced after ionization with synchrotron radiation.\cite{arion} 
+% Leave this citation in place to avoid Latex error
+A comprehensive description can be found in ref \citenum{arion}, and here we focus on details specific for the current experiment. 
+Commercialy obtained Ar and Xe gas was filled into 
+separate cylinders up to pressures suitable for producing a certain mixing ratio. The gases were then allowed to mix before the expansion. 
+Expansion parameters are given in Table \ref{tab:cluster}. 
+Similar expansion conditions are further referred by the labels `S'-`XL', as given in the Table.
+
+Prediction of the sizes of clusters from a supersonic expansion mainly rests on empirical scaling laws,\cite{Hagena1992} which have been the subject of some discussion.
+Moreover, such scaling laws originally were derived only for pure gas expansions.
+A recent investigation of cluster sizes in a mixed Ar-Kr expansion yielded a revised scaling law, which essentially amounts to the use of a weighted average over the atom-specific parameters of the two gases.\cite{danylchenko2015} 
+Although the analogy to our case is not complete, as phase segregation occurs in Ar-Kr to a much lesser extent,\cite{Vach_1999,lundwall_arkr} we expect scaling law cluster sizes between the values calculated for Ar and Xe.
+Recent analyses of photoionization spectra suggest that mean sizes arrived at by scaling laws are smaller than the actual size, at least for rare gas clusters in the range $\langle N\rangle < 1000$.\cite{bergersen,hergenhahnprb,foerstel_arg2_2011}
+For the expansion conditions labelled `S'-`L', we therefore expect that the scaling law estimates are a lower boundary for the actual cluster size.
+
+The expansion chamber for the supersonic jet is separated from the interaction chamber by a non-magnetic, conical skimmer with an opening of 1~mm in diameter (Beam Dynamics). 
+At few cm distance behind the skimmer, the cluster jet was crossed by synchrotron radiation from the BESSY electron storage ring at Helmholtz-Zentrum Berlin. 
+Electrons were detected by a short `magnetic bottle' time-of-flight spectrometer, that has been described earlier.\cite{mucke_review}
+Due to its large collection angle, this instrument is particularly suited for experiments that employ electron-electron coincidence detection.
+Data were recorded in two different beamtimes at the UE112-PGM-1 (small and medium sized clusters, first two sections in Table \ref{tab:cluster}) and at the TGM-4 beamline (large clusters, last section in Table \ref{tab:cluster}). 
+Linearly, horizontally polarized radiation was used. 
+The storage ring was operated in single bunch conditions.
+Spectra of pure Ar clusters shown for comparison are from ref \citenum{foerstel_arg2_2011}, and a spectrum of pure Xe clusters was recorded with the set-up described in ref \citenum{hergenhahnprb}.
+
+The entrance aperture and drift tube of the magnetical bottle spectrometer can be independently biased to influence the electron flight times. 
+For the data shown here, slightly positive bias voltages were used (+1.8 V to +2.2 V) in order to have all electrons arriving at the detector within one BESSY single bunch period (800 ns). 
+The detection efficiency was determined as 0.6, with the method outlined in ref \citenum{mucke_review}.
+Data were converted from flight times to kinetic energy by measuring calibration data for atomic photolines of known binding energy.
+The systematical uncertainty of this procedure may lead to a common shift of all experimental kinetic energy data shown in this article of up to 30~meV.
+
+The high detection efficiency of the instrument is a pre-requisite for measuring two-electron emission processes, such as photoelectron emission followed by ICD or ETMD, by using electron-electron coincidence detection. 
+This allows to filter the full electron spectrum for contributions arising after emission of an Ar 3s photoelectron.
+ICD/ETMD spectra presented here are based on this method, which has been explained earlier.\cite{mucke_review,Foerstel_phd}
+Technical details and full electron-electron coincidence spectra are given in the Supporting Information.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Theoretical Approach}
+%
+Experimental coincidence spectra are given by the multitude of
+kinetic energies $E_{\rm sec}$ of the secondary electron
+and the intensities of the peaks. The latter is proportional to the
+probability of the decay $P=\frac{\Gamma t}{\hbar}$
+as well as the theoretically determinable
+decay width $\Gamma=\frac{\hbar}{\tau}$,
+which is inversely proportional to the lifetime $\tau$ of the decay process.
+The manifold of the
+secondary energies and decay widths will therefore compose the electron-electron
+coincidence spectrum.
+In case of noble gas clusters
+with given geometrical structures three aspects have to be taken into account:
+different decay mechanisms, the possibility to decay with multiple
+interaction partners and different decay channels $\beta$ within
+each decay mechanism.
+At the current stage of development we need to neglect the nuclear dynamics which
+additionally might play an important role.
+
+
+This means, for the evaluation of the decay width we are dealing with a sum over three different indices: 
+For a given structure it is most convenient to
+start with a decomposition of the system into interaction partners of
+the different relevant decay mechanisms, i.e. pairs (combination of two atoms regardless
+of their internuclear distance) for the ICD and triples (combinations of three atoms)
+for the ETMD(3).
+These atoms do not necessarily need to form bonds between each other or
+even be close, but they are characterized according to fixed internal
+coordinates. 
+Each pair and each triple leads to a decay spectrum that can be described by the energy of the secondary electron and the decay width, which is in first order of approximation independent of other atoms present in the cluster.
+In the following, this approach will be called model of pairs and triples.
+
+
+In order to determine, whether a channel $\beta$ for a given geometry and decay
+mechanism is open, i.e., whether it is in accordance with energy conservation,
+knowledge of the energies of the initial and the final states, $E_{\rm in}$ and $E_{\rm fin}$, of
+the corresponding processes is necessary.
+If the channel
+is open, the excess energy is carried away by the emitted electron
+in form of its kinetic energy $E_{\rm sec}$. These energies in the model
+of pairs and triples can be approximated by
+
+\begin{align}
+ E_{\rm in}        &= SIP(X_{\rm in}) \label{equation:E_in}\\
+ E_{\rm fin}^\beta &= SIP(X_{D}^\beta) + SIP(X_{E}^\beta) + \frac 1d
+           \label{equation:E_fin}\\
+ E_{\rm sec}^\beta &= E_{\rm in}^\beta - E_{\rm fin}^\beta \label{equation:E_sec}
+\end{align}
+where $X_{\rm in}$ denotes the initially ionized atom and
+$X_{D}$ and $X_{E}$ describe the electron donating atom and electron
+emitting atom, respectively.
+$\beta$ denotes the decay channel characterized by the quantum numbers of the ionized atoms in the pairs and triples, $SIP(X^\beta)$ the single ionization potential of vacancy $\beta$ in atom $X$ and $d$ the interatomic distance between the atoms $X_{D}$ and $X_{E}$. 
+Atomic units are used.
+The initially ionized atom $X_{\rm in}$ can
+coincide with one or both of
+the final state atoms
+$X_{D}$ and $X_{E}$.
+The distribution of the vacancies over the different
+atoms determines the kind of electronic decay process at hand. Hence, in an
+Auger process all three atoms coincide, for an ICD process $X_{\rm in}$
+coincides with $X_{D}$, for an ETMD(2) process $X_D$ and $X_E$ coincide
+and for an ETMD(3) process
+all ionized states are located on different atoms.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=\columnwidth]{channel_open_ICD.pdf}
+ \caption{Illustration of channel opening: Initial (Ar3s$^{-1}$)
+          and final state (Ar3p$^{-1}$Xe5p$_{3/2}^{-1}$ and
+          Ar3p$^{-1}$Xe5p$_{1/2}^{-1}$) energies
+          for ICD in ArXe pairs as a function of 
+          internuclear distance, using eq. (\ref{equation:E_fin})
+          and the experimental ionization
+          potentials given
+          in Table \ref{tab:valence}. When the final state energy is lower
+          than the initial state energy the corresponding channel
+          is open. We call the distance at which the energies are equal
+          the `channel opening distance'. If the curves do not cross, the
+          corresponding channel is closed.}
+ \label{figure:channel_open_ICD}
+\end{figure}
+
+The electron emitted by autoionization has the kinetic energy $E_{\rm sec}$. 
+If the calculated value of $E_{\rm sec}$ is negative,
+the final state energy is higher than the initial state energy and the        
+process is energetically not accessible. Hence, the corresponding channel     
+is closed, as shown in Figure \ref{figure:channel_open_ICD} for the
+Ar3p$^{-1}$Xe5p$_{1/2}^{-1}$ final state. Related to
+the opening of each channel is an internuclear distance which we will call 
+\emph{channel opening distance} in the following.
+                                                               
+This {\latin ad hoc} approach allows to easily correct for energetic shifts of ionization potentials as observed in larger clusters by adding experimentally or theoretically determined energy shifts $\Delta E(X_{I}^{\beta})$ for a given vacancy $I={\rm in},D,E$ and channel $\beta$. This yields the working expression for the kinetic energy of the secondary electron:
+
+\begin{equation}
+ E_{\rm sec}^\beta = SIP(X_{\rm in}) + \Delta E (X_{\rm in})
+               - SIP(X_{D}^\beta) - \Delta E (X_{D}^\beta)
+               - SIP(X_{E}^\beta) - \Delta E (X_{E}^\beta)
+               - \frac 1d .
+\end{equation}
+
+The total decay width $\Gamma$ is given by the sum over the decay widths
+of all decay mechanisms. In case of the ArXe clusters we only consider
+ICD and ETMD(3), because the ETMD(2) pathway is energetically not accessible:
+
+\begin{equation}
+ \Gamma = \Gamma_{\rm ICD} + \Gamma_{\rm ETMD} .
+\end{equation}
+
+These are given by the sum over the decay widths of all 
+geometrically different pairs $i$ for the
+ICD and all geometrically different triples $j$ for the ETMD(3),
+respectively, and over all channels $\beta$:
+%
+\begin{align}
+ \Gamma_{\rm ICD}  &= \sum\limits_{i,\beta} N_{{\rm ICD},i}  \, \Gamma_{{\rm ICD},i,\beta},\\
+ \Gamma_{\rm ETMD} &= \sum\limits_{j,\beta} N_{{\rm ETMD},j} \, \Gamma_{{\rm ETMD},j,\beta}.
+\end{align}
+Here, $N_{{\rm ICD},i}$ and $N_{{\rm ETMD},j}$ denote the number of geometrically
+equal pairs and triples in a given cluster structure. The total number of pairs
+reads
+$N_{{\rm ICD}} = N_{\rm in} \cdot N_{D/E} = N_{\rm Ar} \cdot N_{\rm Xe}
+ = \sum\limits_i N_{{\rm ICD},i}$ and the number of triples is
+$N_{{\rm ETMD}} = N_{\rm in} \cdot N_{D/E} (N_{D/E} - 1) = N_{\rm Ar} \cdot N_{\rm Xe} (N_{\rm Xe} - 1)
+ = \sum\limits_j N_{{\rm ETMD},j}$.
+The numbers of geometrically equivalent pairs $N_{{\rm ICD},i}$ and triples $N_{{\rm ETMD},j}$
+strongly depend on the structure of the cluster. From these relationships
+it can be seen that a higher xenon content in the cluster statistically
+favours ETMD(3) over ICD.
+
+In previous work \cite{Fasshauer13,Fasshauer_thesis} we have shown that
+the decay width for a single pair or triple for a distinct channel $\beta$
+following Wentzel \cite{Wentzel27}, Feshbach\cite{Feshbach58,Feshbach62}
+and Fano,\cite{Fano61}
+%
+\begin{equation}
+ \Gamma_{\beta}(E_{\rm res}) = 2\pi \left|
+                           \braket{\Phi_{\rm in}| \hat{V} |\chi_{\beta}}
+                           \right|^2,
+\end{equation}
+%
+where $\ket{\Phi_{\rm in}}$ and $\ket{\chi_{\beta}}$ are the initial and final
+state, respectively and $\hat{V}$ is the interaction operator between these
+two, can be approximated by its asymptotic behaviour.
+For the ICD the approximation reads:
+%
+\begin{equation}
+ \Gamma_{{\rm ICD},i,\beta} = (2J_{\rm in}+1)\, \frac{3c^4}{8\pi}\,
+                        \sum\limits_{M_{in}'}
+                        \left| \left(
+                        \begin{array}{ccc}
+                        J_A'  & 1        & J_A\\
+                        -M_A' & M_A'-M_A & M_A
+                        \end{array}\right) \right|^2
+                        \frac{\sigma^{(X_E)}(\omega_{vp,\beta})}
+                        {R_i^6 \, \omega_{vp,\beta}^4 \tau_{in,\beta}},
+\end{equation}
+%
+where $J_A$, $J_A'$ and $M_A$, $M_A'$ denote the total angular momentum of the
+initially ionized atom (which is the same as the electron donor atom) in the
+initial and final state, respectively, which otherwise depends on
+intrinsic atomic properties
+which can be determined experimentally, like the ionization
+cross sections
+$\sigma^{(X_E)}(\omega_{vp,\beta})$, radiative lifetimes of the initially
+ionized state $\tau_{in,\beta}$ and the excess energy transferred to the
+emitting atom (the energy of the virtual photon) $\omega_{vp,\beta}$.
+
+For the ETMD(3) the approximation reads
+%
+\begin{align}
+ \Gamma_{{\rm ETMD},j,\beta} =& \frac{c}{\pi} \sum\limits_{m,M_{in,D'}}
+                        \frac{\Theta_{m,k}(\alpha_j) \sigma^{(X_E)}(\omega_{vp,\beta})
+                              \left| <\tilde{D}_{m,j,\beta}(M_{in,D'})>\right|^2}
+                         {R_j^6 \omega_{vp,\beta}}\\
+               =& \frac{c}{\pi R_j^6}
+               \sum\limits_{M_{in,D'}}
+               \left( \left| <\tilde{D}_{x,j,\beta} (M_{in,D'}) > \right|^2
+                 (2+ \sin^2\alpha_j)
+               + \left| <\tilde{D}_{z,j,\beta} (M_{in,D'}) > \right|^2
+                 (1+\cos^2\alpha_j) \right) \nonumber \\
+           & \times\, \frac{c\sigma^{(X_E)}(\omega_{vp,\beta})}{\omega_{vp,\beta}}
+\end{align}
+%
+where $\tilde{D}_{m,j,\beta}$ are calculated transition dipole moments and
+$\Theta_{m}(\alpha_j)$ is a function depending on the angle $\alpha_j$
+of the triple and the direction of the dipole
+transition moment $m$
+(compare ref \citenum{Fasshauer13}).
+
+The decay width for the total system is in the end normalized to the decay width
+per initially ionized atom since we are interested in the events after one
+ionization which could be located at any of the atoms of the corresponding atom
+type. We thereby yield an averaged decay width for the cluster structure.
+This step allows the comparison of the total average decay widths
+between cluster structures of different size and composition.
+
+In this work we evaluate the secondary energies and decay widths with
+the programme HARDRoC\cite{HARDRoC,fasshauer2014} using the
+experimental ionization energies of Table \ref{tab:valence}
+and data from the literature given in Tables II and III of
+Ref.\ \citenum{Fasshauer13}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Cluster Structures}
+
+From the experimental results we can obtain two hints for the cluster
+structure: the minimum size and the xenon content. In the following we will 
+use these to construct representative cluster structures, for which we will 
+simulate the ICD and ETMD spectra. At this point we put in a variety of
+structures, in order to learn about general structure-spectrum relations
+and therefore being able to
+exclude some of them by comparison of
+the ICD and ETMD spectra to the experimental ones.
+
+In our previous study\cite{Fasshauer13} the ArXe clusters were assumed
+to be large, having more than 1500 atoms. The model structures assumed
+an fcc structure and not an icosahedral structure, which is energetically
+favoured for small clusters.
+Most estimated cluster sizes given in Table \ref{tab:cluster} are much smaller.
+We use the estimated number of atoms for a pure Ar expansion as the lower limit for the actual cluster size and start our search for model structures from there.
+%
+%Additionally,
+%the expectation value for the number of xenon atoms relies on a pure
+%xenon gas. Since the xenon content in the mixed gas is much lower, also
+%the number of xenon atoms can be expected to be by far less. We therefore
+%start from the estimated number of atoms in the cluster after expansion
+%of pure argon gas.
+%We therefore rethink the possible cluster structures.
+%Furthermore, the theoretical prediction did not match the experimental results.
+%Since the spectra are strongly depending on the cluster structure as shown in
+%\cite{fasshauer2014}, the underlying structure seems not to fit and hence
+%we rethink the possible cluster structures.
+%
+For the smaller clusters measured,
+these expectation values range from \unit[3--21]{Ar atoms}. 
+The cluster sizes for expansion of a mixed gas are unknown, but
+for xenon as the second component a larger size is expected compared to a
+pure argon expansion, due to the higher polarizability
+and hence larger cohesive energy of xenon. All clusters
+contributing to the coincidence spectrum
+contain at least one xenon atom, as otherwise decay by ICD or ETMD is energetically not allowed.
+
+In a gas expansion a range of clusters sizes with different structures is produced. 
+However, for small rare gas clusters consisting of less than approximately \unit[1000]{atoms} so-called \emph{islands of stability} were found.\cite{haberland}  
+In mass spectra, clusters with mass numbers corresponding to icosahedral shapes had an abundance that was (slightly) enhanced over other sizes. 
+We therefore started from icosahedral structures and constructed mixed cluster structures by substitution of individual atoms with one or the other kind (Ar or Xe), or added individual atoms close to the desired position within a given structure. 
+After that, the cluster structures were optimized using the unified force
+field implemented in the 
+Avogadro programme (version 1.1.0) \cite{Avogadro,Hanwell12} to give local
+minimum structures. The method was chosen due to its low computational cost,
+the possibility to find the next local minimum structure based on the chosen
+starting point and the necessary effort to produce reliable results
+with density functional theory (DFT) for
+v. d. Waals interactions since in this work we discuss structural trends and
+not absolute structures.
+All cluster structures are listed in Table \ref{table:theo_gammas}.
+%
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=8.5cm]{cluster_3_overview.pdf}
+ \caption{Cluster structures derived from a 55 atom icosahedral structure:
+          (a) one xenon atom on the surface, (b) six xenon atoms inside a 55 atoms cluster,
+          grouped on one side, (c) six xenon atoms distributed randomly
+          in a 55 atoms cluster. They refer to numbers 12, 18 and 19
+          in Table \ref{table:theo_gammas}.}
+ \label{figure:cluster_3_overview}
+\end{figure}
+%
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.5cm]{cluster_2_overview.pdf}
+ \caption{Cluster structures composed of 13 argon atoms and two additional xenon
+          atoms on different surfaces of the argon icosahedron, varying in Xe-Xe distance:
+          (a) closest possible, (b) middle, (c) furthest away. They refer to
+          numbers 9--11 in Table \ref{table:theo_gammas}.}
+ \label{figure:cluster_2_overview}
+\end{figure}
+
+As discussed in the introduction, the small clusters will likely
+deviate from a core-shell structure with a xenon core surrounded
+by argon shells, as observed for large clusters.\cite{tchaplyguinearxe,Vach_1999} We therefore start from
+argon clusters of 13 or 55 atoms, and modify them in one of the following
+ways:
+%
+\begin{itemize}
+ \item add one xenon atom on top of a surface / edge / vertex of
+       the argon core, with an example shown in
+       Figure \ref{figure:cluster_3_overview}a
+       (one additional xenon atom
+       on top of a surface of a \unit[55]{atom} argon core)
+       (Table \ref{table:theo_gammas}, \#6--8, \#12--14),
+ \item substitute one argon atom in a surface / edge / vertex position
+       (Table \ref{table:theo_gammas}, \#15--16),
+ \item substitute one or two argon atoms in the core of the argon cluster
+       by xenon atom(s) for the simulation of the core-shell structures
+       (Table \ref{table:theo_gammas}, \#1--3),
+ \item add two xenon atoms on top of surfaces of a 13 atoms argon core
+       in different relative positions (see Figure
+       \ref{figure:cluster_2_overview}),
+       in order to achieve a xenon content in the cluster close to the
+       measured one (see below)
+       (Table \ref{table:theo_gammas}, \#9--11),
+ \item substitute six argon atoms of a 55 atoms argon cluster by xenon
+       atoms either grouping them or distributing them througout the cluster
+       (see Figure \ref{figure:cluster_3_overview}b and c) in order to
+       achieve a xenon content in the cluster close to the measured one
+       (Table \ref{table:theo_gammas}, \#18--19).
+\end{itemize}
+
+These structures were then optimized using force field methods.
+%
+Furthermore, for comparison with the largest measured ArXe clusters, we constructed also larger core-shell structures (Table \ref{table:theo_gammas}, \#4--5).
+These were idealized icosahedral and cuboctahedral structures based on the
+v. d. Waals radii of argon and xenon $r_{Ar}=$\unit[1.88]{\AA} \cite{Herman88}
+and $r_{Xe}=$\unit[2.16]{\AA} \cite{Freeman74}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Theoretical Results
+\label{sec:th_results}}
+%
+%
+\begin{table}[H]
+\small
+\centering
+\caption{Structural and calculated properties of some model clusters.
+The cluster structures are characterized by the number of Ar and Xe atoms,
+and are arranged in three groups according to gross structural properties. 
+The first group contains Xe core-Ar shell systems of various
+size and relative Xe content.
+In the second group, model structures for small clusters are displayed,
+in which 1-2 Xe atoms are added at systematically varied locations
+to an icosahedric Ar clusters consisting of one or two full shells,
+or in which 1-6 Ar atoms of such cluster were replaced by Xe atoms.
+The last group contains data for calculated minimal energy structures
+of mixed ArXe clusters.\protect\cite{marques}
+The cluster structures are classified into core-shell structures (cs),
+structures with segregated xenon atoms (in) and completely mixed
+structures.
+The columns `ICD' and `ETMD' are the respective partial decay widths
+in \unit[$10^{-4}$]{eV}, and `\% ICD' gives the percentage of ICD in
+the total decay width.
+See text for details.
+\label{table:theo_gammas}
+}
+\begin{tabular}{rrrrcccccrrr}
+\toprule
+\# & \# Xe & \# Ar & Xe$_{\rm cl}$\% & str. cl. & pos. & rel. pos. & ICD   &  ETMD & \% ICD & Fig.\\ %$\Gamma_{\rm ICD,ETMD}$\\
+\midrule
+ 1 &     1 &    12 &  7.7  & cs    &         &          & 0.000 & 0.000 &  -- &\\ %    0.0            \\     ArXe\_2\_1atom      
+ 2 &     1 &    54 &  1.8  & cs    &         &          & 0.000 & 0.000 &  -- & \ref{figure:xe_3_in}\\ %    0.0            \\     ArXe\_3\_1atom      
+ 3 &     2 &    53 &  3.6  & cs    &         &          & 0.033 & 0.167 &  16.7& \ref{figure:xe_3_in}\\ %2.006$\cdot 10^{-5}$ \\ ArXe\_3\_2atom      
+ 4 &  1415 &   642 & 68.8  & cs    &         &          & 7.039 & 2.573 &  73.2& supp.\\ %9.612$\cdot 10^{-4}$ \\ ArXe\_8\_1layer     
+ 5 &   561 &  3310 & 14.5  & cs    &         &          &       &       &  85  & \ref{figure:xe_6_lay5}\\ % c6l5
+ 
+\midrule
+ 6 &     1 &    13 &  7.1  & cs    & surface &          & 0.792 & 0.000 & 100.0& \ref{figure:surf}\\ %7.922$\cdot 10^{-5}$ \\ XeAr\_2\_surface    
+ 7 &     1 &    13 &  7.1  & cs    & edge    &          & 0.013 & 0.000 & 100.0&\\ %1.320$\cdot 10^{-6}$ \\ XeAr\_2\_edge       
+ 8 &     1 &    13 &  7.1  & cs    & vertex  &          & 0.050 & 0.000 & 100.0&\\ %5.013$\cdot 10^{-6}$ \\ XeAr\_2\_vertex     
+ 9 &     2 &    13 & 13.3  & cs    &         & closest  & 0.101 & 0.151 &  40.1& \ref{figure:2tops}\\ %2.523$\cdot 10^{-5}$ \\ XeAr\_2\_2top       
+10 &     2 &    13 & 13.3  & cs    &         & middle   & 0.159 & 0.008 &  95.4& \ref{figure:2tops}\\ %1.665$\cdot 10^{-5}$ \\ XeAr\_2\_2midtop    
+11 &     2 &    13 & 13.3  & cs    &         & furthest & 0.159 & 0.002 &  98.9& \ref{figure:2tops}\\ %1.605$\cdot 10^{-5}$ \\ XeAr\_2\_2endtop    
+12 &     1 &    55 &  1.8  & cs    & surface &          & 0.064 & 0.000 & 100.0& \ref{figure:surf}\\ %6.371$\cdot 10^{-6}$ \\ XeAr\_3\_surface    
+13 &     1 &    55 &  1.8  & cs    & edge    &          & 0.048 & 0.000 & 100.0&\\ %4.791$\cdot 10^{-6}$ \\ XeAr\_3\_edge       
+14 &     1 &    55 &  1.8  & cs    & vertex  &          & 0.027 & 0.000 & 100.0&\\ %2.701$\cdot 10^{-6}$ \\ XeAr\_3\_vertex     
+15 &     1 &    54 &  1.8  & in    & edge    &          & 0.077 & 0.000 & 100.0&\\ %7.708$\cdot 10^{-6}$ \\ XeAr\_3\_edge\_in   
+16 &     1 &    54 &  1.8  & in    & vertex  &          & 0.053 & 0.000 & 100.0&\\ %5.258$\cdot 10^{-6}$ \\ XeAr\_3\_vertex\_in 
+17 &     2 &    53 &  3.6  & in    &         &          & 0.117 & 0.055 &  68.1&\\ %1.711$\cdot 10^{-5}$ \\ XeAr\_3\_2in        
+18 &     6 &    49 & 10.9  & in    &         &          & 0.375 & 0.405 &  48.1& \ref{figure:ar_3_6in}\\ %7.796$\cdot 10^{-5}$ \\ XeAr\_3\_6in        
+19 &     6 &    49 & 10.9  & mixed &         &          & 0.292 & 0.674 &  30.3& \ref{figure:ar_3_6in}\\ %9.660$\cdot 10^{-5}$ \\ XeAr\_3\_6\_scat    
+                                                                                                 \midrule
+20 &     2 &    36 &  5.3  & cs    &         &          & 0.117 & 0.151 &  43.6& supp.\\                        % Ar$_{36}$Xe$_{2}$   
+21 &     4 &    34 & 10.5  & mixed &         &          & 0.248 & 0.587 &  29.7& supp.\\                        % Ar$_{34}$Xe$_{4}$   
+22 &     5 &    33 & 13.2  & mixed &         &          & 0.335 & 0.844 &  28.4& supp.\\                        % Ar$_{33}$Xe$_{5}$   
+23 &    13 &    25 & 34.2  & mixed &         &          & 0.828 & 5.414 &  13.3& supp.\\                        % Ar$_{25}$Xe$_{13}$  
+24 &    24 &    14 & 63.2  & mixed &         &          & 1.488 &16.718 &   8.2& supp.\\                        % Ar$_{14}$Xe$_{24}$  
+25 &    25 &    13 & 65.8  & in    &         &          & 1.432 & 4.995 &  22.3& supp.\\                        % Ar$_{13}$Xe$_{25}$  
+26 &    35 &     3 & 92.1  & in    &         &          & 2.017 & 7.051 &  22.2& supp.\\                        % Ar$_{3}$Xe$_{35}$   
+\bottomrule
+\end{tabular}
+\end{table}
+%
+The geometrical properties as well as the total ICD and ETMD decay widths
+of the investigated structures are shown in Table \ref{table:theo_gammas}.
+It is important to remember that the first ICD channel opens at a
+channel opening distance of \unit[7.58]{\AA}. In the smallest
+clusters with only one argon layer around each
+xenon atom, the Ar-Xe pair distances are below that value, therefore 
+no ICD can take place. Also, by definition, two Xe atoms are
+required for ETMD(3), hence it cannot occur in clusters with only one xenon atom.
+%Because secondary electrons are observed in the experimental spectra
+%we exclude all structures without any signal from our further
+%discussions.
+%
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=8.0cm]{surf.pdf}\\
+ \includegraphics[width=8.0cm]{R_comp.pdf}
+ \caption{
+ %
+ Top panel: Simulated electron emission spectra of an Ar 3s vacancy in 
+          argon clusters
+          consisting of 13 and 55 atoms, with an additional xenon atom residing
+          on top of one of the argon surfaces.
+          Bottom panel: Distribution of Ar-Xe distances $d$ in the studied ArXe
+          clusters. The ICD channels to final states involving Xe 5p$_{3/2}^{-1}$ and 
+          5p$_{1/2}^{-1}$ vacancies open at \unit[7.58]{\AA} and
+          \unit[36.00]{\AA}, resp.; the former distance is marked by a vertical dotted line. 
+          Only pairs at longer interatomic
+          distances contribute to the electron emission spectra.
+          Larger Ar-Xe distances, as found in the larger cluster,
+          correspond to features at a higher kinetic energy of
+          the ICD electron (top panel).}
+ \label{figure:surf}
+\end{figure}
+
+%In the investigated structures several different aspects have to be
+%taken into account which we will discuss separately if possible
+%on selected structures.
+
+We will now discuss features of several structures, using selected examples.
+First we consider clusters having an argon core of 13 and 55 atoms plus a single xenon
+atom on one of the surfaces (see Figure \ref{figure:cluster_3_overview}a
+for the structure of clusters with the 55 atoms core).
+Secondary electron spectra simulated for these systems are shown in Figure \ref{figure:surf}, top panel.
+%two different argon core sizes one consisting
+%of 13 and one consisting of 55 atoms with one xenon atom on one of
+%the surfaces (see Figure \ref{figure:cluster_3_overview} Panel a)
+%for the 55 atom core). The simulated secondary electron spectra are
+%shown in Figure \ref{figure:surf} Panel 1.
+
+Because the structures contain only one xenon atom, ETMD(3) is not possible, only ICD is expected. 
+%Both spectra show several smaller peaks which
+%are convoluted into one single peak with a maximum at
+%approximately \unit[0.2]{eV}. 
+%In comparison to the 13 argon atoms core
+%spectrum t
+The spectrum pertaining to the clusters with larger (55 atoms) Ar core shows
+signals at higher energies of the secondary electron. These features
+can be explained by investigating the Ar-Xe distance distributions
+in the clusters, shown
+in the lower panel of Figure \ref{figure:surf}. 
+Every different value of the atom pair distance
+results in a different energy of the secondary electron and only pairs
+with a distance of larger than the channel opening distance
+(dashed gray line) will contribute
+to the spectrum. 
+In our model, there is a one-to-one correspondence between interatomic distance $d$ and kinetic energy of the ICD electron.
+The larger the interatomic distance, the higher is the
+kinetic energy of the secondary electron for a given channel.
+%Since the cluster with an Ar core of 55 atoms is larger, and therefore
+%contains Ar-Xe pairs with larger distances, its spectrum 
+Therefore, the spectrum of the cluster with a 55 atoms core extends to higher energies.
+%energies as well.
+This relation between ICD energy and cluster size holds true for all cluster structures.
+%This explains why the ICD spectrum for larger clusters extends to higher energies, and holds for all cluster structures.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.5cm]{2tops.pdf}
+ \caption{Simulated electron emission spectra of an Ar 3s vacancy in 
+          argon clusters consisting of 13
+          argon atoms with two additional xenon atoms on top of two different
+          argon surfaces. ICD and ETMD spectra are shown for three
+          different relative positions of the two xenon atoms. If 
+          the xenon atoms are close to each other, an ETMD process is
+          clearly visible. In the other two cases the spectra are dominated by
+          the ICD spectrum.}
+ \label{figure:2tops}
+\end{figure}
+%
+For clusters with more than one xenon atom, also ETMD(3) is possible.
+Depending on the positions of the xenon atoms relative to each other and to the Ar core, the spectra are expected to be different.
+As an example, we discuss clusters with a core of 13 argon atoms and two xenon atoms on different surfaces. 
+Their xenon content is \unit[13.3]{\%} and thus close to the experimental one of \unit[10-12]{\%} for the lowest xenon admixture.
+The cluster structures were illustrated in Figure \ref{figure:cluster_2_overview}, simulated spectra are shown in Figure \ref{figure:2tops}.
+In all three cases, both ICD and ETMD(3) are energetically allowed. The ICD
+spectra do not change qualitatively by adding the second xenon.
+%either identical or at least very similar to the ones for
+%cluster with a single  consisting of one
+%convoluted peak at approximately \unit[0.2]{eV}. 
+However, the ETMD(3) spectra
+are very sensitive to the relative position of the two xenon atoms.
+Two aspects have to be taken into account: an energy shift of the peaks due
+to different charge distances $d$ in the final state (i.e. the interatomic Xe-Xe
+distance) and the decrease of the decay width with $R^{-6}$, $R$ being the distance
+between the electron transfer unit and the xenon atom ionized in the final state.
+The larger the distance between the xenon atoms, the higher are the energies
+of the secondary electrons. For the case of xenon atoms on argon surfaces
+this at the same time means a larger distance between the Ar-Xe pair involved in
+the electron transfer and the electron emitting xenon atom. Hence, the
+decay widths are smaller. 
+Therefore, a
+significant contribution from ETMD(3) compared to ICD is only
+seen if the two xenon atoms reside on two adjacent
+surfaces. 
+%{\it Q: Ich verstehe nicht was der n\"chste Satz sagen soll.}
+The three energetically separated peaks in the ETMD(3) spectrum pertain to different combinations of the Xe 5p$_j^{-1}$ vacancy states, which have a substantial fine-structure splitting (see Table \ref{tab:valence}). 
+%\ref{sec:exp_results}).
+%
+%The threefold peak structure of the ETMD(3) peak does in contrast to
+%the ICD spectrum not stem from different triple structures but from the
+%four different decay channels for one triple structure.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.5cm]{ar_3_6in.pdf}
+ \caption{Same as Figure \protect\ref{figure:2tops}, for clusters consisting of
+          55 atoms, 6 out of which are xenon atoms. These are either grouped
+          on one side of the cluster (label `group') or evenly distributed
+          in the cluster interior (label `scattered').}
+ \label{figure:ar_3_6in}
+\end{figure}
+%
+For the 55 atoms clusters, a xenon content of \unit[10--12]{\%}
+corresponds to six xenon atoms out of a total of 55 atoms. These can form a connected 
+group in one part of the cluster or can be evenly distributed,
+as shown in Figures \ref{figure:cluster_3_overview}b and \ref{figure:cluster_3_overview}c. The
+ICD and ETMD(3) spectra for these structures are shown in Figure \ref{figure:ar_3_6in}.
+
+For both cases the overall ICD spectra are very similar, and show a maximum at a kinetic energy of approximately \unit[0.3]{eV}. 
+In case of grouped xenon atoms, the ICD spectrum extends to slightly higher energies, corresponding to ArXe pairs at slightly larger spatial distances.
+A more significant difference is observed in the ETMD(3) spectra. 
+The interatomic xenon distance is shorter in clusters, in which the xenon atoms form a connected group.
+Hence, the triple structure of the ETMD(3) spectrum is seen at lower kinetic energies. 
+Additionally, the probability for an electron
+transfer from a xenon to an argon atom decreases exponentially with the
+interatomic distance. Therefore, only those xenon atoms which have direct
+argon atom neighbours have a significant contribution to the
+total decay width, and the total ETMD(3) decay width is lower for the structure with
+grouped xenon atoms than for
+the structure with evenly distributed xenon atoms (see Table \ref{table:theo_gammas}).
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.5cm]{xe_3_in.pdf}
+ \caption{Same as Figure \protect\ref{figure:2tops}, for argon clusters with
+          one or two xenon atoms in the core of the cluster (55 atoms total). 
+          All ICD and ETMD channels are closed, if the cluster contains only 
+          a single xenon atom. For clusters with two xenon atoms
+          in the core, the first ICD channel is open for some pairs,
+          and additionally ETMD is possible for multiple triples. Due to a
+          different distance distribution compared to the clusters with an argon
+          core (Figure \protect\ref{figure:2tops}), 
+          the ICD peak is shifted to higher kinetic energies.}
+ \label{figure:xe_3_in}
+\end{figure}
+%
+For comparison with the previous assumptions of a xenon core surrounded
+by argon atoms we investigated clusters of 13 and 55 atoms with one or two
+xenon atoms in the core. Some of the corresponding
+spectra are shown in Figure \ref{figure:xe_3_in}.
+
+%For the clusters with only one xenon atom in the core and the ionization
+%energies used for the simulation of the secondary electron energies
+%all ICD channels are closed. Since the cluster contains only one xenon atom,
+%an ETMD(3) is not possible. Hence there is no signal to be expected at all.
+For a core consisting of two xenon atoms both an ICD and an ETMD(3) spectrum
+can be seen. Compared to the cluster structures involving an argon core, the ICD peak is
+shifted to higher ICD electron energies. 
+Additionally, the ICD and ETMD(3) spectra overlap.
+For ETMD(3), only three of the four different decay channels are
+energetically allowed.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.5cm]{c6l5.pdf}
+ \caption{Same as Figure \protect\ref{figure:2tops},
+          for a large cluster consisting
+          of a xenon core of 561 atoms surrounded by five complete layers of
+          argon atoms (Xe content: 14.5\,\%) for both an icosahedral and
+          cuboctahedral basic structure.
+          The ICD and ETMD peak overlap such that the ETMD peak
+          is unlikely to be visible.}
+ \label{figure:xe_6_lay5}
+\end{figure}
+%
+In the first experiments very large argon-xenon clusters of 
+$\approx 4380$ atoms with a xenon content of \unit[19]{\%}
+were measured,\cite{Mucke_phd}
+which we in one example approximate by a cluster consisting of 561 xenon
+atoms surrounded
+by five layers of argon atoms (3871 atoms in total). In order to take the
+better stabilization of charges in larger clusters into account, the
+ionization energies of the XL clusters (see Table \ref{tab:valence})
+were used.
+The spectra are shown in 
+Figure \ref{figure:xe_6_lay5}.
+
+Compared to the small clusters with a xenon core in Figure \ref{figure:xe_3_in}
+the ICD peak is broadened and shifted to higher ICD electron energies which is
+expected due to the larger interatomic Ar-Xe distances in the large cluster and
+the better stabilization of charges, which is relevant mostly for the final state, but also the initial state.
+The ETMD(3) peak is shifted to slightly higher energies as well. This allows opening of the
+fourth decay channel, pertaining to Xe 5p$_{1/2}^{-1}$ Ar 3p$_{1/2}^{-1}$ final states.
+
+We also note that the percentage of decay via ICD is practically
+independent of the Xe content for large clusters with a Xe core, Ar shell structure.
+This can be expected, as both decay processes are most pronounced for the
+atoms in the interface region of the xenon core and the argon shell.
+The ETMD(3), depending on the electron transfer from one xenon atom to the
+initially ionized argon atom, and hence on the corresponding orbital overlap,
+is purely an interface effect that involves the argon atoms with direct xenon
+neighbours, and the two xenon layers closest to the argon shell.
+The ICD has a stronger long range character, due to which the description
+of decays with partners of at least twice the smallest channel opening
+distance is necessary for clusters. However, the bigger the clusters are,
+the more homogeneous does the interface region become for clusters of
+different sizes. This manifests itself in the distribution of relevant
+Ar-Xe pair distances (compare Figure \ref{figure:surf}, lower panel).
+As a consequence, the ICD spectra of two large clusters of different size
+hardly differ.
+
+All these results neglect the effect of nuclear dynamics, which might
+affect the spectra. Possible reasons are distance dependent channel closings
+and openings,
+a different distribution of interatomic distances due to vibrations
+and their different impact on
+the ICD and the ETMD(3). E.g., for the ICD in the neon dimer, the treatment of
+nuclear dynamics increases the decay width by approximately a factor 2
+\cite{Schnorr15}.
+However, the atomic displacement can be expected to be far less severe
+in clusters than in dimers or trimers. Additionally, 
+the elongation of one interatomic distance in a cluster
+automatically results in
+the shortening of a different interatomic distance, which will reduce
+the overall effect. Therefore, there will be a broader spectrum  of final
+state charge distances
+$d$ resulting in a broadening of the peak. This was taken into
+account by folding the stick spectrum with Gaussians with a width of
+\unit[300]{meV} and \unit[600]{meV} for the ICD and ETMD(3), respectively.
+While the width of the ICD peaks was estimated from the potential energy
+surface of the ArXe dimer, the situation is more complex in case of the ETMD(3)
+with three degrees of freedom involved. It was therefore guessed to be twice the
+width of the ICD peak.
+
+The channel closing due to shortening of the interatomic distance is not
+relevant for the ETMD(3) process in the ArXe clusters treated in this work,
+because this would require unnaturally short interatomic distances.
+However, for the ICD it might result in a lower number of pairs with open
+decay channels and hence a decrease of the decay width. 
+Since the peaks in the convoluted spectrum 
+contain contributions from several atom pairs at different distances, 
+this would result
+in a small peak shift to higher energies of the combined peak at lowest energy.
+For a more detailed discussion of nuclear dynamics for the ICD in dimers vs.
+clusters see Ref. \citenum{fasshauernjp}.
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experimental Results}
+\label{sec:exp_results}
+%
+%
+\begin{table}
+\caption{Properties of the outer valence spectra of mixed ArXe clusters. 
+Spectra of pure Ar and Xe clusters are included for reference. 
+All spectra were recorded at $h\nu = 17$~eV, except for the pure Xe clusters ($h\nu = 60$~eV). 
+Binding energies $\EB$ were determined as the centre of gravity of the respective feature, while band width $w$ are the FWHM of a Gaussian fit. 
+The average Xe content of the cluster ensemble, Xe$_{\rm cl}$, was determined from the areas of the respective photolines, corrected by their atomic photoionization cross sections (Ar 33.0 Mb, Xe 51.3 Mb)\cite{samson2002}.
+Uncertainties are estimated as $\pm$3\,\% for the Xe content and 0.05~eV for the binding energies. 
+The row labelled `(th.)' gives the binding energies used in the simulations of this paper, and the last row their atomic counterparts. 
+Values for Ar 3p in the last row refer to the fine structure states.
+\label{tab:valence}}
+\begin{tabular}{ l c c c c c c c c}
+%
+\toprule
+ \multicolumn{2}{r}{size} &  Xe$_{\rm in}$& $\EB$ (eV)& $w$ (eV)& \multicolumn{2}{c}{$\EB$ (eV)}  & $w$ (eV) &  Xe$_{\rm cl}$ \\
+%
+ \multicolumn{2}{r}{(label)}&  (\%) & Ar 3p & Ar 3p & Xe 5p$_{1/2}$ &  Xe 5p$_{3/2}$ & Xe 5p$_{3/2}$  &  (\%) \\
+\midrule
+% Ar, from Marko
+ Ar & (1) &&  15.3  &  1.1 & & & &  \\
+% Ar, from Marko 
+ Ar & (2) &&  15.1  &  1.3 & & & &  \\
+%
+%  columns in the following: energies c.g. 51-plt-oval, widths Marko Diss., Xe content Marko Diss
+% 1103 676, 679
+ ArXe & S &1.2 & 15.36 & 0.9 & 13.07 & 11.75 & 0.85 & 12\\
+% 1103 670
+ ArXe & M &1.2 & 15.30 & 1.0 & 12.97 & 11.61 & 0.85 & 11\\
+% 1103 671
+ ArXe & L &1.2 & 15.25 & 1.1 & 12.91 & 11.52 & 1.08 & 10\\
+% 1103 663
+ ArXe & S &3.0 & 15.39 & 0.8 & 13.06 & 11.68 & 1.02 & 29\\
+% 1103 640
+ ArXe & M &5.0 & 15.31 & 0.6 & 12.96 & 11.44 & 1.24 & 53\\
+% 0506 
+ Xe &  & & & & 12.76 & 11.19 & 1.18 & 100\\
+%
+\midrule
+%
+%  1004  886  (UHe, c.g. + roi values)
+ ArXe & XL &2.5 & 15.15 & 1.3 & 12.59 & 11.01 & 1.24 & 19\\
+%
+\midrule
+% Date: Wed, 20 Jan 2016 11:27:39, From: Elke Fa?hauer <elke.fasshauer@uit.no>
+ Ar, Xe & (th.) && 15.3 && 13.0 & 11.5 &&\\
+%
+ \multicolumn{2}{l}{(atomic)\cite{velchev,sansonetti}} && 15.76|15.94 && 13.43 & 12.13 &&\\
+%
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Outer valence spectra}
+%
+This section describes and discusses the outer valence spectra of the mixed
+Ar-Xe clusters. The main information we obtain from these spectra within
+the context of our theoretical considerations are the single ionization
+potentials and the relative Xe
+contents in the mixed clusters (see Table\ \ref{tab:valence}). 
+%
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.5cm]{figure_oval_1.pdf}
+ \caption{
+Outer valence photoelectron spectra of mixed Ar-Xe clusters, in comparison to the pure species. 
+(a) shows the outer valence region of homogeneous Ar(1) (red) Ar(2) (black) and Xe clusters, respectively (see text and Table\ \ref{tab:cluster} for details). 
+The two lower panels show spectra of the mixed species with different mean size. 
+Sharp lines marked `m' (for `monomer') result from photoionization of uncondensed atoms into the Ar 3p$_{1/2,3/2}$ and Xe 5p$_{1/2,3/2}$ final states. 
+Labels in (b) and (c) give the Xe content in the expanding gas mixture (Xe$_{\rm in}$), which is lower than the Xe content observed in the heterogeneous clusters (Xe$_{\rm cl}$). 
+The photon energy was 17~eV, apart from the pure Xe cluster spectrum (60 eV).
+%{\color{red}{Die Stabilisierung der Xe-bulk Atome ist in den gemischten Cluster
+% höher als in den gemischten Clustern. Das ist ungewöhnlich. Habt ihr hier
+% verschiedene CLustergrößen?}}
+}
+ \label{figure:oval1}
+\end{figure}
+
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.5cm]{figure_oval_2.pdf}
+ \caption{
+Outer valence photoelectron spectra of mixed Ar-Xe clusters from gas mixtures with different Xe concentration. 
+For better visibility, a scaling factor is applied to the Xe part of the spectrum in panel (a). The dotted line shows the unscaled spectrum in this region.
+See Figure \ref{figure:oval1} and text for details.
+}
+ \label{figure:oval2}
+\end{figure}
+
+Figure \ref{figure:oval1} shows the outer valence spectra of small and large ArXe clusters, compared to clusters of the pure gases. 
+Qualitatively similar spectra have been published without detailed discussion in ref \citenum{lindblad}.
+Differences are seen in particular for the Ar component. 
+In pure Ar clusters, outer valence photoionization leads to a broad band, caused both by spin-orbit coupling and crystal field splitting. A distinction between the Ar 3p $_{1/2}$ and the Ar 3p $_{3/2}$ derived cluster bands can therefore not be made.
+The relative importance of these two mechanisms remains under debate.\cite{hergenhahnprb,rolles,foerstel_arg1_2010}
+For larger clusters (e.g. $\langle N\rangle = 190$, black trace), the maximum at low binding energies becomes more pronounced, and is identified with emission from the cluster interior.\cite{hergenhahnprb,rolles}
+At the particular photon energy selected here, atop of this band a sharp feature is also visible (in Figure \ref{figure:oval1} at a kinetic energy of about 1.8 eV).
+For larger clusters (above $\langle N\rangle \approx 100$), over a range of photon energies of about 3 eV, its appararent binding energy changes in a way which is reminiscent to photoemission of crystalline bulk matter (`dispersion').\cite{foerstel_arg1_2010,foerstel_arg2_2011} 
+
+Ar 3p spectra of the smaller mixed clusters (Figure \ref{figure:oval1}c, Figure \ref{figure:oval2}) show neither of these traits.
+Rather, the Ar band is symmetric, less wide than in the pure clusters and at a higher binding energy.
+Even for very large clusters (Figure \ref{figure:oval1}b) the asymmetry of the 3p band and the `dispersing feature' do not appear.
+We characterize the spectral shape by giving a single value for the Ar 3p binding energy, and the FWHM of the feature.
+Values for different expansion parameters, and for both Ar and Xe valence lines, are collected in Table\ \ref{tab:valence}.
+
+We find experimentally that clusters we have produced have a Xe content Xe$_{\rm cl}$ between 10\,\% and 50\,\%.
+A slight decrease of the binding energy with cluster size is seen for all outer valence lines, and is attributed to a larger final state polarization energy in larger clusters. 
+
+For further interpretation of the shape of the Ar peaks we refer to photoemission spectra of condensed Ar monolayers, measured in several settings.\cite{jacobi,jacobi2}
+Spectra were reported for physisorption of Ar on two different metal single crystal substrates, and for Ar atop of a Xe spacer layer adsorbed on the metal.
+While the binding energy depends on the substrate, the spectral shape is very similar in all cases. 
+Most spectra were recorded for emission along the surface normal, and show a double peak split by about 0.5 eV, leading to a structure with $w$ about 1 eV.
+Although the splitting is larger than the gas phase fine structure split of 0.18 eV, the pertaining states have been assigned to Ar 3p$_{1/2}$ and 3p$_{3/2}$.
+A crystal field splitting of the 3p$_{3/2}$ state has been assumed to be also present, but with a smaller value of 0.1-0.2 eV, approx.\cite{jacobi2} 
+The spectrum clearly changes when going to an emission angle of 40$^\circ$ with respect to the surface normal (Figure 2 in ref \citenum{jacobi2}).
+The higher binding energy peak significantly loses in intensity, and the spectrum is now dominated by a single peak comprising both crystal field split substates of Ar 3p$_{3/2}$, with a FWHM ($w$) of only 0.4 eV.
+As our measured spectrum is comprised of contributions recorded under all emission angles with respect to the cluster surface, grazing emission will be the rule.
+We therefore believe that the arguments given above make it plausible that only a single peak is observed in all our spectra.
+
+Emission from the Xe 5p state shows a much larger fine structure splitting then from the Ar 3p state; it dominates the spectrum even in clusters (where other broadening mechanisms are also present).
+The shift of the cluster bands with respect to the monomer lines in the largest mixed clusters we have probed (Figure \ref{figure:oval1}b) are similar to the ones in the pure Xe spectrum, the scaling law size of which is at somewhat more than five filled shells.
+This indicates an approximate upper limit for the size of the Xe core in our mixed clusters, as their binding energy shift might be somewhat higher than the one in pure clusters, due to polarization of covering Ar layers.
+Xe cluster features in the spectra of mixed clusters appear less asymmetric than the pure Xe spectrum, and also less asymmetric as some the ArXe spectra shown in ref \citenum{lindblad}.
+This might be caused by the difference in photon energy ($h\nu = 90$ eV in ref \citenum{lindblad} and for the pure Xe spectrum, $h\nu = 32$ eV for the mixed ArXe spectra in this work).
+% For the mixed clusters, the Xe band broadens and shifts towards lower binding energy for larger size clusters.
+%For pure Xe clusters, an asymmetry observed in the Xe 5p$_{3/2}$ part has no counterpart in the respective spectra from the mixed clusters.
+%This might be caused by the difference in photon energy, as can be seen from a comparison to literature spectra (ArXe at $h\nu = 90$ eV in ref \citenum{lindblad}, Xe at $h\nu = 20$ eV in ref \citenum{rolles}).
+%For the largest clusters, the nominal size yielded from the jet parameters applied to a pure Xe expansion would correspond to clusters in which bulk atoms far outweigh those on the surface.
+%At least for the 5p$_{1/2}$ photoelectron line, this would be seen as a clear asymmetry towards the low binding energy side, which is not observed in our spectra.
+
+
+In Figure \ref{figure:oval2}, we compare the outer valence spectra of clusters with similar expansion conditions, but different composition of the gas mixture.
+A Xe-rich mixture obviously leads to clusters with more intense Xe photolines, but besides that the main change consists in a narrowing of the Ar band.
+A comparison with the Ar monomer features (clipped in the Figure) also shows an increased degree of condensation for the Ar gas in the expansion.
+
+For the smallest clusters we have produced, a possible model is provided by calculated minimum energy structures of Ar$_N$Xe$_{38-N}$ (Figure 7 in ref \citenum{marques}).
+We there see that for a Xe content of less than 60\,\%, core-shell systems are {\it not} formed, and although the Xe atoms tend to connect, the degree of Ar-Xe mixing is large.
+While for low Xe content (approx. 10\,\%), some Ar atoms have only Ar nearest neighbours, for larger Xe content all Ar atoms seem to see both Ar and Xe nearest neighbours.
+We believe this leads to the Ar 3p narrowing pointed out above.
+For Figure \ref{figure:oval2}, possibly, some clusters of our ensemble already are in the core-shell regime, which would lead to an even lower 3p width.
+
+For the largest clusters we have produced (Figure \ref{figure:oval1}b), the low binding energy of the Xe lines and the broadening of the Ar feature without appearance of the `bulk Ar'-maximum, supports formation of a Xe core covered by at least two layers of Ar.
+If the scaling law size for a pure Ar expansion is taken as the lower limit for the cluster size, from the observed Xe content we arrive at clusters composed of a Xe core with four layers, covered by three layers of Ar (see Supporting Information).
+
+Finally, comparing Figure \ref{figure:oval2} to Figure \ref{figure:oval1} reveals that much larger changes in the valence emission spectra occur by changes in size than by changes of the (relative) Xe content.
+This finding is supported by the spectra shown in ref \citenum{lindblad}.
+%
+%
+\subsection{Inner valence spectra}
+%
+We now focus on the Ar inner valence (3s) vacancy states. 
+%
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.8cm]{figure_ival.pdf}
+ \caption{
+Photon excited electron spectra of mixed Ar-Xe clusters in the inner valence region.
+Symbols show the Ar 3s photoline from clusters (`cl') and uncondensed Ar monomers (`m'), atop of a background resulting from inelastic intracluster scattering of outer valence photoelectrons (`excitonic satellites').\protect\cite{hergenhahn2002}
+The photon energy was $h\nu = 32$ eV.
+Panel (a) shows all electrons accumulated.
+For the same conditions, in panel (b) we only show electrons that were detected in coincidence with a secondary electron of lower kinetic energy.
+The black solid trace in (a), and red solid trace in (b) result from a least squares fit to the cluster part of the spectrum. 
+The red solid trace in (a) is the fit shown in (b), divided by the detection efficiency of the spectrometer of 0.6.
+Panels (c) and (d) show the same type of data for smaller clusters with a lower Xe content.
+See text for details.
+\label{figure:ival}
+}
+\end{figure}
+
+Figure\ \ref{figure:ival} shows the Ar part of the inner valence spectrum for representative ArXe clusters. 
+The total photoelectron signal looks similar to literature spectra for pure Ar clusters.\cite{feifel,zhang} 
+A low energy tail seen for the Ar 3s monomer line results from the transmission properties of the electron spectrometer, together with the strongly positive angular distribution parameter of this line.\cite{zhang,kruit}
+The Ar 3s cluster line shows no splitting into bulk and surface components, different to the literature on pure clusters but in agreement with our discussion of the outer valence spectra. 
+The binding energy of the cluster line has values between 28.85 and 28.70 eV for all cluster ensembles with size label S-L, and 28.67 eV for the largest clusters measured. 
+A small, but systematic decrease of the binding energy is observed when the cluster size is increased. 
+The value assumed in the simulations is 28.7 eV.
+
+If we produce a spectrum only from those electrons recorded as part of a two-electron coincidence (electron pair with kinetic energies ($e_1,e_2$)) the apparent intensity drops (compare panel b to a, and d to c in Figure \ref{figure:ival}).
+This can partly be attributed to the finite detection efficiency of the spectrometer. 
+Moreover, the monomer part of the Ar 3s signal completely disappears, as 3s photoionization of an uncondensed Ar atom in the gas jet cannot lead to emission of a second electron. 
+Further features of these diagrams and the least squares fits shown in the Figure are discussed below.
+%
+%
+\subsection{ICD/ETMD spectra}
+%
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.5cm]{figure_icd_12.pdf}
+ \caption{
+Energy spectrum of all coincident secondary (ICD or ETMD) electrons of kinetic energy $e_2$ pertaining to primary electrons of kinetic energy $e_1$ in the Ar 3s binding energy region. 
+Spectra were recorded with a photon energy of $h\nu = 32$~eV. 
+Black error bars show the data points for the smallest clusters measured (`S'), two larger clusters sizes are shown by the red and blue traces. 
+Error bars for the latter are smaller than the ones shown and have been omitted.
+For better comparison, all spectra are shown area-normalized. 
+}
+ \label{figure:icd_12}
+\end{figure}
+%
+%
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.5cm]{figure_icd_l.pdf}
+ \caption{
+Energy spectrum of all coincident secondary (ICD or ETMD) electrons, kinetic energy $e_2$, for clusters of the same size, but from gas mixtures with different Xe concentration. See Figure \protect\ref{figure:icd_12} for details.
+}
+ \label{figure:icd_l}
+\end{figure}
+%
+In Figure \ref{figure:icd_12}, we show the spectra of ICD/ETMD electrons pertaining to emission of an Ar 3s cluster photoelectron. 
+Due to their low kinetic energy, without use of a coincidence method they could hardly be separated from the background of inelastically scattered photoelectrons.\cite{mucke}
+This and the following Figure constitute the central experimental result of the article.
+Spectra recorded at $h\nu = 34$ eV as a cross-check quantitatively agree to those shown here.
+This underpins our assignment of this intensity to an autoionization process.
+Further details on the data acquisition and analysis methodology, as well as the 34~eV spectra, are given in the Supporting Information.
+
+Spectra for the three different cluster sizes in Figure \ref{figure:icd_12} are significantly different: Spectra for the larger clusters acquire more intensity in the 1-1.5 eV region and have less intensity for energies below 0.5 eV.
+In contrast to that, the ICD/ETMD spectrum hardly varies when the composition of the expanding gas mixture, and with that the relative Xe content of the clusters, is changed (Figure \ref{figure:icd_l}).
+The full set of ICD/ETMD spectra is shown as Supporting Information.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=8.5cm]{figure_eff.pdf}
+ \caption{
+Efficiency of the decay of Ar 3s ionized states in ArXe clusters by emission of a secondary electron via ICD or ETMD. Values are arranged by Xe content of the initial gas mixture (`+' symbols: 1.2\,\%, asterisk: 3\,\%, triangle: 5\,\%). Symbol sizes indicate the photon energy (large symbols: 32 eV, small: 34 eV), and color indicates the cluster size (black symbols: S, red: M, blue: L). See text for details.
+}
+ \label{figure:eff}
+\end{figure}
+%
+We now discuss which fraction of Ar 3s vacancy states relaxes via ICD or ETMD.
+A method to derive this information has been established by some of us.\cite{foerstel_2013}
+Briefly, we correct the intensity of the Ar 3s photoline in the coincident spectra by the detector efficiency, and divide it by the total (coincident and non-coincident) Ar 3s intensity.
+The result gives the branching ratio of decay via ICD/ETMD vs. the sum of all channels, including those not involving electron emission.
+(If all Ar 3s vacancies decay by emission of another electron, the coincident and non-coincident count rate differ only by the probability for the spectrometer to actually detect the secondary electron.
+This figure has been determined as 0.6 for this data set, in the same way as discussed earlier.\cite{mucke_review})
+To arrive at quantitative results, we have performed least squares fits of the non-coincident and coincident $e_1$ spectra.
+The fits assumed one or two Gaussian peaks, resp., atop of a background modelled by two more Gaussian curves with very large widths.
+The peak pertaining to the Ar 3s cluster photoline, with the background added, is shown by the black solid trace in Figure \ref{figure:ival}a and red solid trace in Figure \ref{figure:ival}b.
+Moreover, the line labelled `c.fit/det.' shows the fit to the coincident events, corrected by the detection efficiency, and plotted atop of the non-coincident intensity. 
+This virtually agrees with the fit to the total spectrum in Figure \ref{figure:ival}a, but not in \ref{figure:ival}c. 
+The corresponding figure for the ICD/ETMD efficiency comes out as one for \ref{figure:ival}a, and significantly smaller than one for \ref{figure:ival}c.
+Figure \ref{figure:eff} shows all results of this analysis.
+The error in the autoionization efficiency shown is mainly determined by uncertainties in the peak/background separation.
+%(Our choice for the background shape is shown in Figure \ref{figure:ival}.)
+For the gas mixture with a Xe$_{\rm in}$ of 1.2\,\%, we therefore show results from fits using two different choices of the background shape in Figure \ref{figure:eff}.
+Statistical errors are much smaller than the differences between the pairs of values arrived at such.
+
+We found an Ar 3s autoionization efficiency which is compatible with unity, within the accuracy of our experiment, for all clusters except those with the lowest Xe content (Xe$_{\rm cl}$ approx. 10-12\,\%).
+For the latter, also a decrease of the efficiency with decreasing cluster size is seen. 
+Two main reasons can be identified that may cause a decrease in autoionization efficiency. 
+Firstly, in small clusters with a low Xe content, for some Ar atoms no Xe partners allowing either ICD or ETMD might be available.
+A simple example are clusters containing just a single Xe atom.
+This mechanism would gain in importance for cluster ensembles with small $\langle N\rangle$.
+Secondly, if only Xe partners at very large distances are available, ICD might be outpaced by other decay processes, most importantly fluorescence.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion
+\label{sec:discussion}}
+%
+%We have discussed the experimental spectra in Section \ref{sec:exp_results} and
+%the expected features of spectra for different cluster types in
+%Section \ref{sec:th_results}. In this section we combine the experimental and theoretical
+%results in order to determine the structure of the noble gas clusters.
+%
+%The simulated secondary electron spectra for the xenon core structures
+%(see Figure \ref{figure:xe_3_in})
+%show an ICD peak at higher energies than those structures with added xenon
+%atoms on the surface. This does not fit to the experimentally determined
+%spectra and hence we consider an argon core to be more probable for the
+%small measured clusters.
+%
+%The experimental spectra in Figure \ref{}
+%show a broadening of the secondary electron peak with increasing
+%pressure (?) and hence cluster size just as can be expected from
+%the theoretically simulated spectra in Figure \ref{figure:surf}.
+%
+%From the theoretical simulations of larger small clusters
+%having the same xenon content as experimentally observed a clearly
+%visible ETMD peak is to be expected as shown in Figure \ref{figure:ar_3_6in}.
+%However, the experimental spectra do not show a signal in the energy
+%region of \unit[1.5--6.5]{eV}. From this we conclude that the clusters
+%measured were smaller than 55 atoms containing only very few xenon atoms.
+%Additionally, if the cluster contains more than one xenon atom, they are
+%not expected to be close because of an otherwise visible ETMD peak
+%(compare Figure \ref{figure:2tops}).
+%
+%The large clusters with a large xenon content can be expected to have
+%a xenon core being surrounded by argon layers and hence, both ICD and
+%ETMD should be visible in the spectrum. Unfortunately, the ICD and ETMD
+%peaks overlap such that the two processes can not be distiguished.
+%
+We now would like to interpret our experimental findings in view of the simulated results described in Section `Theoretical Results'.
+Figure \ref{figure:eff} shows that for Ar 3s$^{-1}$ states autoionization by either ICD or ETMD is the only mode of relaxation, except for the clusters with the smallest Xe content.
+We consider this a remarkable result, because ICD of these states is only possible with a Xe atom in the second coordination shell of the decaying Ar vacancy (or shells even further apart), which significantly slows down the ICD process.
+Also decay rates for ETMD were found to be small in early studies of this effect.\cite{zobeley}
+Nevertheless, even in this situation the non-local autoionization channels foreclose radiative decay.
+
+% lowest kinetic energy is the first point of energy raster for t-E code of 52-proc-spec
+Structurally, all experimental ICD/ETMD spectra have a maximum at or near the lowest kinetic energy that could be measured (50~meV), and decrease in intensity to less than half for kinetic energies already below one eV. 
+Qualitatively, this shape fits to the ICD contributions in the autoionization spectra discussed in the `Theory' section, but not to the ones from ETMD. 
+The calculated ETMD spectra have a typical three-fold structure with peaks between 3.5-5~eV, 1.5-2.5~eV and around 0 eV kinetic energy. 
+The former two features seem not to be present in the experimental spectra. 
+Due to restrictions in the detector electronics, electron pairs with very similar kinetic energy cannot be detected. 
+The highest kinetic energy for an autoionization electron that can be detected in coincidence with a photoelectron of $\sim3.5$~eV ($h\nu = 32$~eV) is around 2.5~eV.
+Very weak intensity is observed at this energy, and also at higher $e_2$ energies that can be probed at $h\nu = 34$~eV (Supporting Information).
+
+As a cross-check for our theoretical methods we have calculated the radiationless decay spectrum of Ar 3s$^{-1}$ in ArKr, which may arise {\it only} from ETMD(3),\cite{foerstel} and arrived at qualitative agreement with the experimental data.\cite{arkr}
+
+The size-dependent trend within the experimental data is in qualitative agreement to the change in the calculated spectral shape for ICD in systems of increased size (compare Figure~\ref{figure:2tops} to \ref{figure:xe_3_in} and \ref{figure:xe_6_lay5}.)
+
+We are therefore lead to the conclusion that the autoionization spectra we incur are dominated by ICD to non-nearest neighbour atoms, while the intensity of the ETMD channel is low. 
+We would like to recall the factors that lead to a propensity for decay via one or the other mechanism, which have been discussed in the `Theoretical Results'-section.
+For ETMD to occur with a measurable rate, two Xe atoms have to be present in the vincinity of the decaying Ar atom (Figure \ref{figure:2tops}).
+Should that be the case for a large part of the Ar atoms in some cluster structure, ETMD can even dominate over ICD (Figure \ref{figure:ar_3_6in} and Supporting Information).
+Model structures shown in Figures \ref{figure:2tops} and \ref{figure:ar_3_6in} have a Xe content similar to the lowest one probed in our experiment ($\sim$11\,\%).
+For a higher Xe content, ETMD will always dominate the spectra if the two species are given the chance to mix, as e.g. in the calculated minimum energy structures of $N=38$ ArXe clusters (Supporting Info).
+On the other hand, in core-shell systems decay via ETMD is probable only for Ar atoms in the interface layer, as this mechanism requires some wavefunction overlap between Ar and one of the Xe atoms involved.
+For the core-shell systems we have investigated, the likelihood of decay via ETMD stays below 25\,\% even for a Xe content above 50\,\% (Table \ref{table:theo_gammas}).
+
+In summary, the two structural motifs that can best be reconciled with our experimental data are
+\begin{enumerate}
+	\item small clusters containing only few Xe atoms that are spread out to distant positions on the cluster surface, and
+	\item systems with a compact Xe core and Ar outer layers.
+\end{enumerate}
+These structures are compatible with the findings of Lindblad {\it et al.}\ from core level photoelectron spectroscopy, who proposed the former structure for the smallest clusters in their study, and the latter for larger ones.\cite{lindblad}
+As even in these two cases intensity for decay via ETMD would not vanish completely, we have to leave it open though whether other mechanisms are present, which further suppress ETMD vs. ICD.
+
+While in early work on ICD it has almost been a paradigm that the decay involves two {\it neighbouring} atoms or molecules,\cite{hergenhahn_review} more recently significant intensity for non-nearest neighbour ICD has been found also in other systems.
+One example is Ne-Ar after Ne 2s ionization, where decay to Ar in the second coordination shell is clearly visible despite the fact that in this system decay involving nearest neighbours is energetically allowed.\cite{fasshauer2014}
+A further theoretical delineation of the respective factors has recently been presented by one of us.\cite{fasshauernjp}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary}
+%
+We have presented comprehensive experimental and theoretical data for the
+autoionization of inner valence ionized states in ArXe clusters.
+Both ICD and ETMD are allowed for most cases we considered.
+Because of energetical reasons ICD requires a separation of the final state
+vacancies of \unit[7.58]{\AA} or more, which is about two times the typical
+Ar-Xe distance.
+We found that autoionization has an efficiency of 0.8 to 1.0 within the
+experimental accuracy, that is it dominates over other modes of relaxation.
+By comparing our measured spectra to calculations, we identified `long range'
+ICD as the most important decay mode and were able to determine the most
+probable structural motifs to be a xenon core surrounded by several argon layers
+for large clusters and argon clusters with with very few xenon atoms spread out
+over the surface.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The same is true for Supporting Information, which should use the
+%% suppinfo environment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{suppinfo}
+
+Detailed experimental approach and results and Theoretical Spectra
+for structures 20 -- 26.
+
+\end{suppinfo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The "Acknowledgement" section can be given in all manuscript
+%% classes.  This should be given within the "acknowledgement"
+%% environment, which will make the correct section or running title.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgement}
+%
+We thank HZB for the allocation of synchrotron radiation beamtime, and the
+Deutsche Forschungsgemeinschaft for funding via the Forschergruppe 1789.
+E. F. gratefully acknowledges the Research
+Council of Norway through a Centre of Excellence Grant (Grant No.\ 179568/V30)
+for funding.
+%
+\end{acknowledgement}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The appropriate \bibliography command should be placed here.
+%% Notice that the class file automatically sets \bibliographystyle
+%% and also names the section correctly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliography{arxe}
+
+
+\providecommand{\latin}[1]{#1}
+\providecommand*\mcitethebibliography{\thebibliography}
+\csname @ifundefined\endcsname{endmcitethebibliography}
+  {\let\endmcitethebibliography\endthebibliography}{}
+\begin{mcitethebibliography}{73}
+\providecommand*\natexlab[1]{#1}
+\providecommand*\mciteSetBstSublistMode[1]{}
+\providecommand*\mciteSetBstMaxWidthForm[2]{}
+\providecommand*\mciteBstWouldAddEndPuncttrue
+  {\def\EndOfBibitem{\unskip.}}
+\providecommand*\mciteBstWouldAddEndPunctfalse
+  {\let\EndOfBibitem\relax}
+\providecommand*\mciteSetBstMidEndSepPunct[3]{}
+\providecommand*\mciteSetBstSublistLabelBeginEnd[3]{}
+\providecommand*\EndOfBibitem{}
+\mciteSetBstSublistMode{f}
+\mciteSetBstMaxWidthForm{subitem}{(\alph{mcitesubitemcount})}
+\mciteSetBstSublistLabelBeginEnd
+  {\mcitemaxwidthsubitemform\space}
+  {\relax}
+  {\relax}
+
+\bibitem[jpc(2015)]{jpcc}
+Special issue: Current Trends in Clusters and Nanoparticles. \emph{J. Phys.
+  Chem. C} \textbf{2015}, \emph{119}, (issue 20)\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Cederbaum \latin{et~al.}(1997)Cederbaum, Zobeley, and
+  Tarantelli]{cederbaum}
+Cederbaum,~L.~S.; Zobeley,~J.; Tarantelli,~F. Giant Intermolecular Decay and
+  Fragmentation of Clusters. \emph{Phys. Rev. Lett.} \textbf{1997}, \emph{79},
+  4778--4781\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Slav\'{i}\v{c}ek \latin{et~al.}(2014)Slav\'{i}\v{c}ek, Winter,
+  Cederbaum, and Kryzhevoi]{slavicek}
+Slav\'{i}\v{c}ek,~P.; Winter,~B.; Cederbaum,~L.~S.; Kryzhevoi,~N.~V.
+  Proton-Transfer Mediated Enhancement of Nonlocal Electronic Relaxation
+  Processes in X-ray Irradiated Liquid Water. \emph{JACS} \textbf{2014},
+  \emph{136}, 18170--18176\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Marburger \latin{et~al.}(2003)Marburger, Kugeler, Hergenhahn, and
+  M\"oller]{marburger}
+Marburger,~S.; Kugeler,~O.; Hergenhahn,~U.; M\"oller,~T. Experimental evidence
+  for Interatomic Coulombic Decay in Ne clusters. \emph{Phys. Rev. Lett.}
+  \textbf{2003}, \emph{90}, 203401\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jahnke \latin{et~al.}(2004)Jahnke, Czasch, Sch\"offler, Sch\"ossler,
+  Knapp, K\"asz, Titze, Wimmer, Kreidi, Grisenti, Staudte, Jagutzki,
+  Hergenhahn, Schmidt-B\"ocking, and D\"orner]{jahnkenedimer}
+Jahnke,~T.; Czasch,~A.; Sch\"offler,~M.~S.; Sch\"ossler,~S.; Knapp,~A.;
+  K\"asz,~M.; Titze,~J.; Wimmer,~C.; Kreidi,~K.; Grisenti,~R.~E. \latin{et~al.}
+   Experimental Observation of Interatomic Coulombic Decay in Neon Dimers.
+  \emph{Phys. Rev. Lett.} \textbf{2004}, \emph{93}, 163401\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hergenhahn(2011)]{hergenhahn_review}
+Hergenhahn,~U. Interatomic and intermolecular coulombic decay: The early years.
+  \emph{J. Electron Spectrosc. Relat. Phenom.} \textbf{2011}, \emph{184},
+  78\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Averbukh \latin{et~al.}(2011)Averbukh, Demekhin, Kolorenc, Scheit,
+  Stoychev, Kuleff, Chiang, Gokhberg, Kopelke, Sisourat, and
+  Cederbaum]{averbukh_review}
+Averbukh,~V.; Demekhin,~P.; Kolorenc,~P.; Scheit,~S.; Stoychev,~S.~D.;
+  Kuleff,~A.~I.; Chiang,~Y.-C.; Gokhberg,~K.; Kopelke,~S.; Sisourat,~N.
+  \latin{et~al.}  Interatomic electronic decay processes in singly and multiply
+  ionized clusters. \emph{J. Electron Spectrosc. Relat. Phenom.} \textbf{2011},
+  \emph{183}, 36\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jahnke(2015)]{jahnke_review}
+Jahnke,~T. Interatomic and intermolecular Coulombic decay: the coming of age
+  story. \emph{J. Phys. B} \textbf{2015}, \emph{48}, 082001\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Zobeley \latin{et~al.}(2001)Zobeley, Santra, and Cederbaum]{zobeley}
+Zobeley,~J.; Santra,~R.; Cederbaum,~L.~S. Electronic decay in weakly bound
+  heteroclusters: Energy transfer versus electron transfer. \emph{J. Chem.
+  Phys.} \textbf{2001}, \emph{115}, 5076--5088\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[M\"uller and Cederbaum(2005)M\"uller, and Cederbaum]{mueller}
+M\"uller,~I.~B.; Cederbaum,~L.~S. Electronic decay following ionization of
+  aqueous Li$^+$ microsolvation clusters. \emph{J. Chem. Phys.} \textbf{2005},
+  \emph{122}, 094305\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Sakai \latin{et~al.}(2011)Sakai, Stoychev, Ouchi, Higuchi,
+  Sch\"offler, Mazza, Fukuzawa, Nagaya, Yao, Tamenori, Kuleff, Saito, and
+  Ueda]{sakai}
+Sakai,~K.; Stoychev,~S.; Ouchi,~T.; Higuchi,~I.; Sch\"offler,~M.; Mazza,~T.;
+  Fukuzawa,~H.; Nagaya,~K.; Yao,~M.; Tamenori,~Y. \latin{et~al.}
+  Electron-Transfer-Mediated Decay and Interatomic Coulombic Decay from the
+  Triply Ionized States in Argon Dimers. \emph{Phys. Rev. Lett.} \textbf{2011},
+  \emph{106}, 33401\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[F\"orstel \latin{et~al.}(2011)F\"orstel, Mucke, Arion, Bradshaw, and
+  Hergenhahn]{foerstel}
+F\"orstel,~M.; Mucke,~M.; Arion,~T.; Bradshaw,~A.~M.; Hergenhahn,~U.
+  Autoionization Mediated by Electron Transfer. \emph{Phys. Rev. Lett.}
+  \textbf{2011}, \emph{106}, 033402\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Santra and Cederbaum(2002)Santra, and Cederbaum]{santrarev}
+Santra,~R.; Cederbaum,~L.~S. Non-Hermitian electronic theory and applications
+  to clusters. \emph{Phys. Rep.} \textbf{2002}, \emph{368}, 1--117\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jahnke \latin{et~al.}(2007)Jahnke, Czasch, Sch\"offler, Sch\"ossler,
+  K\"asz, Titze, Kreidi, Grisenti, Staudte, Jagutzki, Schmidt, Weber,
+  Schmidt-B\"ocking, Ueda, and D\"orner]{jahnkesat}
+Jahnke,~T.; Czasch,~A.; Sch\"offler,~M.; Sch\"ossler,~S.; K\"asz,~M.;
+  Titze,~J.; Kreidi,~K.; Grisenti,~R.~E.; Staudte,~A.; Jagutzki,~O.
+  \latin{et~al.}  Experimental Separation of Virtual Photon Exchange and
+  Electron Transfer in Interatomic Coulombic Decay of Neon Dimers. \emph{Phys.
+  Rev. Lett.} \textbf{2007}, \emph{99}, 153401\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Barth \latin{et~al.}(2006)Barth, Marburger, Joshi, Ulrich, Kugeler,
+  and Hergenhahn]{barthnear}
+Barth,~S.; Marburger,~S.~P.; Joshi,~S.; Ulrich,~V.; Kugeler,~O.; Hergenhahn,~U.
+  Interface Identification by Non-Local Autoionization Transitions. \emph{Phys.
+  Chem. Chem. Phys.} \textbf{2006}, \emph{8}, 3218--3222\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Aziz \latin{et~al.}(2008)Aziz, Ottosson, Faubel, Hertel, and
+  Winter]{aziz}
+Aziz,~E.~F.; Ottosson,~N.; Faubel,~M.; Hertel,~I.~V.; Winter,~B. Interaction
+  Between Liquid Water and Hydroxide Revealed by Core-Hole Deexcitation.
+  \emph{Nature} \textbf{2008}, \emph{455}, 89--91\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Pokapanich \latin{et~al.}(2009)Pokapanich, Bergersen, Bradeanu,
+  Marinho, Lindblad, Legendre, Rosso, Svensson, Bj\"orneholm, Tchaplyguine,
+  \"Ohrwall, Kryzhevoi, and Cederbaum]{pokapanich}
+Pokapanich,~W.; Bergersen,~H.; Bradeanu,~I.~L.; Marinho,~R. R.~T.;
+  Lindblad,~A.; Legendre,~S.; Rosso,~A.; Svensson,~S.; Bj\"orneholm,~O.;
+  Tchaplyguine,~M. \latin{et~al.}  Auger Electron Spectroscopy as a Probe of
+  the Solution of Aqueous Ions. \emph{J. Am. Chem. Soc.} \textbf{2009},
+  \emph{131}, 7264--7271\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Pokapanich \latin{et~al.}(2012)Pokapanich, Ottosson, Svensson,
+  \"Ohrwall, Winter, and Bj\"orneholm]{pokapanich2011}
+Pokapanich,~W.; Ottosson,~N.; Svensson,~S.; \"Ohrwall,~G.; Winter,~B.;
+  Bj\"orneholm,~O. Bond Breaking, Electron Pushing, and Proton Pulling: Active
+  and Passive Roles in the Interaction between Aqueous Ions and Water as
+  Manifested in the O 1s Auger Decay. \emph{J. Phys. Chem. B} \textbf{2012},
+  \emph{116}, 3--8\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Grieves and Orlando(2011)Grieves, and Orlando]{grieves}
+Grieves,~G.~A.; Orlando,~T.~M. Intermolecular Coulomb Decay at Weakly Coupled
+  Heterogeneous Interfaces. \emph{Phys. Rev. Lett.} \textbf{2011}, \emph{107},
+  016104\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fasshauer \latin{et~al.}(2014)Fasshauer, F\"orstel, Pallmann,
+  Pernpointner, and Hergenhahn]{fasshauer2014}
+Fasshauer,~E.; F\"orstel,~M.; Pallmann,~S.; Pernpointner,~M.; Hergenhahn,~U.
+  Using ICD for Structural Analysis of Clusters: A Case Study on NeAr Clusters.
+  \emph{New J. Phys.} \textbf{2014}, \emph{16}, 103026\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lundwall \latin{et~al.}(2007)Lundwall, Pokapanich, Bergersen,
+  Lindblad, Rander, \"Ohrwall, Tchaplyguine, Barth, Hergenhahn, Svensson, and
+  Bj\"orneholm]{lundwall}
+Lundwall,~M.; Pokapanich,~W.; Bergersen,~H.; Lindblad,~A.; Rander,~T.;
+  \"Ohrwall,~G.; Tchaplyguine,~M.; Barth,~S.; Hergenhahn,~U.; Svensson,~S.
+  \latin{et~al.}  Self-Assembled Heterogeneous Argon/Neon Core-Shell Clusters
+  Studied by Photoelectron Spectroscopy. \emph{J. Chem. Phys.} \textbf{2007},
+  \emph{126}, 214706 -- 214708\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lengen \latin{et~al.}(1992)Lengen, Joppien, M\"uller, W\"ormer, and
+  M\"oller]{lengenprl}
+Lengen,~M.; Joppien,~M.; M\"uller,~R.; W\"ormer,~J.; M\"oller,~T. Site-specific
+  excitation and decay processes in XeAr$_{N}$ clusters. \emph{Phys. Rev.
+  Lett.} \textbf{1992}, \emph{68}, 2362\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lengen \latin{et~al.}(1994)Lengen, Joppien, von Pietrowski, and
+  M\"oller]{lengen}
+Lengen,~M.; Joppien,~M.; von Pietrowski,~R.; M\"oller,~T. Assignment of
+  Impurity States in Xenon-Doped Argon Clusters. \emph{Chem. Phys. Lett.}
+  \textbf{1994}, \emph{229}, 362 -- 369\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Tchaplyguine \latin{et~al.}(2004)Tchaplyguine, Marinho, Gisselbrecht,
+  Schulz, Martensson, Sorensen, Naves~de Brito, Feifel, \"Ohrwall, Lundwall,
+  and et~al.]{tchaplyguine}
+Tchaplyguine,~M.; Marinho,~R.~R.; Gisselbrecht,~M.; Schulz,~J.; Martensson,~N.;
+  Sorensen,~S.~L.; Naves~de Brito,~A.; Feifel,~R.; \"Ohrwall,~G.; Lundwall,~M.
+  \latin{et~al.}  The Size of Neutral Free Clusters as Manifested in the
+  Relative Bulk-to-Surface Intensity in Core Level Photoelectron Spectroscopy.
+  \emph{J. Chem. Phys.} \textbf{2004}, \emph{120}, 345 -- 356\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hoener \latin{et~al.}(2008)Hoener, Bostedt, Thomas, Landt, Eremina,
+  Wabnitz, Laarmann, Treusch, Castro, and M\"oller]{hoener}
+Hoener,~M.; Bostedt,~C.; Thomas,~H.; Landt,~L.; Eremina,~E.; Wabnitz,~H.;
+  Laarmann,~T.; Treusch,~R.; Castro,~A. R. B.~d.; M\"oller,~T. Charge
+  Recombination in Soft X-Ray Laser Produced Nanoplasmas. \emph{J. Phys. B}
+  \textbf{2008}, \emph{41}, 181001\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Danylchenko \latin{et~al.}(2006)Danylchenko, Doronin, Kovalenko, and
+  Samovarov]{Danylchenko}
+Danylchenko,~O.; Doronin,~Y.; Kovalenko,~S.; Samovarov,~V. Phase Separation
+  into Pure Components in Mixed Ar-Xe Clusters. \emph{JETP Lett.}
+  \textbf{2006}, \emph{84}, 324 -- 328\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Danylchenko \latin{et~al.}(2007)Danylchenko, Doronin, Kovalenko,
+  Libin, Samovarov, and Vakula]{Danylchenko07}
+Danylchenko,~O.~G.; Doronin,~Y.~S.; Kovalenko,~S.~I.; Libin,~M.~Y.;
+  Samovarov,~V.~N.; Vakula,~V.~L. Luminescence Evidence for Bulk and Surface
+  Excitons in Free Xenon Clusters. \emph{Phys. Rev. A} \textbf{2007},
+  \emph{76}, 043202\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lindblad \latin{et~al.}(2011)Lindblad, Rander, Bradeanu, \"Ohrwall,
+  Bj\"orneholm, Mucke, Ulrich, Lischke, and Hergenhahn]{lindblad}
+Lindblad,~A.; Rander,~T.; Bradeanu,~I.; \"Ohrwall,~G.; Bj\"orneholm,~O.;
+  Mucke,~M.; Ulrich,~V.; Lischke,~T.; Hergenhahn,~U. Chemical Shifts of Small
+  Heterogeneous Ar/Xe Clusters. \emph{Phys. Rev. B} \textbf{2011}, \emph{83},
+  125414\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[von Pietrowski \latin{et~al.}(2006)von Pietrowski, von Haeften,
+  Laarmann, M\"oller, Museur, and Kanaev]{pietrowski}
+von Pietrowski,~R.; von Haeften,~K.; Laarmann,~T.; M\"oller,~T.; Museur,~L.;
+  Kanaev,~A.~V. Electronic and Geometric Structure of Doped Rare-Gas Clusters:
+  Surface, site and size effects studied with luminescence spectroscopy.
+  \emph{Eur. Phys. J. D} \textbf{2006}, \emph{38}, 323--336, and references
+  therein\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lindblad \latin{et~al.}(2006)Lindblad, Bergersen, Rander, Lundwall,
+  \"Ohrwall, Tchaplyguine, Svensson, and Bj\"orneholm]{lindbladpccp}
+Lindblad,~A.; Bergersen,~H.; Rander,~T.; Lundwall,~M.; \"Ohrwall,~G.;
+  Tchaplyguine,~M.; Svensson,~S.; Bj\"orneholm,~O. The Far from Equilibrium
+  Structure of Argon Clusters Doped with Krypton or Xenon. \emph{Phys. Chem.
+  Chem. Phys.} \textbf{2006}, \emph{8}, 1899--1905\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Marques and Pereira(2013)Marques, and Pereira]{marques}
+Marques,~J. M.~C.; Pereira,~F.~B. A Detailed Investigation on the Global
+  Minimum Structures of Mixed Rare-Gas Clusters: Geometry, Energetics, and Site
+  Occupancy. \emph{J. Comput. Chem.} \textbf{2013}, \emph{34}, 505--517\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Vach(1999)]{Vach_1999}
+Vach,~H. Impurity Dynamics in Binary van der Waals Clusters Created by Pick-Up.
+  \emph{J. Chem. Phys.} \textbf{1999}, \emph{111}, 3536 -- 3547\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fasshauer \latin{et~al.}(2010)Fasshauer, Kryzhevoi, and
+  Pernpointner]{fasshauer}
+Fasshauer,~E.; Kryzhevoi,~N.~V.; Pernpointner,~M. Possible Electronic Decay
+  Channels in the Ionization Spectra of Small Clusters Composed of Ar and Xe: A
+  Four-Component Relativistic Treatment. \emph{J. Chem. Phys.} \textbf{2010},
+  \emph{133}, 014303\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fasshauer \latin{et~al.}(2013)Fasshauer, Pernpointner, and
+  Gokhberg]{Fasshauer13}
+Fasshauer,~E.; Pernpointner,~M.; Gokhberg,~K. Interatomic Decay of
+  Inner-Valence Ionized States in ArXe Clusters: Relativistic Approach.
+  \emph{J. Chem. Phys.} \textbf{2013}, \emph{138}, 014305\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hagena(1992)]{Hagena1992}
+Hagena,~O.~F. {Cluster Ion Sources}. \emph{Rev. Sci. Instrum.} \textbf{1992},
+  \emph{63}, 2374--2379\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Arion \latin{et~al.}(2011)Arion, Mucke, F\"orstel, Bradshaw, and
+  Hergenhahn]{arion}
+Arion,~T.; Mucke,~M.; F\"orstel,~M.; Bradshaw,~A.~M.; Hergenhahn,~U.
+  Interatomic Coulombic Decay in Mixed NeKr Clusters. \emph{J. Chem. Phys.}
+  \textbf{2011}, \emph{134}, 074306\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Danylchenko \latin{et~al.}(2015)Danylchenko, Kovalenko, Konotop, and
+  Samovarov]{danylchenko2015}
+Danylchenko,~O.~G.; Kovalenko,~S.~I.; Konotop,~O.~P.; Samovarov,~V.~N.
+  Diagnostics of Composition and Size of Clusters Formed in Supersonic Jets of
+  ArKr Gas Mixtures. \emph{Low Temp. Phys.} \textbf{2015}, \emph{41},
+  637--644\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lundwall \latin{et~al.}(2004)Lundwall, Tchaplyguine, \"Ohrwall,
+  Feifel, Lindblad, Lindgren, S\"orensen, Svensson, and
+  Bj\"orneholm]{lundwall_arkr}
+Lundwall,~M.; Tchaplyguine,~M.; \"Ohrwall,~G.; Feifel,~R.; Lindblad,~A.;
+  Lindgren,~A.; S\"orensen,~S.; Svensson,~S.; Bj\"orneholm,~O. Radial Surface
+  Segregation in Free Heterogeneous Argon/Krypton Clusters. \emph{Chem. Phys.
+  Lett.} \textbf{2004}, \emph{392}, 433--438\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Bergersen \latin{et~al.}(2006)Bergersen, Abu-Samha, Harnes,
+  Bj\"orneholm, Svensson, S{\ae}thre, and B{\o}rve]{bergersen}
+Bergersen,~H.; Abu-Samha,~M.; Harnes,~J.; Bj\"orneholm,~O.; Svensson,~S.;
+  S{\ae}thre,~L.~J.; B{\o}rve,~K.~J. Size of Neutral Argon Clusters from
+  Core-Level Photoelectron Spectroscopy. \emph{Phys. Chem. Chem. Phys.}
+  \textbf{2006}, \emph{8}, 1891--1898\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hergenhahn \latin{et~al.}(2009)Hergenhahn, Barth, Ulrich, Mucke,
+  Joshi, Lischke, Lindblad, Rander, \"Ohrwall, and Bj\"orneholm]{hergenhahnprb}
+Hergenhahn,~U.; Barth,~S.; Ulrich,~V.; Mucke,~M.; Joshi,~S.; Lischke,~T.;
+  Lindblad,~A.; Rander,~T.; \"Ohrwall,~G.; Bj\"orneholm,~O. 3p Valence
+  Photoelectron Spectrum of Ar Clusters. \emph{Phys. Rev. B} \textbf{2009},
+  \emph{79}, 155448\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[F\"orstel \latin{et~al.}(2011)F\"orstel, Mucke, Arion, Lischke, Barth,
+  Ulrich, \"Ohrwall, Bj\"orneholm, Hergenhahn, and
+  Bradshaw]{foerstel_arg2_2011}
+F\"orstel,~M.; Mucke,~M.; Arion,~T.; Lischke,~T.; Barth,~S.; Ulrich,~V.;
+  \"Ohrwall,~G.; Bj\"orneholm,~O.; Hergenhahn,~U.; Bradshaw,~A.~M. Energy Band
+  Dispersion in Photoemission Spectra of Argon Clusters. \emph{J. Electron
+  Spectrosc. Relat. Phenom.} \textbf{2011}, \emph{184}, 107 -- 112, Advances in
+  Vacuum Ultraviolet and X-ray Physics, The 37th International Conference on
+  Vacuum Ultraviolet and X-ray Physics (VUVX2010)\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Mucke \latin{et~al.}(2012)Mucke, F\"orstel, Lischke, Arion, Bradshaw,
+  and Hergenhahn]{mucke_review}
+Mucke,~M.; F\"orstel,~M.; Lischke,~T.; Arion,~T.; Bradshaw,~A.~M.;
+  Hergenhahn,~U. Performance of a Short `Magnetic Bottle' Electron
+  Spectrometer. \emph{Rev. Sci. Instrum.} \textbf{2012}, \emph{83},
+  063106\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[F\"orstel(2012)]{Foerstel_phd}
+F\"orstel,~M. Investigation of Non-Local Autoionization Processes in Rare Gas
+  Clusters. Ph.D.\ thesis, Technical University Berlin, 2012;
+  http://opus.kobv.de/tuberlin/volltexte/2012/3656/\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fasshauer(2014)]{Fasshauer_thesis}
+Fasshauer,~E. Investigation of Relativistic Effects in Electronic Decay
+  Processes in Small and Large Noble Gas Clusters by Ab Initio and New
+  Simulation Approaches. Ph.D.\ thesis, University of Heidelberg, 2014\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Wentzel(1927)]{Wentzel27}
+Wentzel,~G. {\"U}ber Strahlungslose Quantenspr{\"u}nge. \emph{Z. Physik}
+  \textbf{1927}, \emph{43}, 524 -- 530\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Feshbach(1958)]{Feshbach58}
+Feshbach,~H. Unified Theory of Nuclear Reactions. \emph{Ann. Phys.}
+  \textbf{1958}, \emph{5}, 357 -- 390\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Feshbach(1962)]{Feshbach62}
+Feshbach,~H. A Unified Theory of Nuclear Reactions. II. \emph{Ann. Phys.}
+  \textbf{1962}, \emph{19}, 287 -- 313\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fano(1961)]{Fano61}
+Fano,~U. Effects of Configuration Interaction on Intensities and Phase Shifts.
+  \emph{Phys. Rev.} \textbf{1961}, \emph{124}, 1866--1878\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[HAR()]{HARDRoC}
+{HARDRoC}, Hunting Asymptotic Relativistic Decay Rates of Clusters (2013),
+  written by E.~Fasshauer (see
+  http://www.pci.uni-heidelberg.de/tc/usr/elke/hardroc/html/main.html)\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Haberland(1994)]{haberland}
+Haberland,~H. \emph{Clusters of Atoms and Molecules Theory, Experiment, and
+  Clusters of Atoms}; Springer Series in Chemical Physics; Springer Berlin
+  Heidelberg: Berlin, Heidelberg, 1994; p 422\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Avo()]{Avogadro}
+Avogadro: An Open-Source Molecular Builder and Visualization Tool. Version
+  1.1.0. http://avogadro.openmolecules.net\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hanwell \latin{et~al.}(2012)Hanwell, Curtis, Lonie, Vandermeersch,
+  Zurek, and Hutchison]{Hanwell12}
+Hanwell,~M.~D.; Curtis,~D.~E.; Lonie,~D.~C.; Vandermeersch,~T.; Zurek,~E.;
+  Hutchison,~G.~R. Avogadro: An Advanced Semantic Chemical Editor,
+  Visualization, and Analysis Platform. \emph{J. Cheminformatics}
+  \textbf{2012}, \emph{4}, 17\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Tchaplyguine \latin{et~al.}(2004)Tchaplyguine, Lundwall, Gisselbrecht,
+  \"Ohrwall, Feifel, Sorensen, Svensson, Martensson, and
+  Bj\"orneholm]{tchaplyguinearxe}
+Tchaplyguine,~M.; Lundwall,~M.; Gisselbrecht,~M.; \"Ohrwall,~G.; Feifel,~R.;
+  Sorensen,~S.; Svensson,~S.; Martensson,~N.; Bj\"orneholm,~O. Variable Surface
+  Composition and Radial Interface Formation in Self-Assembled Free, Mixed
+  Ar/Xe Clusters. \emph{Phys. Rev. A} \textbf{2004}, \emph{69}, 031201(R)\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Herman \latin{et~al.}(1988)Herman, LaRocque, and Stoicheff]{Herman88}
+Herman,~P.~R.; LaRocque,~P.~E.; Stoicheff,~B.~P. Vacuum Ultraviolet Laser
+  Spectroscopy. V. Rovibronic Spectra of Ar$_2$ and Constants of the Ground and
+  Excited States. \emph{J. Chem. Phys.} \textbf{1988}, \emph{89}, 4535 --
+  4549\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Freeman \latin{et~al.}(1974)Freeman, Yoshino, and Tanaka]{Freeman74}
+Freeman,~D.~E.; Yoshino,~K.; Tanaka,~Y. Vacuum Ultraviolet Absorption Spectrum
+  of the van der Waals Molecule Xe$_2$. I. Ground State Vibrational Structure,
+  Potential Well Depth, and Shape. \emph{J. Chem. Phys.} \textbf{1974},
+  \emph{61}, 4880 -- 4889\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Mucke(2011)]{Mucke_phd}
+Mucke,~M. Employing Electron-Electron Coincidence Techniques to Investigate the
+  Autoionisation of Clusters. Ph.D.\ thesis, Technical University Berlin, 2011;
+  http://opus.kobv.de/tuberlin/volltexte/2011/3073/\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Schnorr \latin{et~al.}(2015)Schnorr, Senftleben, Schmid, Augustin,
+  Kurka, Rudenko, Foucar, Broska, Meyer, Anielski, Anielski, Boll, Rolles,
+  K{\"u}bel, Kling, Jiang, Mondal, Tachibana, Ueda, Marchenko, Simon, Brenner,
+  Treusch, Scheit, Averbukh, Ullrich, Pfeifer, Schr{\"o}ter, and
+  Moshammer]{Schnorr15}
+Schnorr,~K.; Senftleben,~A.; Schmid,~G.; Augustin,~S.; Kurka,~M.; Rudenko,~A.;
+  Foucar,~L.; Broska,~A.; Meyer,~K.; Anielski,~D. \latin{et~al.}
+  {Time-Resolved Study of ICD in Ne Dimers Using FEL Radiation}. \emph{J.
+  Electron Spectrosc. Relat. Phenom.} \textbf{2015}, \emph{204}, 245\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fasshauer(2016)]{fasshauernjp}
+Fasshauer,~E. Non-Nearest Neighbour ICD in Clusters. \emph{New J. Phys.}
+  \textbf{2016}, \emph{18}, 043028\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Samson and Stolte(2002)Samson, and Stolte]{samson2002}
+Samson,~J. A.~R.; Stolte,~W.~C. Precision Measurements of the Total
+  Photoionization Cross-Sections of He, Ne, Ar, Kr, and Xe. \emph{J. Electron
+  Spectrosc. Relat. Phenom.} \textbf{2002}, \emph{123}, 265 -- 276\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Velchev \latin{et~al.}(1999)Velchev, Hogervorst, and Ubachs]{velchev}
+Velchev,~I.; Hogervorst,~W.; Ubachs,~W. Precision VUV Spectroscopy of Ar I at
+  105 nm. \emph{J. Phys. B} \textbf{1999}, \emph{32}, L511\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Sansonetti and Martin(2005)Sansonetti, and Martin]{sansonetti}
+Sansonetti,~J.~E.; Martin,~W.~C. Handbook of Basic Atomic Spectroscopic Data.
+  \emph{J. Phys. Chem. Ref. Data} \textbf{2005}, \emph{34}, 1559--2259\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Rolles \latin{et~al.}(2009)Rolles, Zhang, Pesic, Bozek, and
+  Berrah]{rolles}
+Rolles,~D.; Zhang,~H.; Pesic,~Z.~D.; Bozek,~J.~D.; Berrah,~N. Emergence of
+  Valence Band Structure in Rare-Gas Clusters. \emph{Chem. Phys. Lett.}
+  \textbf{2009}, \emph{468}, 148--152\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[F\"orstel \latin{et~al.}(2010)F\"orstel, Mucke, Arion, Lischke, Barth,
+  Ulrich, \"Ohrwall, Bj\"orneholm, Hergenhahn, and
+  Bradshaw]{foerstel_arg1_2010}
+F\"orstel,~M.; Mucke,~M.; Arion,~T.; Lischke,~T.; Barth,~S.; Ulrich,~V.;
+  \"Ohrwall,~G.; Bj\"orneholm,~O.; Hergenhahn,~U.; Bradshaw,~A.~M. Observation
+  of Electronic Energy Bands in Argon Clusters. \emph{Phys. Rev. B}
+  \textbf{2010}, \emph{82}, 125450\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jacobi and Rotermund(1982)Jacobi, and Rotermund]{jacobi}
+Jacobi,~K.; Rotermund,~H. UV Photoemission from Physisorbed Atoms and
+  Molecules: Electronic Binding Energies of Valence Levels in Mono- and
+  Multilayers. \emph{Surf. Sci.} \textbf{1982}, \emph{116}, 435 -- 455\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jacobi(1988)]{jacobi2}
+Jacobi,~K. Photoemission from Ar, Kr, and Xe on Pb(111). \emph{Phys. Rev. B}
+  \textbf{1988}, \emph{38}, 5869 -- 5877\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hergenhahn \latin{et~al.}(2002)Hergenhahn, Kolmakov, Riedler,
+  de~Castro, L\"ofken, and M\"oller]{hergenhahn2002}
+Hergenhahn,~U.; Kolmakov,~A.; Riedler,~M.; de~Castro,~A. R.~B.; L\"ofken,~O.;
+  M\"oller,~T. Observation of excitonic satellites in the photoelectron spectra
+  of Ne and Ar clusters. \emph{Chem. Phys. Lett.} \textbf{2002}, \emph{351},
+  235--241\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Feifel \latin{et~al.}(2004)Feifel, Tchaplyguine, \"Ohrwall, Salonen,
+  Lundwall, Marinho, Gisselbrecht, Sorensen, Naves~de Brito, Karlsson,
+  M\r{a}rtensson, Svensson, and Bj\"orneholm]{feifel}
+Feifel,~R.; Tchaplyguine,~M.; \"Ohrwall,~G.; Salonen,~M.; Lundwall,~M.;
+  Marinho,~R. R.~T.; Gisselbrecht,~M.; Sorensen,~S.~L.; Naves~de Brito,~A.;
+  Karlsson,~L. \latin{et~al.}  From Localised to Delocalised Electronic States
+  in Free Ar, Kr and Xe Clusters. \emph{Eur. Phys. J. D} \textbf{2004},
+  \emph{30}, 343 -- 351\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Zhang \latin{et~al.}(2008)Zhang, Rolles, Pesic, Bozek, and
+  Berrah]{zhang}
+Zhang,~H.; Rolles,~D.; Pesic,~Z.~D.; Bozek,~J.~D.; Berrah,~N. Angular
+  Distributions of Inner-Shell Photoelectrons from Rare-Gas Clusters.
+  \emph{Phys. Rev. A} \textbf{2008}, \emph{78}, 063201\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kruit and Read(1983)Kruit, and Read]{kruit}
+Kruit,~P.; Read,~F.~H. Magnetic Field Paralleliser for 2$\pi$
+  Electron-Spectrometer and Electron-Image Magnifier. \emph{J. Phys. E}
+  \textbf{1983}, \emph{16}, 313--324\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Mucke \latin{et~al.}(2010)Mucke, Braune, Barth, F\"orstel, Lischke,
+  Ulrich, Arion, Becker, Bradshaw, and Hergenhahn]{mucke}
+Mucke,~M.; Braune,~M.; Barth,~S.; F\"orstel,~M.; Lischke,~T.; Ulrich,~V.;
+  Arion,~T.; Becker,~U.; Bradshaw,~A.; Hergenhahn,~U. A Hitherto Unrecognized
+  Source of Low-Energy Electrons in Water. \emph{Nat. Phys.} \textbf{2010},
+  \emph{6}, 143--146\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[F\"orstel \latin{et~al.}(2013)F\"orstel, Arion, and
+  Hergenhahn]{foerstel_2013}
+F\"orstel,~M.; Arion,~T.; Hergenhahn,~U. Measuring the Efficiency of
+  Interatomic Coulombic Decay in Ne Clusters. \emph{J. Electron Spectros.
+  Relat. Phenomena} \textbf{2013}, \emph{191}, 16 -- 19\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fasshauer \latin{et~al.}()Fasshauer, F\"orstel, Mucke, Arion, Lischke,
+  and Hergenhahn]{arkr}
+Fasshauer,~E.; F\"orstel,~M.; Mucke,~M.; Arion,~T.; Lischke,~T.; Hergenhahn,~U.
+  to be published\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\end{mcitethebibliography}
+
+\end{document}
